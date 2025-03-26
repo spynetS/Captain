@@ -195,6 +195,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -959,7 +972,41 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Cave_Tiles - WIP_0: -2396879198078268858
+      Cave_Tiles - WIP_1: -4395730746997275963
+      Cave_Tiles - WIP_10: 3182174376166970317
+      Cave_Tiles - WIP_11: -6223637586087179646
+      Cave_Tiles - WIP_12: -1013689615589885555
+      Cave_Tiles - WIP_13: 5387843859116054221
+      Cave_Tiles - WIP_14: 2380362572845185064
+      Cave_Tiles - WIP_15: 9050042787131791273
+      Cave_Tiles - WIP_16: 7065441596226877805
+      Cave_Tiles - WIP_17: 4518764737523210380
+      Cave_Tiles - WIP_18: 4918376749225322285
+      Cave_Tiles - WIP_19: 4446583162672650632
+      Cave_Tiles - WIP_2: -2397542894176670526
+      Cave_Tiles - WIP_20: -4664346132923643832
+      Cave_Tiles - WIP_21: -8197929692820516611
+      Cave_Tiles - WIP_22: -5136039345759080793
+      Cave_Tiles - WIP_23: 3045130157366459106
+      Cave_Tiles - WIP_24: -4576412336668807491
+      Cave_Tiles - WIP_25: 2224634788140208635
+      Cave_Tiles - WIP_26: -3210540674788291038
+      Cave_Tiles - WIP_27: -1196110639678289778
+      Cave_Tiles - WIP_28: 8473791036001829987
+      Cave_Tiles - WIP_29: 7706877399612729171
+      Cave_Tiles - WIP_3: 8162158792155432617
+      Cave_Tiles - WIP_30: -5050994357853133240
+      Cave_Tiles - WIP_31: 2971287556935688825
+      Cave_Tiles - WIP_32: -6348795816933206917
+      Cave_Tiles - WIP_33: 3345476340395059632
+      Cave_Tiles - WIP_4: -3134059883300941483
+      Cave_Tiles - WIP_5: -7302959357492298998
+      Cave_Tiles - WIP_6: -3922893273460606209
+      Cave_Tiles - WIP_7: 8280681022839899553
+      Cave_Tiles - WIP_8: -719020628122470038
+      Cave_Tiles - WIP_9: -320683412536490918
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

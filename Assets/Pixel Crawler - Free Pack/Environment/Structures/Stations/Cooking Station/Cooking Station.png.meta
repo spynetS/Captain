@@ -156,6 +156,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -634,7 +647,28 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Cooking Station_0: 783276071795039207
+      Cooking Station_1: 6261810218880909323
+      Cooking Station_10: -1139818650116298790
+      Cooking Station_11: -4595141888029286448
+      Cooking Station_12: -6842964504375677095
+      Cooking Station_13: 5960093184576499669
+      Cooking Station_14: 5802330888537469020
+      Cooking Station_15: 3392161408799313681
+      Cooking Station_16: 2940495065435550339
+      Cooking Station_17: 450223933029786349
+      Cooking Station_18: -1540683702061754671
+      Cooking Station_19: 4422707182466374942
+      Cooking Station_2: -690159882684590149
+      Cooking Station_20: -871295403593633507
+      Cooking Station_3: 7367275292360924804
+      Cooking Station_4: -5122664932913034216
+      Cooking Station_5: -970072267903901242
+      Cooking Station_6: -4981258737353003919
+      Cooking Station_7: 828407652691284408
+      Cooking Station_8: 1982469418222902713
+      Cooking Station_9: 1086350775931155350
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

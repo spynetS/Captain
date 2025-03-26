@@ -147,6 +147,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -559,7 +572,25 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Alchemy_Table_01-Sheet_0: -1606033873651133071
+      Alchemy_Table_01-Sheet_1: -4917001537178277526
+      Alchemy_Table_01-Sheet_10: -8971786524244057638
+      Alchemy_Table_01-Sheet_11: -360054203878525724
+      Alchemy_Table_01-Sheet_12: -2582996775016916313
+      Alchemy_Table_01-Sheet_13: -7857833653581929611
+      Alchemy_Table_01-Sheet_14: -3651284674933399031
+      Alchemy_Table_01-Sheet_15: -7110111646388677505
+      Alchemy_Table_01-Sheet_16: 422904581096068222
+      Alchemy_Table_01-Sheet_17: 5708269455955113730
+      Alchemy_Table_01-Sheet_2: 7032706493632976950
+      Alchemy_Table_01-Sheet_3: -1669282813056034962
+      Alchemy_Table_01-Sheet_4: -7876556830126546630
+      Alchemy_Table_01-Sheet_5: 5184527237454153358
+      Alchemy_Table_01-Sheet_6: 5370038334494087734
+      Alchemy_Table_01-Sheet_7: -8423652011473115633
+      Alchemy_Table_01-Sheet_8: -3848305668633033007
+      Alchemy_Table_01-Sheet_9: 1770422341319323725
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

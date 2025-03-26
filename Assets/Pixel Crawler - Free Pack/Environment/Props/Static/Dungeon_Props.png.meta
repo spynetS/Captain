@@ -147,6 +147,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -559,7 +572,25 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Dungeon_Props_0: -5760111615246973922
+      Dungeon_Props_1: 1466729386495541740
+      Dungeon_Props_10: 854492627078420900
+      Dungeon_Props_11: 6648120783105507190
+      Dungeon_Props_12: 3688787376045494554
+      Dungeon_Props_13: 993180040204955653
+      Dungeon_Props_14: 2963616913396801113
+      Dungeon_Props_15: 5980290077120264899
+      Dungeon_Props_16: -5733925718137956028
+      Dungeon_Props_17: -8508928684106697811
+      Dungeon_Props_2: -1757345734562161070
+      Dungeon_Props_3: 6217118180761952009
+      Dungeon_Props_4: 6531580169566962412
+      Dungeon_Props_5: 9165058154864749250
+      Dungeon_Props_6: -5796674284158304029
+      Dungeon_Props_7: -4810768668978786533
+      Dungeon_Props_8: -2971381479975927765
+      Dungeon_Props_9: 9069621628571191285
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

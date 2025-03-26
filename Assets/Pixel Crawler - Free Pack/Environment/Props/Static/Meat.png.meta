@@ -186,6 +186,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -884,7 +897,38 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Meat_0: 8984754096541894249
+      Meat_1: 2073203306736515940
+      Meat_10: 3337539751008439241
+      Meat_11: 2208257980853179120
+      Meat_12: -5685078175358428044
+      Meat_13: 5409192317217841998
+      Meat_14: 1620580799101283554
+      Meat_15: 2877248678559958993
+      Meat_16: -2027133081650376730
+      Meat_17: 2912260041104156778
+      Meat_18: 8709357945863546932
+      Meat_19: 4781661658558678997
+      Meat_2: 6669852852261953786
+      Meat_20: -1276876251868404931
+      Meat_21: 9045918661277309613
+      Meat_22: -4788096356026692290
+      Meat_23: 8277183100934634451
+      Meat_24: 6907434828688470288
+      Meat_25: -4675466342796047459
+      Meat_26: 7606019290367998215
+      Meat_27: -1375671809523507644
+      Meat_28: 9015427783730520485
+      Meat_29: -7951180934104335938
+      Meat_3: -1994141993942582034
+      Meat_30: 8930015617553296776
+      Meat_4: -6551529566215524935
+      Meat_5: -2814942542822663078
+      Meat_6: 2493805615638919661
+      Meat_7: -4655322527136287912
+      Meat_8: -1544152531296120771
+      Meat_9: -3267446111865229493
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -216,6 +216,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1134,7 +1147,48 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Esoteric_0: 911922733785580911
+      Esoteric_1: 3122633967020011604
+      Esoteric_10: -1561482338508650035
+      Esoteric_11: 6712560084217742443
+      Esoteric_12: 2575661548185361329
+      Esoteric_13: 5336509176604863855
+      Esoteric_14: -7107338893083463087
+      Esoteric_15: -5519701670250488940
+      Esoteric_16: 3806781880459178098
+      Esoteric_17: -852668405757234758
+      Esoteric_18: 2595030798002784876
+      Esoteric_19: 7856323899338072543
+      Esoteric_2: 7857395264393618764
+      Esoteric_20: -2661637407661025280
+      Esoteric_21: 1096251613167672255
+      Esoteric_22: 5922582807817072659
+      Esoteric_23: 2448968845762615195
+      Esoteric_24: -8844547165691470428
+      Esoteric_25: -7412284386504332058
+      Esoteric_26: -3932622176055592710
+      Esoteric_27: -5341283445790912484
+      Esoteric_28: 4767348106812305313
+      Esoteric_29: 5793241367748632744
+      Esoteric_3: 5218301140820500604
+      Esoteric_30: -1851293914015421708
+      Esoteric_31: 4863672400533826178
+      Esoteric_32: 3553223528321314570
+      Esoteric_33: -2772917828837577329
+      Esoteric_34: 1097081590076126752
+      Esoteric_35: 5710087308319786891
+      Esoteric_36: -4646902406494836248
+      Esoteric_37: 4086307914474776682
+      Esoteric_38: -4264046155730891672
+      Esoteric_39: -5819797931516263888
+      Esoteric_4: 6295927294432614664
+      Esoteric_40: -1151918515644699465
+      Esoteric_5: -1384240214723398988
+      Esoteric_6: -6347446091418065051
+      Esoteric_7: -8337159545638431104
+      Esoteric_8: 5858256658268781342
+      Esoteric_9: -1204031823520054628
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -264,6 +264,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1534,7 +1547,64 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Pan_0: 8097077858369476569
+      Pan_1: 7121743583869686347
+      Pan_10: -1998939462366397139
+      Pan_11: -5749335590237227523
+      Pan_12: -3776637867846790544
+      Pan_13: 932781874020231060
+      Pan_14: -690379653152449082
+      Pan_15: 3778564567125897123
+      Pan_16: -2976331541178507694
+      Pan_17: -3959136250943760786
+      Pan_18: 2719330274890491522
+      Pan_19: 4935306987481595981
+      Pan_2: 2398268216345953637
+      Pan_20: -2989676266896671286
+      Pan_21: 5918593678320054231
+      Pan_22: 3771718102548882847
+      Pan_23: -2177120471703580182
+      Pan_24: 1688489095454198315
+      Pan_25: 1894994191232693108
+      Pan_26: 5875962967401670223
+      Pan_27: 2580721218658061983
+      Pan_28: 1135762816954474148
+      Pan_29: 6545818316367532469
+      Pan_3: -7734710301075167782
+      Pan_30: -1649837867184879497
+      Pan_31: -3549784168739678602
+      Pan_32: 1384988324420964551
+      Pan_33: 7768155976671568586
+      Pan_34: -5317037216678459126
+      Pan_35: -8931936780211336189
+      Pan_36: -2148671376545292930
+      Pan_37: 5986533993548640193
+      Pan_38: 711718661071843548
+      Pan_39: 5628019658097381855
+      Pan_4: 646426474934096753
+      Pan_40: 7994259692547084322
+      Pan_41: 3865438944369669552
+      Pan_42: -111314757086421771
+      Pan_43: -742366058489833964
+      Pan_44: 1785273190293633565
+      Pan_45: 7474794222548323863
+      Pan_46: -6672783635979227652
+      Pan_47: 7447160556861840929
+      Pan_48: 1255310842076010209
+      Pan_49: 6461755700247338771
+      Pan_5: -1361288908734102279
+      Pan_50: -4491834587005288478
+      Pan_51: 8949561936588122831
+      Pan_52: 100266720506718379
+      Pan_53: -2722527059803289893
+      Pan_54: 7775077969445396326
+      Pan_55: -2559542572204222242
+      Pan_56: 890536776494582143
+      Pan_6: 4556283599340152683
+      Pan_7: 132459085397445726
+      Pan_8: -1767046967812154710
+      Pan_9: 1173139551945935770
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -273,6 +273,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1609,7 +1622,67 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Level_3-Sheet_0: 2174244072872447789
+      Level_3-Sheet_1: -3729091376023367955
+      Level_3-Sheet_10: 9115375641001151252
+      Level_3-Sheet_11: 112000593271006900
+      Level_3-Sheet_12: 358134186522372787
+      Level_3-Sheet_13: -5407677296252662818
+      Level_3-Sheet_14: 8990180804218143700
+      Level_3-Sheet_15: 1086532565471968779
+      Level_3-Sheet_16: 8630515951455932080
+      Level_3-Sheet_17: 5849683673513265586
+      Level_3-Sheet_18: -3632150484742419217
+      Level_3-Sheet_19: -2532357290535209205
+      Level_3-Sheet_2: 427792985926999509
+      Level_3-Sheet_20: -6736078374231504998
+      Level_3-Sheet_21: -9120972102992228759
+      Level_3-Sheet_22: -5367424052644998105
+      Level_3-Sheet_23: -8298611060735293421
+      Level_3-Sheet_24: -3282796517205150585
+      Level_3-Sheet_25: 3525451565435646917
+      Level_3-Sheet_26: 4040301856357829089
+      Level_3-Sheet_27: 6858901650093704961
+      Level_3-Sheet_28: 1949551908060543040
+      Level_3-Sheet_29: -9119106423494287923
+      Level_3-Sheet_3: -8768997978938291976
+      Level_3-Sheet_30: 8670728417930427676
+      Level_3-Sheet_31: 5382015702824762947
+      Level_3-Sheet_32: 4531047858663624767
+      Level_3-Sheet_33: 7818063656412232240
+      Level_3-Sheet_34: -5795998831689387947
+      Level_3-Sheet_35: -4661322911293874464
+      Level_3-Sheet_36: 5054130500348247079
+      Level_3-Sheet_37: -4946222750860247411
+      Level_3-Sheet_38: -3008100705654262950
+      Level_3-Sheet_39: 1317885606044480277
+      Level_3-Sheet_4: 2830475016686560749
+      Level_3-Sheet_40: -285988730170781978
+      Level_3-Sheet_41: -2574269391462079186
+      Level_3-Sheet_42: -2261017279834119574
+      Level_3-Sheet_43: -3200525603272650212
+      Level_3-Sheet_44: 9100705126143068768
+      Level_3-Sheet_45: -2077708431856723312
+      Level_3-Sheet_46: 2316975492811550656
+      Level_3-Sheet_47: -6099670760263904148
+      Level_3-Sheet_48: 2423513629499109708
+      Level_3-Sheet_49: 5827310140742363235
+      Level_3-Sheet_5: -1242510756739180811
+      Level_3-Sheet_50: -4175905510801937653
+      Level_3-Sheet_51: 6833658408900196513
+      Level_3-Sheet_52: -3127698415999214438
+      Level_3-Sheet_53: 6738570852210788969
+      Level_3-Sheet_54: 6776501029227315277
+      Level_3-Sheet_55: 2671369497959059626
+      Level_3-Sheet_56: 613661852670707871
+      Level_3-Sheet_57: 7357257324507847984
+      Level_3-Sheet_58: -211124045873565927
+      Level_3-Sheet_59: -597679903484205466
+      Level_3-Sheet_6: 1003188190469701091
+      Level_3-Sheet_7: 6382121024300523696
+      Level_3-Sheet_8: 6753969234548497234
+      Level_3-Sheet_9: -2190000253201885814
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

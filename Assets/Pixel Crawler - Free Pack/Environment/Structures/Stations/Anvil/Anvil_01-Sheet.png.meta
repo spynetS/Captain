@@ -348,6 +348,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -2234,7 +2247,92 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Anvil_01-Sheet_0: 6837101163786869703
+      Anvil_01-Sheet_1: 8046767585476533417
+      Anvil_01-Sheet_10: -8392773482991890408
+      Anvil_01-Sheet_11: 6544353432898079537
+      Anvil_01-Sheet_12: 5660396169528944305
+      Anvil_01-Sheet_13: 5131501307761213535
+      Anvil_01-Sheet_14: 6108069053424877784
+      Anvil_01-Sheet_15: 6281186763463588268
+      Anvil_01-Sheet_16: -3053066782723318982
+      Anvil_01-Sheet_17: -8570230531895841098
+      Anvil_01-Sheet_18: -847568902124422171
+      Anvil_01-Sheet_19: 6287648489935196201
+      Anvil_01-Sheet_2: 3619680036655598168
+      Anvil_01-Sheet_20: 6054707621826574930
+      Anvil_01-Sheet_21: 7455008239277987491
+      Anvil_01-Sheet_22: -892744509874976378
+      Anvil_01-Sheet_23: -6972968438432537680
+      Anvil_01-Sheet_24: -8895231325667985581
+      Anvil_01-Sheet_25: 9042541555439720812
+      Anvil_01-Sheet_26: -981661387736143597
+      Anvil_01-Sheet_27: 7030383487262016897
+      Anvil_01-Sheet_28: 4644620884200532727
+      Anvil_01-Sheet_29: -1496988009475531264
+      Anvil_01-Sheet_3: -4756770748977746020
+      Anvil_01-Sheet_30: 168444141447849413
+      Anvil_01-Sheet_31: -7822283206624999121
+      Anvil_01-Sheet_32: -7068004011205299831
+      Anvil_01-Sheet_33: -8733882856674261300
+      Anvil_01-Sheet_34: -2839613132946221062
+      Anvil_01-Sheet_35: 4174102745112876216
+      Anvil_01-Sheet_36: -4672152801160989423
+      Anvil_01-Sheet_37: -7540536854874217235
+      Anvil_01-Sheet_38: -2358473237882837973
+      Anvil_01-Sheet_39: 686168316542979985
+      Anvil_01-Sheet_4: -4355608145667942883
+      Anvil_01-Sheet_40: 5362530820352829268
+      Anvil_01-Sheet_41: 771439310373636652
+      Anvil_01-Sheet_42: 6837968565256424934
+      Anvil_01-Sheet_43: 8084879065939988984
+      Anvil_01-Sheet_44: 5203810877529650357
+      Anvil_01-Sheet_45: 1341094952469397566
+      Anvil_01-Sheet_46: -5366704662828183247
+      Anvil_01-Sheet_47: -2940703543938067808
+      Anvil_01-Sheet_48: 6927377250287994606
+      Anvil_01-Sheet_49: 3779320024664663710
+      Anvil_01-Sheet_5: -3978204236500633920
+      Anvil_01-Sheet_50: 1558612423691369045
+      Anvil_01-Sheet_51: -7482179160086904871
+      Anvil_01-Sheet_52: 608208062218394858
+      Anvil_01-Sheet_53: -3814255627167316445
+      Anvil_01-Sheet_54: 3084754368686182248
+      Anvil_01-Sheet_55: 2589526882516341378
+      Anvil_01-Sheet_56: 3954994996836958191
+      Anvil_01-Sheet_57: -8425077677940798761
+      Anvil_01-Sheet_58: -4743852575626422274
+      Anvil_01-Sheet_59: -1114044139241921057
+      Anvil_01-Sheet_6: -5364917778871233014
+      Anvil_01-Sheet_60: -7544569724353230457
+      Anvil_01-Sheet_61: 4592758353140216385
+      Anvil_01-Sheet_62: 8675264626280434215
+      Anvil_01-Sheet_63: 8876016142077944348
+      Anvil_01-Sheet_64: 7690364419891846884
+      Anvil_01-Sheet_65: -842560925126746876
+      Anvil_01-Sheet_66: 6975654247439264159
+      Anvil_01-Sheet_67: 1917267993341335390
+      Anvil_01-Sheet_68: 9179717311823469472
+      Anvil_01-Sheet_69: 7710769341694315717
+      Anvil_01-Sheet_7: 8115097922666868598
+      Anvil_01-Sheet_70: 1215030961405763571
+      Anvil_01-Sheet_71: -2072345917149342865
+      Anvil_01-Sheet_72: 5383164560747249141
+      Anvil_01-Sheet_73: 1192253614177029708
+      Anvil_01-Sheet_74: 9109166588754649713
+      Anvil_01-Sheet_75: -6934714124060207286
+      Anvil_01-Sheet_76: -6700282794573124243
+      Anvil_01-Sheet_77: 3484863010707981355
+      Anvil_01-Sheet_78: 2473908996558230465
+      Anvil_01-Sheet_79: -3263530514783866548
+      Anvil_01-Sheet_8: 355531987432242243
+      Anvil_01-Sheet_80: 6703992387159648385
+      Anvil_01-Sheet_81: -2002809070541924250
+      Anvil_01-Sheet_82: -6651446193670776675
+      Anvil_01-Sheet_83: -3719090320403854087
+      Anvil_01-Sheet_84: -5457922338963694616
+      Anvil_01-Sheet_9: 6153229007255687762
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

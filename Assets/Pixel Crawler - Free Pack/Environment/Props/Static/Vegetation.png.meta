@@ -504,6 +504,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -3534,7 +3547,144 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Vegetation_0: 4769705079651408589
+      Vegetation_1: -3924549393529488712
+      Vegetation_10: 2944780001528700031
+      Vegetation_100: 745826998333002686
+      Vegetation_101: -8722839669158040612
+      Vegetation_102: -4916998731487269469
+      Vegetation_103: 7098503572650600903
+      Vegetation_104: 8145535060192219056
+      Vegetation_105: -624714943594288164
+      Vegetation_106: -2392687083726196641
+      Vegetation_107: 981745003841616571
+      Vegetation_108: -8884104109515488557
+      Vegetation_109: -2931368011625271118
+      Vegetation_11: 2891340445728125345
+      Vegetation_110: -6797026460241076697
+      Vegetation_111: -2269573429687097658
+      Vegetation_112: 2306997176248738604
+      Vegetation_113: -6030531973334407656
+      Vegetation_114: 1590204759890579865
+      Vegetation_115: 816692587866295773
+      Vegetation_116: -3740154654687573679
+      Vegetation_117: 7701443798082501263
+      Vegetation_118: 1239574188762954491
+      Vegetation_119: 4490935887582196425
+      Vegetation_12: -3060862157871237293
+      Vegetation_120: 6693262700944515502
+      Vegetation_121: 8391991153875439955
+      Vegetation_122: -3577815788171863454
+      Vegetation_123: -7092610201155427962
+      Vegetation_124: 3675206202028079017
+      Vegetation_125: 2309680642310557897
+      Vegetation_126: -5548106791578041931
+      Vegetation_127: -6491929865977327805
+      Vegetation_128: -8302796691879432982
+      Vegetation_129: -1399201765645353017
+      Vegetation_13: -4736531586555336112
+      Vegetation_130: 4430727989745353431
+      Vegetation_131: -8848010549429917607
+      Vegetation_132: 5648864380796388416
+      Vegetation_133: -8590438767667106439
+      Vegetation_134: -2885345669054274111
+      Vegetation_135: -7225800182882451491
+      Vegetation_136: -7271828176232318846
+      Vegetation_14: 7500142522285116014
+      Vegetation_15: 8491675973581725955
+      Vegetation_16: 7343253987069212130
+      Vegetation_17: -8000804068845171758
+      Vegetation_18: 8630677854387090796
+      Vegetation_19: -4672336291926626846
+      Vegetation_2: -4204606583364342091
+      Vegetation_20: 8286730407720328758
+      Vegetation_21: -8000927946892179696
+      Vegetation_22: 4143302869640716640
+      Vegetation_23: 3039642685086879570
+      Vegetation_24: 502128227944049637
+      Vegetation_25: 7280509518103462027
+      Vegetation_26: 3121916712107486251
+      Vegetation_27: -2579452002718084578
+      Vegetation_28: -4658766986580155926
+      Vegetation_29: -7477056585668869188
+      Vegetation_3: -4179095100408536480
+      Vegetation_30: -5336045056686673178
+      Vegetation_31: -9010445846374947740
+      Vegetation_32: -5289361433860076078
+      Vegetation_33: -2537844810073496442
+      Vegetation_34: 839163561850101368
+      Vegetation_35: -1801275929772184445
+      Vegetation_36: 8877783437752732490
+      Vegetation_37: -6344711450736540630
+      Vegetation_38: -9124870655566333524
+      Vegetation_39: 7143139314851004457
+      Vegetation_4: 1756428908297414251
+      Vegetation_40: 4875394269278602002
+      Vegetation_41: 8341390020654416335
+      Vegetation_42: 5578637916655681978
+      Vegetation_43: 8629024772646533896
+      Vegetation_44: 6064353864376479172
+      Vegetation_45: -5177667019685196152
+      Vegetation_46: -6853371155272820640
+      Vegetation_47: 1635390309230731972
+      Vegetation_48: -8361330192969407816
+      Vegetation_49: -7297614330691117750
+      Vegetation_5: 3446534387344224590
+      Vegetation_50: -8453278314440265915
+      Vegetation_51: -3577351669155110060
+      Vegetation_52: 4535057937155683414
+      Vegetation_53: -4562521380080192586
+      Vegetation_54: 1070361961031105324
+      Vegetation_55: 3629979574950366771
+      Vegetation_56: 8641750974379979804
+      Vegetation_57: -5610524334253197577
+      Vegetation_58: 5422649322949147123
+      Vegetation_59: -640554279239141264
+      Vegetation_6: 6904409994712966864
+      Vegetation_60: -7465610132614869576
+      Vegetation_61: -9053081855870860592
+      Vegetation_62: 2199518489187101433
+      Vegetation_63: 4288149619252903752
+      Vegetation_64: 6125671648399288212
+      Vegetation_65: 1155273768661823591
+      Vegetation_66: 9104010705363819684
+      Vegetation_67: 1655588822140326988
+      Vegetation_68: 3673176642952901075
+      Vegetation_69: -5769412843048978649
+      Vegetation_7: 7204503400320101405
+      Vegetation_70: -3786645902632205875
+      Vegetation_71: -866303877450135802
+      Vegetation_72: -1544856307072802400
+      Vegetation_73: -723671495584112147
+      Vegetation_74: 6096206114210615993
+      Vegetation_75: -7389263787273206867
+      Vegetation_76: -7453688665312901588
+      Vegetation_77: 8119773305462598124
+      Vegetation_78: 7704924573190425607
+      Vegetation_79: -21517394226306143
+      Vegetation_8: -7955735199962719564
+      Vegetation_80: -1685673172810912041
+      Vegetation_81: -2026505435980382439
+      Vegetation_82: -809512065518054580
+      Vegetation_83: -1621189035945974326
+      Vegetation_84: 5492672576373329749
+      Vegetation_85: 262758503080140934
+      Vegetation_86: -5877214217282665124
+      Vegetation_87: 6779584748672327772
+      Vegetation_88: 7587217427537950722
+      Vegetation_89: 4033089085271314009
+      Vegetation_9: -9135724684328957241
+      Vegetation_90: 4587390830403070976
+      Vegetation_91: -3347280681135442175
+      Vegetation_92: 5157213365759437321
+      Vegetation_93: -7820805915247827607
+      Vegetation_94: -2712033756849647313
+      Vegetation_95: -2940523345140957816
+      Vegetation_96: -8476918943099597149
+      Vegetation_97: 2401533022796479472
+      Vegetation_98: -6728677419321284080
+      Vegetation_99: -1408056441737410553
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
