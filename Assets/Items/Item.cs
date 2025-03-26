@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+
+
 /**
  * Item is a object that can be picked up by a player
  * and used. This is mostly a abstract version to be implemented
