@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
     {
         if (equippedItem != null)
         {
-            IUsable usable = equippedItem.GetComponent<IUsable>();
+            Item usable = equippedItem.GetComponent<Item>();
             if (usable != null)
             {
                 usable.Use();
