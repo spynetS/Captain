@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7587808320725594007}
   - component: {fileID: 7251996930283314042}
   - component: {fileID: 7981680574326814800}
+  - component: {fileID: 94412544754014646}
   m_Layer: 0
   m_Name: RockResource
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.1469068, y: -0.446, z: -0.0047712014}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4909888411682735355}
   - {fileID: 6791085879679445489}
@@ -51,6 +52,7 @@ MonoBehaviour:
   dropItem: {fileID: 2348523639259168720, guid: c773d8b2c0419159fa3bef5b64f5a7f6, type: 3}
   dropAmount: 3
   health: 50
+  hitAnimation: {fileID: 94412544754014646}
   health_text: {fileID: 4236738392651248855}
 --- !u!58 &7251996930283314042
 CircleCollider2D:
@@ -115,6 +117,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!111 &94412544754014646
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569405052575801126}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 7400000, guid: 02681fc11cdd1c499859b9e86e8ac9dd, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 02681fc11cdd1c499859b9e86e8ac9dd, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0
 --- !u!1 &2879147258258348024
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +337,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.0047712014}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7013754193300072919}

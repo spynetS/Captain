@@ -4,14 +4,32 @@ using UnityEngine;
  * This is a item that the player can consume, either eating, drink
  * etc. When used it
  *  */
-public class ToolItem : Item
+public class Tool : Item , IGiveDamage
 {
     public float damage;
     public Collider2D collider;
-    public override void Use()
-    {
-        this.collider.enabled = true;
+    private float timer = 0;
+    private float maxTimer = 10;
 
+    public void Start(){
+        this.collider.enabled = false;
+    }
+
+    public float GiveDamage(){
+        return damage;
+    }
+
+    public void FixedUpdate(){
+        if(timer >= maxTimer){
+            if(collider.enabled) collider.enabled = false;
+            timer = 0;
+        }
+        if(collider.enabled) timer ++;
+
+    }
+
+    public void Use(){
+        collider.enabled = true;
     }
 
     public void Update(){
@@ -20,13 +38,12 @@ public class ToolItem : Item
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Resource r = other.GetComponent<Resource>();
-        if(r)
-         {
-            r.health -= damage;
-            this.collider.enabled = false;
+        Resource giveDamage = other.GetComponent<Resource>();
+        if(giveDamage != null){
+            giveDamage.TakeDamage(GiveDamage());
         }
     }
+
 }
