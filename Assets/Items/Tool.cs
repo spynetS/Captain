@@ -40,6 +40,7 @@ public class Tool : Item , IGiveDamage
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Trigger enter");
         Resource giveDamage = other.GetComponent<Resource>();
         if(giveDamage != null){
             giveDamage.TakeDamage(GiveDamage());
