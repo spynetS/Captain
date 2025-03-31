@@ -28,20 +28,14 @@ public class Resource : MonoBehaviour
     /** Drops the dropItem and destroyes it self */
     private void Die(){
         for(int i = 0; i < dropAmount; i++){
-            Vector3 pos = new Vector3(i,0,0);
-            Instantiate(dropItem,transform.position+pos,transform.rotation);
+                //Vector2 randomDirection = Random.insideUnitCircle.normalized; // Ensures a unit vector
+                //Vector3 spawnPosition = transform.position + (Vector3)(randomDirection); // Converts 2D to 3D
+
+            GameObject dropped = Instantiate(dropItem, transform.position, transform.rotation);
+            Vector2 randomDirection = Random.insideUnitCircle.normalized/2;
+            dropped.GetComponent<Rigidbody2D>().AddForce(randomDirection);
         }
         Destroy(this.gameObject);
     }
-
-
-//    private void OnTriggerEnter2D(Collider2D other)
-//    {
-//        IGiveDamage giveDamage = other.GetComponent<IGiveDamage>();
-//        if(giveDamage != null){
-//            TakeDamage(giveDamage.GiveDamage());
-//        }
-//    }
-//
 
 }
