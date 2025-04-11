@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         playerObject = GameObject.FindGameObjectWithTag("Player"); //find the player object by tag
-        this.SetEnemyValues(); //set the values of the enemy
+        //this.SetEnemyValues(); //set the values of the enemy
     }
 
     // Update is called once per frame
@@ -34,7 +34,8 @@ public class Enemy : MonoBehaviour
 
     private void Swarm()
     {
-        transform.position = Vector2.MoveTowards(transform.position, playerObject.transform.position, speed * Time.deltaTime); //move towards the player
+        if(playerObject)
+            transform.position = Vector2.MoveTowards(transform.position, playerObject.transform.position, speed * Time.deltaTime); //move towards the player
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
