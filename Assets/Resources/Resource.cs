@@ -1,10 +1,13 @@
 using UnityEngine;
+using System.Collections.Generic;
 using TMPro;
 
 
 public class Resource : MonoBehaviour
 {
-    public GameObject dropItem;
+    public List<GameObject> dropItems; // the items that can be droped
+    public List<float>      dropChanse;// the chanse that the item (at the smae index) has to be droped
+
     public int dropAmount;
     public float health;
     public Animation hitAnimation;
@@ -27,13 +30,20 @@ public class Resource : MonoBehaviour
 
     /** Drops the dropItem and destroyes it self */
     private void Die(){
-        for(int i = 0; i < dropAmount; i++){
-                //Vector2 randomDirection = Random.insideUnitCircle.normalized; // Ensures a unit vector
-                //Vector3 spawnPosition = transform.position + (Vector3)(randomDirection); // Converts 2D to 3D
 
-            GameObject dropped = Instantiate(dropItem, transform.position, transform.rotation);
-            Vector2 randomDirection = Random.insideUnitCircle.normalized/2;
-            dropped.GetComponent<Rigidbody2D>().AddForce(randomDirection);
+        for(int i = 0; i < dropAmount; i++){
+            for(int j = 0; j < dropItems.Count; j ++){
+
+                float value = Random.value;
+                Debug.Log(value);
+                if(value <= dropChanse[j]){
+                    GameObject dropped = Instantiate(dropItems[j], transform.position, transform.rotation);
+                    Vector2 randomDirection = Random.insideUnitCircle.normalized/2;
+                    dropped.GetComponent<Rigidbody2D>().AddForce(randomDirection);
+                    break;
+                }
+
+            }
         }
         Destroy(this.gameObject);
     }

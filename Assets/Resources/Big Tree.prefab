@@ -136,7 +136,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaac2b5dc56e94928ba69e0bd35d3072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropItem: {fileID: 3593116272157070361, guid: 35e991e1e2988b7a2855cfda061cf731, type: 3}
+  dropItems:
+  - {fileID: 3593116272157070361, guid: 35e991e1e2988b7a2855cfda061cf731, type: 3}
+  dropChanse:
+  - 0.5
   dropAmount: 8
   health: 500
   hitAnimation: {fileID: 1989874230513968165}
