@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8733689440874242900}
   - component: {fileID: 7249207802368533560}
+  - component: {fileID: 3188651411791109451}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -87,6 +88,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &3188651411791109451
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208133698067078038}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: -6266567580899421610, guid: b6c8bf9cc9dc99cb4ac6c96f670b2d20, type: 3}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3753708867781821852
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,6 +224,7 @@ MonoBehaviour:
   dropAmount: 2
   health: 100
   hitAnimation: {fileID: 3119499938307508124}
+  animator: {fileID: 3188651411791109451}
   health_text: {fileID: 0}
 --- !u!111 &3119499938307508124
 Animation:

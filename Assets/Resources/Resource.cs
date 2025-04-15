@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-
+using System.Collections;
 
 public class Resource : MonoBehaviour
 {
@@ -8,6 +8,9 @@ public class Resource : MonoBehaviour
     public int dropAmount;
     public float health;
     public Animation hitAnimation;
+
+    public Animator animator;
+
 
     public TMP_Text health_text;
 
@@ -28,14 +31,13 @@ public class Resource : MonoBehaviour
     /** Drops the dropItem and destroyes it self */
     private void Die(){
         for(int i = 0; i < dropAmount; i++){
-                //Vector2 randomDirection = Random.insideUnitCircle.normalized; // Ensures a unit vector
-                //Vector3 spawnPosition = transform.position + (Vector3)(randomDirection); // Converts 2D to 3D
-
             GameObject dropped = Instantiate(dropItem, transform.position, transform.rotation);
             Vector2 randomDirection = Random.insideUnitCircle.normalized/2;
             dropped.GetComponent<Rigidbody2D>().AddForce(randomDirection);
         }
-        Destroy(this.gameObject);
+        animator.SetBool("dead",true);
+        Destroy(this.gameObject,1);
     }
+
 
 }
