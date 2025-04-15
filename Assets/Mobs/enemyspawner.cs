@@ -5,20 +5,14 @@ using UnityEngine;
 public class Enemyspawner : MonoBehaviour
 {
     [SerializeField]
-    private GameObject redPrefab;
+    private GameObject greenOrcPrefab; // Prefab for the green orc enemy
     [SerializeField]
-    private GameObject bluePrefab;
-
-    [SerializeField]
-    private float redInterval = 3.5f; // Time between spawns
-    [SerializeField]
-    private float blueInterval = 10f; // Time between spawns
+    private float spawnInterval = 5f; // Time between spawns
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        StartCoroutine(SpawnEnemy(redInterval, redPrefab)); // Start the coroutine to spawn red enemies
-        StartCoroutine(SpawnEnemy(blueInterval, bluePrefab)); // Start the coroutine to spawn blue enemies
+        StartCoroutine(SpawnEnemy(spawnInterval, greenOrcPrefab)); // Start the coroutine to spawn GreenOrc enemies
     }
 
     private IEnumerator SpawnEnemy(float interval, GameObject enemy)

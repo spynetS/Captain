@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public GameObject PlayerObject { get; set; }
     [SerializeField]
     private int damage = 5;
     [SerializeField]
