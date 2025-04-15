@@ -7,11 +7,11 @@ using NUnit.Framework;
 public class NewTestScript
 {
     // A Test behaves as an ordinary method
-    [Test]
-    public void NewTestScriptSimplePasses()
-    {
-        Assert.AreEqual(true,true);
-    }
+    // [Test]
+    // public void NewTestScriptSimplePasses()
+    // {
+    //     Assert.AreEqual(true,true);
+    // }
 
     // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
     // `yield return null;` to skip a frame.
