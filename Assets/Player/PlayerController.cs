@@ -2,81 +2,51 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("Movement")]
-    [SerializeField] private float moveSpeed = 5f;
-
-    private Vector2 movement;
-    private Rigidbody2D rb;
-
-    [Header("Equipped Item")]
-    [SerializeField] private GameObject equippedItem; // Item assigned in Inspector or code
-
-    public GameObject EquippedItem => equippedItem; // Read-only access from other scripts (optional)
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+    public float moveSpeed = 5f;
+    public GameObject bulletPrefab;
+    public Transform firePoint;
+    public GameObject sword;
+    private float attackCooldown = 0.5f;
+    private float lastAttackTime = -999f;
 
     void Update()
     {
-        HandleMovementInput();
-        HandleActionInput();
-    }
+        if (Time.timeScale == 0f) return;
 
-    void FixedUpdate()
-    {
         Move();
+
+        if (Input.GetButtonDown("Fire1") && GetComponent<WeaponManager>().IsUsingGun())
+        Shoot();
+
+        if (Input.GetKeyDown(KeyCode.Space) && GetComponent<WeaponManager>().IsUsingSword())
+        SwingSword();
     }
 
-    private void HandleMovementInput()
+
+    void SwingSword()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+    lastAttackTime = Time.time;
+    sword.SetActive(true);
+    Invoke("DisableSword", 0.2f); // Sword is active for 0.2 sec
     }
 
-    private void HandleActionInput()
+    void DisableSword()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            UseEquippedItem();
-        }
+    sword.SetActive(false);
     }
 
-    private void Move()
-    {
-        rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
 
-        if (movement != Vector2.zero)
-        {
-            float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
-        }
+
+    void Move()
+    {
+        float x = Input.GetAxis("Horizontal");
+        float y = Input.GetAxis("Vertical");
+        Vector2 movement = new Vector2(x, y).normalized;
+        transform.Translate(movement * moveSpeed * Time.deltaTime);
     }
 
-    private void UseEquippedItem()
+    void Shoot()
     {
-        if (equippedItem != null)
-        {
-            Item usable = equippedItem.GetComponent<Item>();
-            if (usable != null)
-            {
-                usable.Use();
-            }
-            else
-            {
-                Debug.LogWarning("Equipped item has no IUsable component.");
-            }
-        }
-        else
-        {
-            Debug.Log("No item equipped.");
-        }
-    }
-
-    // Optional: Method to equip a new item via code
-    public void EquipItem(GameObject newItem)
-    {
-        equippedItem = newItem;
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 }
