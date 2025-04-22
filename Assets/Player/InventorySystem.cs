@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class InventorySystem : MonoBehaviour
 {
     public Text[] slots = new Text[10];  // 10 UI text elements
-    Item[] items = new Item[10];     // Inventory items
+    public Item[] items = new Item[10];     // Inventory items
     int selectedSlot = 0;                // Currently selected slot
 
     void Update()
@@ -20,44 +20,41 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
-    public void PickupRandomItem()
-    {
-        if (null == (items[selectedSlot]))
-        {
-            string newItem = "Item" + Random.Range(1, 100);
-            items[selectedSlot] = newItem;
-            Debug.Log("Picked up: " + newItem);
-            UpdateUI();
-        }
-        else
-        {
-            Debug.Log("Slot already full!");
-        }
-    }
 
     public void DropSelectedItem()
     {
         if (null != (items[selectedSlot]))
         {
-            Debug.Log("Dropped: " + items[selectedSlot]);
-            items[selectedSlot] = "";
+            Item item = items[selectedSlot];
+
+            GameObject dropped = item.gameObject;
+            dropped.transform.SetParent(null);
+            Vector2 randomDirection = Random.insideUnitCircle.normalized/2;
+
+            float force = 1f; // try something noticeable
+            dropped.GetComponent<Rigidbody2D>().AddForce(randomDirection * force, ForceMode2D.Impulse);
+
+            items[selectedSlot] = null;
             UpdateUI();
-        }
-        else
-        {
-            Debug.Log("No item to drop!");
         }
     }
 
     public void UseSelectedItem(){
-
+        Item item = items[selectedSlot];
+        if(item != null){
+            item.Use();
+        }
     }
 
     void UpdateUI()
     {
         for (int i = 0; i < slots.Length; i++)
         {
-            slots[i].text = items[i].name;
+            Item item = items[i];
+            if(item != null){
+                slots[i].text = item.name;
+            }
+
         }
     }
 }

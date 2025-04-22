@@ -23,7 +23,10 @@ public class PlayerController : MonoBehaviour
 
         // Inventory controls
         if (Input.GetKeyDown(KeyCode.E))
-            inventory.PickupRandomItem(); // calls inventory pickup
+        {
+//            GameObject item = Instantiate()
+        }
+
 
         if (Input.GetKeyDown(KeyCode.Q))
             inventory.DropSelectedItem(); // calls inventory drop
