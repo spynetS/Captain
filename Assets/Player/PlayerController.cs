@@ -9,6 +9,13 @@ public class PlayerController : MonoBehaviour
     private float attackCooldown = 0.5f;
     private float lastAttackTime = -999f;
 
+    private InventorySystem inventory; // reference to the InventorySystem
+
+    void Start()
+    {
+        inventory = FindObjectOfType<InventorySystem>(); // find inventory in scene
+    }
+
     void Update()
     {
         if (Time.timeScale == 0f) return;
@@ -16,26 +23,30 @@ public class PlayerController : MonoBehaviour
         Move();
 
         if (Input.GetButtonDown("Fire1") && GetComponent<WeaponManager>().IsUsingGun())
-        Shoot();
+            Shoot();
 
         if (Input.GetKeyDown(KeyCode.Space) && GetComponent<WeaponManager>().IsUsingSword())
-        SwingSword();
-    }
+            SwingSword();
 
+        // Inventory controls
+        if (Input.GetKeyDown(KeyCode.E))
+            inventory.PickupRandomItem(); // calls inventory pickup
+
+        if (Input.GetKeyDown(KeyCode.Q))
+            inventory.DropSelectedItem(); // calls inventory drop
+    }
 
     void SwingSword()
     {
-    lastAttackTime = Time.time;
-    sword.SetActive(true);
-    Invoke("DisableSword", 0.2f); // Sword is active for 0.2 sec
+        lastAttackTime = Time.time;
+        sword.SetActive(true);
+        Invoke("DisableSword", 0.2f);
     }
 
     void DisableSword()
     {
-    sword.SetActive(false);
+        sword.SetActive(false);
     }
-
-
 
     void Move()
     {
