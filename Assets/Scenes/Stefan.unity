@@ -1516,7 +1516,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  collider: {fileID: 0}
+  hand: {fileID: 2130916166}
+  collider: {fileID: 1746063378}
 --- !u!58 &1746063378
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1547,7 +1548,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
