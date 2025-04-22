@@ -49,6 +49,10 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
+    public void UseSelectedItem(){
+
+    }
+
     void UpdateUI()
     {
         for (int i = 0; i < slots.Length; i++)
