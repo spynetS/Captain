@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class InventorySystem : MonoBehaviour
 {
     public Text[] slots = new Text[10];  // 10 UI text elements
-    string[] items = new string[10];     // Inventory items
+    Item[] items = new Item[10];     // Inventory items
     int selectedSlot = 0;                // Currently selected slot
 
     void Update()
@@ -22,7 +22,7 @@ public class InventorySystem : MonoBehaviour
 
     public void PickupRandomItem()
     {
-        if (string.IsNullOrEmpty(items[selectedSlot]))
+        if (null == (items[selectedSlot]))
         {
             string newItem = "Item" + Random.Range(1, 100);
             items[selectedSlot] = newItem;
@@ -37,7 +37,7 @@ public class InventorySystem : MonoBehaviour
 
     public void DropSelectedItem()
     {
-        if (!string.IsNullOrEmpty(items[selectedSlot]))
+        if (null != (items[selectedSlot]))
         {
             Debug.Log("Dropped: " + items[selectedSlot]);
             items[selectedSlot] = "";
@@ -53,7 +53,7 @@ public class InventorySystem : MonoBehaviour
     {
         for (int i = 0; i < slots.Length; i++)
         {
-            slots[i].text = string.IsNullOrEmpty(items[i]) ? "-" : items[i];
+            slots[i].text = items[i].name;
         }
     }
 }
