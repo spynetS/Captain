@@ -43,6 +43,7 @@ public class InventorySystem : MonoBehaviour
             // drop the item to the ground
             GameObject dropped = item.gameObject;
             dropped.transform.SetParent(null);
+            dropped.SetActive(true);
             Vector2 randomDirection = Random.insideUnitCircle.normalized/2;
             float force = 2f; // try something noticeable
             dropped.GetComponent<Rigidbody2D>().AddForce(randomDirection * force, ForceMode2D.Impulse);
