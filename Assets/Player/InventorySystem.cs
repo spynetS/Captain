@@ -5,17 +5,30 @@ public class InventorySystem : MonoBehaviour
 {
     public Text[] slots = new Text[10];  // 10 UI text elements
     public Item[] items = new Item[10];     // Inventory items
-    int selectedSlot = 0;                // Currently selected slot
+    int selectedSlot = 0;
+    public Transform hand;// Currently selected slot
+
+    public Collider2D collider;
 
     void Update()
     {
         // Press number keys 1–0 to select slot 0–9
         for (int i = 0; i < 10; i++)
         {
+            Item item = items[selectedSlot];
             if (Input.GetKeyDown(KeyCode.Alpha1 + (i % 10)))
             {
                 selectedSlot = i;
+                if(item != null){
+                    item.transform.gameObject.SetActive(true);
+                }
+
                 Debug.Log("Selected slot: " + (i + 1));
+            }
+            else{
+                if(item != null){
+                    item.transform.gameObject.SetActive(false);
+                }
             }
         }
     }
@@ -27,11 +40,11 @@ public class InventorySystem : MonoBehaviour
         {
             Item item = items[selectedSlot];
 
+            // drop the item to the ground
             GameObject dropped = item.gameObject;
             dropped.transform.SetParent(null);
             Vector2 randomDirection = Random.insideUnitCircle.normalized/2;
-
-            float force = 1f; // try something noticeable
+            float force = 2f; // try something noticeable
             dropped.GetComponent<Rigidbody2D>().AddForce(randomDirection * force, ForceMode2D.Impulse);
 
             items[selectedSlot] = null;
@@ -57,4 +70,15 @@ public class InventorySystem : MonoBehaviour
 
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Item item = other.GetComponent<Item>();
+        if(item != null){
+            items[0] = item;
+            item.transform.SetParent(hand, false);
+            item.transform.localPosition = Vector3.zero;
+        }
+    }
+
 }
