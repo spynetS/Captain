@@ -16,12 +16,8 @@ public class PlayerStatus : MonoBehaviour
     private float speedTimer = 0f;
     private float regenTimer = 0f;
 
-    private SpriteRenderer sprite;
+    public SpriteRenderer sprite;
 
-    void Start()
-    {
-        sprite = GetComponent<SpriteRenderer>();
-    }
 
     void Update()
     {
@@ -49,14 +45,14 @@ public class PlayerStatus : MonoBehaviour
 
     void UpdateUI()
     {
-        healthText.text = $"Health: {health.currentHealth}/{health.maxHealth}";
+        //healthText.text = $"Health: {health.currentHealth}/{health.maxHealth}";
 
         string buffs = "";
-        if (hasStrength) buffs += "Strength (2x DMG) ";
-        if (hasSpeed) buffs += "Speed ";
-        if (hasRegen) buffs += "Regen ";
+        //if (hasStrength) buffs += "Strength (2x DMG) ";
+        //if (hasSpeed) buffs += "Speed ";
+        //if (hasRegen) buffs += "Regen ";
 
-        buffText.text = $"Buffs: {buffs}";
+        //buffText.text = $"Buffs: {buffs}";
     }
 
     void ActivateStrength()

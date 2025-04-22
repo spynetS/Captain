@@ -3,18 +3,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public GameObject bulletPrefab;
-    public Transform firePoint;
-    public GameObject sword;
+    public Transform hand;
     private float attackCooldown = 0.5f;
     private float lastAttackTime = -999f;
 
-    private InventorySystem inventory; // reference to the InventorySystem
+    public InventorySystem inventory; // reference to the InventorySystem
 
-    void Start()
-    {
-        inventory = FindObjectOfType<InventorySystem>(); // find inventory in scene
-    }
 
     void Update()
     {
@@ -22,11 +16,10 @@ public class PlayerController : MonoBehaviour
 
         Move();
 
-        if (Input.GetButtonDown("Fire1") && GetComponent<WeaponManager>().IsUsingGun())
-            Shoot();
-
-        if (Input.GetKeyDown(KeyCode.Space) && GetComponent<WeaponManager>().IsUsingSword())
-            SwingSword();
+        if(Input.GetKeyDown(KeyCode.Mouse0)){
+            inventory.UseSelectedItem();
+            Debug.Log("USE");
+        }
 
         // Inventory controls
         if (Input.GetKeyDown(KeyCode.E))
@@ -36,28 +29,13 @@ public class PlayerController : MonoBehaviour
             inventory.DropSelectedItem(); // calls inventory drop
     }
 
-    void SwingSword()
-    {
-        lastAttackTime = Time.time;
-        sword.SetActive(true);
-        Invoke("DisableSword", 0.2f);
-    }
-
-    void DisableSword()
-    {
-        sword.SetActive(false);
-    }
-
     void Move()
     {
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
-        Vector2 movement = new Vector2(x, y).normalized;
+        float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
+
+        Vector2 movement = new Vector2(x, y);//.normalized;
         transform.Translate(movement * moveSpeed * Time.deltaTime);
     }
 
-    void Shoot()
-    {
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-    }
 }
