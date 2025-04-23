@@ -15,19 +15,14 @@ public class InventorySystem : MonoBehaviour
         // Press number keys 1–0 to select slot 0–9
         for (int i = 0; i < 10; i++)
         {
-            Item item = items[selectedSlot];
-            if (Input.GetKeyDown(KeyCode.Alpha1 + (i % 10)))
-            {
-                selectedSlot = i;
-                if(item != null){
-                    item.transform.gameObject.SetActive(true);
-                }
 
-                Debug.Log("Selected slot: " + (i + 1));
+            if (Input.GetKeyDown(KeyCode.Alpha1 + (i % 10))){
+                selectedSlot = i;
             }
             else{
+                Item item = items[i];
                 if(item != null){
-                    item.transform.gameObject.SetActive(false);
+                    item.transform.gameObject.SetActive(selectedSlot == i ? true : false);
                 }
             }
         }
