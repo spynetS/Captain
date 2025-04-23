@@ -73,7 +73,7 @@ use unity's build system which will compile and build everything necessary for a
 | Name | Email |
 | - | - |
 | Alfred Roos | roal23sv@student.ju.se or alfred@stensatter.se|
-|  | @student.ju.se or @gmail.com |
+| Stefan Strand | stst23no@student.ju.se or stefan.emilio.strand@gmail.com |
 |  | @student.ju.se or @gmail.com|
 
 
