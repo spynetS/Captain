@@ -3,10 +3,12 @@ using UnityEngine.UI;
 
 public class InventorySystem : MonoBehaviour
 {
-    public Text[] slots = new Text[10];  // 10 UI text elements
+    public Image[] slots = new Image[10];  // 10 UI text elements
     public Item[] items = new Item[10];     // Inventory items
     int selectedSlot = 0;
     public Transform hand;// Currently selected slot
+
+    public Sprite emptySlot;
 
     public Collider2D collider;
 
@@ -26,6 +28,7 @@ public class InventorySystem : MonoBehaviour
                 }
             }
         }
+        UpdateUI();
     }
 
 
@@ -40,7 +43,7 @@ public class InventorySystem : MonoBehaviour
             dropped.transform.SetParent(null);
             dropped.SetActive(true);
             Vector2 randomDirection = Random.insideUnitCircle.normalized/2;
-            float force = 2f; // try something noticeable
+            float force = 5f; // try something noticeable
             dropped.GetComponent<Rigidbody2D>().AddForce(randomDirection * force, ForceMode2D.Impulse);
 
             items[selectedSlot] = null;
@@ -61,19 +64,35 @@ public class InventorySystem : MonoBehaviour
         {
             Item item = items[i];
             if(item != null){
-                slots[i].text = item.name;
+                slots[i].sprite = item.transform.GetComponentInChildren<SpriteRenderer>().sprite;
+            }
+            else{
+                slots[i].sprite = emptySlot;
             }
 
         }
     }
 
+    private int GetEmptySlotIndex(){
+        for(int i = 0; i < 10; i ++){
+            if(items[i] == null) return i;
+        }
+        return -1;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         Item item = other.GetComponent<Item>();
+        if(item.transform.parent == this.hand) return;
+
         if(item != null){
-            items[0] = item;
-            item.transform.SetParent(hand, false);
+            int empty = GetEmptySlotIndex();
+            if(empty == -1) return;
+
+            items[empty] = item;
+            item.transform.SetParent(hand);
             item.transform.localPosition = Vector3.zero;
+            //item.transform.position = Vector3.zero;
         }
     }
 

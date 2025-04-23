@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextUpgrade: {fileID: 3593116272157070361, guid: 35e991e1e2988b7a2855cfda061cf731, type: 3}
   cost: []
+  name: 
 --- !u!58 &8569606768400939538
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -98,7 +99,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 10
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
