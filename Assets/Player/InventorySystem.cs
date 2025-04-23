@@ -5,10 +5,11 @@ public class InventorySystem : MonoBehaviour
 {
     public Image[] slots = new Image[10];  // 10 UI text elements
     public Item[] items = new Item[10];     // Inventory items
-    int selectedSlot = 0;
-    public Transform hand;// Currently selected slot
+    private int selectedSlot = 0;
 
+    public Transform hand;// Currently selected slot
     public Sprite emptySlot;
+    public Sprite selectedSlotSprite;
 
     public Collider2D collider;
 
@@ -25,6 +26,7 @@ public class InventorySystem : MonoBehaviour
                 Item item = items[i];
                 if(item != null){
                     item.transform.gameObject.SetActive(selectedSlot == i ? true : false);
+                    slots[i].sprite = selectedSlot == i ? selectedSlotSprite : emptySlot;
                 }
             }
         }
@@ -60,14 +62,29 @@ public class InventorySystem : MonoBehaviour
 
     void UpdateUI()
     {
-        for (int i = 0; i < slots.Length; i++)
-        {
+        for (int i = 0; i < slots.Length; i++){
             Item item = items[i];
-            if(item != null){
-                slots[i].sprite = item.transform.GetComponentInChildren<SpriteRenderer>().sprite;
+            if (item != null)
+            {
+                // Get the sprite from the item's SpriteRenderer (or however you store it)
+                Sprite itemSprite = item.transform.GetComponentInChildren<SpriteRenderer>()?.sprite;
+
+                // Find the child Image under the slot
+                Image childImage = slots[i].transform.GetChild(0).GetComponent<Image>();
+
+                if (childImage != null && itemSprite != null)
+                {
+                    childImage.sprite = itemSprite;
+                }
             }
-            else{
-                slots[i].sprite = emptySlot;
+            else
+            {
+                // Set to empty slot sprite if item is null
+                Image childImage = slots[i].transform.GetChild(0).GetComponent<Image>();
+                if (childImage != null)
+                {
+                    childImage.sprite = emptySlot;
+                }
             }
 
         }
