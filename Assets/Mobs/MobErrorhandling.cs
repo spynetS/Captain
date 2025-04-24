@@ -31,18 +31,8 @@ public class ErrorHandling : MonoBehaviour
     {
         if (enemy != null && getHealth != null)
         {
-            // Example: Check if the player object is assigned
-            if (enemy.PlayerObject == null)
-            {
-                Debug.LogWarning("Warning: Player object is not assigned in the Enemy script!");
-            }
-
             // Example: Check the health of the resource
-            if (getHealth.health > 0)
-            {
-                Debug.Log("mob still has" + getHealth.health + " health left.");
-            }
-            else
+            if (getHealth.health < 0)
             {
                 Debug.Log("mob is dead.");
             }

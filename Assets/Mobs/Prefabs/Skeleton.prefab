@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1701584443341091289, guid: 668cded59a41c21eab55adeb8bfd6465, type: 3}
+  m_Sprite: {fileID: -3145328045451892686, guid: 9b67e872bd14ea91494aa462cc370c45, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 208133698067078038}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: -6266567580899421610, guid: b6c8bf9cc9dc99cb4ac6c96f670b2d20, type: 3}
+  m_Controller: {fileID: -6266567580899421610, guid: 3fa3ad65e7d04bca28bd1d28fb668e3b, type: 3}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: -6436890701874313473}
   - component: {fileID: -3898842468933212969}
   m_Layer: 0
-  m_Name: GreenOrc
+  m_Name: Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0287adcf749457e4ebb133009e866208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 2
   speed: 1.5
   data: {fileID: 0}
 --- !u!114 &4329511155067290272
@@ -223,8 +223,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 3593116272157070361, guid: 35e991e1e2988b7a2855cfda061cf731, type: 3}
-  dropAmount: 2
-  health: 100
+  dropAmount: 3
+  health: 75
   hitAnimation: {fileID: 3119499938307508124}
   animator: {fileID: 3188651411791109451}
   health_text: {fileID: 0}
