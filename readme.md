@@ -74,12 +74,11 @@ use unity's build system which will compile and build everything necessary for a
 | - | - |
 | Alfred Roos | roal23sv@student.ju.se or alfred@stensatter.se|
 | Stefan Strand | stst23no@student.ju.se or stefan.emilio.strand@gmail.com |
-
 | Leo Modin     | mole23jk@student.ju.se or leo.modin@hotmail.se|
 
 
 # Declarations
 I, Alfred Roos, declare that I am the sole author of the content I add to this repository.  
-I, Stefan Strand, declare that I am the sole author of the content I add to this repository. 
+I, Stefan Strand, declare that I am the sole author of the content I add to this repository.
 I, Leo Modin, declare that I am the sole author of the content I add to this repository. 
 
