@@ -79,6 +79,6 @@ use unity's build system which will compile and build everything necessary for a
 
 # Declarations
 I, Alfred Roos, declare that I am the sole author of the content I add to this repository.  
-I, Stefan Strand, declare that I am the sole author of the content I add to this repository.
+I, Stefan Strand, declare that I am the sole author of the content I add to this repository.    
 I, Leo Modin, declare that I am the sole author of the content I add to this repository. 
 
