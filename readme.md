@@ -74,6 +74,7 @@ use unity's build system which will compile and build everything necessary for a
 | - | - |
 | Alfred Roos | roal23sv@student.ju.se or alfred@stensatter.se|
 | Stefan Strand | stst23no@student.ju.se or stefan.emilio.strand@gmail.com |
+
 | Leo Modin     | mole23jk@student.ju.se or leo.modin@hotmail.se|
 
 
