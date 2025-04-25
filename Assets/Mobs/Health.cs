@@ -10,7 +10,7 @@ public class Health : Resource
         {
             //Damage(10); //call damage method with 10 as argument
         }
-        if(Input.GetKeyDown(KeyCode.H)) //if space is pressed
+        if(Input.GetKeyDown(KeyCode.H))
         {
             //Heal(10); //call damage method with 10 as argument
         }
@@ -18,24 +18,24 @@ public class Health : Resource
 
     public void SetHealth(int maxHealth, int health)
     {
-        this.maxHealth = maxHealth; //set max health to max health
-        this.health = health; //set health to health
+        this.maxHealth = maxHealth;
+        this.health = health;
     }
     public void Heal(int amount)
     {
-        if (amount < 0) //if amount is less than 0
+        if (amount < 0)
         {
-            throw new System.ArgumentOutOfRangeException("amount", "Amount must be greater than or equal to 0"); //throw exception
+            throw new System.ArgumentOutOfRangeException("amount", "Amount must be greater than or equal to 0");
         }
 
-        bool wouldOverMaxHealth = health + amount > maxHealth; //check if health + amount is greater than max health
-        if (wouldOverMaxHealth) //if health + amount is greater than max health
+        bool wouldOverMaxHealth = health + amount > maxHealth;
+        if (wouldOverMaxHealth)
         {
-            this.health = maxHealth; //set health to max health
+            this.health = maxHealth;
         }
         else
         {
-            this.health += amount; //increase health by amount
+            this.health += amount;
         }
 
     }

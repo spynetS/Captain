@@ -13,14 +13,13 @@ public class Enemy : MonoBehaviour
     private EnemyData data;
 
     private GameObject playerObject;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
-        playerObject = GameObject.FindGameObjectWithTag("Player"); //find the player object by tag
+        playerObject = GameObject.FindGameObjectWithTag("Player");
         //this.SetEnemyValues(); //set the values of the enemy
     }
 
-    // Update is called once per frame
     void Update()
     {
         Swarm();
@@ -29,8 +28,8 @@ public class Enemy : MonoBehaviour
     private void SetEnemyValues()
     {
         GetComponent<Health>().SetHealth(data.hp, data.hp); //set health of the enemy to the value in the scriptable object
-        damage = data.damage; //set damage of the enemy to the value in the scriptable object
-        speed = data.speed; //set speed of the enemy to the value in the scriptable object
+        damage = data.damage; 
+        speed = data.speed;
     }
 
     private void Swarm()

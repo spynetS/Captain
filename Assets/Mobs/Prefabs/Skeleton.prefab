@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1701584443341091289, guid: 668cded59a41c21eab55adeb8bfd6465, type: 3}
+  m_Sprite: {fileID: -3145328045451892686, guid: 9b67e872bd14ea91494aa462cc370c45, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 208133698067078038}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: -6266567580899421610, guid: b6c8bf9cc9dc99cb4ac6c96f670b2d20, type: 3}
+  m_Controller: {fileID: -6266567580899421610, guid: 3fa3ad65e7d04bca28bd1d28fb668e3b, type: 3}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -124,14 +124,10 @@ GameObject:
   - component: {fileID: 4329511155067290272}
   - component: {fileID: 3119499938307508124}
   - component: {fileID: 1001851161092077502}
-<<<<<<< HEAD
-  - component: {fileID: 9209746946655727160}
-=======
   - component: {fileID: -6436890701874313473}
   - component: {fileID: -3898842468933212969}
->>>>>>> 91f5f0e4281e78ade84b4d907afdcc102da9103d
   m_Layer: 0
-  m_Name: GreenOrc
+  m_Name: Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -211,7 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0287adcf749457e4ebb133009e866208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 2
   speed: 1.5
   data: {fileID: 0}
 --- !u!114 &4329511155067290272
@@ -227,8 +223,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 3593116272157070361, guid: 35e991e1e2988b7a2855cfda061cf731, type: 3}
-  dropAmount: 2
-  health: 100
+  dropAmount: 3
+  health: 75
   hitAnimation: {fileID: 3119499938307508124}
   animator: {fileID: 3188651411791109451}
   health_text: {fileID: 0}
@@ -276,11 +272,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
-<<<<<<< HEAD
---- !u!114 &9209746946655727160
-=======
 --- !u!114 &-6436890701874313473
->>>>>>> 91f5f0e4281e78ade84b4d907afdcc102da9103d
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -292,8 +284,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc0f507af9b3aa94bbda2e490f963573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-=======
 --- !u!114 &-3898842468933212969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,4 +296,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c91e40b924c2954f8d9e46356ad049f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
->>>>>>> 91f5f0e4281e78ade84b4d907afdcc102da9103d
