@@ -5,20 +5,61 @@ using UnityEngine.TestTools;
 
 public class ResourceTests
 {
-    // A Test behaves as an ordinary method
-    [Test]
-    public void ResourceTestsSimplePasses()
+    private GameObject resourceObj;
+    private Resource resource;
+
+    [SetUp]
+    public void Setup()
     {
-        // Use the Assert class to test conditions
+        resourceObj = new GameObject("TestResource");
+        resource = resourceObj.AddComponent<Resource>();
+
+        // Set up default values
+        resource.health = 10f;
+        resource.dropAmount = 1;
+        resource.dropItems = new System.Collections.Generic.List<GameObject> { new GameObject("DropItem") };
+        resource.dropChanse = new System.Collections.Generic.List<float> { 1f }; // guaranteed drop
+
+        var rb = resource.dropItems[0].AddComponent<Rigidbody2D>();
+        resource.animator = resourceObj.AddComponent<Animator>();
+        resource.hitAnimation = resourceObj.AddComponent<Animation>();
     }
 
-    // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-    // `yield return null;` to skip a frame.
     [UnityTest]
-    public IEnumerator ResourceTestsWithEnumeratorPasses()
+    public IEnumerator TakeDamage_KillsResource_WhenHealthDepletes()
     {
-        // Use the Assert class to test conditions.
-        // Use yield to skip a frame.
-        yield return null;
+        // Act
+        resource.TakeDamage(10f);
+
+        // Wait a frame to allow destruction
+        yield return new WaitForSeconds(1.1f);
+
+        // Assert
+        Assert.IsTrue(resource == null || resource.Equals(null)); // Unity overloads == for destroyed objects
+    }
+
+    [UnityTest]
+    public IEnumerator DropItems_SpawnsOnDeath()
+    {
+        int initialCount = GameObject.FindObjectsOfType<Rigidbody2D>().Length;
+
+        resource.TakeDamage(100f);
+        yield return null; // Let frame pass
+
+        int afterCount = GameObject.FindObjectsOfType<Rigidbody2D>().Length;
+        Assert.Greater(afterCount, initialCount);
+    }
+
+    [TearDown]
+    public void Teardown()
+    {
+        if (resourceObj)
+            Object.DestroyImmediate(resourceObj);
+
+        foreach (var item in GameObject.FindObjectsOfType<GameObject>())
+        {
+            if (item.name.Contains("DropItem"))
+                Object.DestroyImmediate(item);
+        }
     }
 }
