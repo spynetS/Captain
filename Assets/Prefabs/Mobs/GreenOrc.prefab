@@ -125,7 +125,6 @@ GameObject:
   - component: {fileID: 3119499938307508124}
   - component: {fileID: 1001851161092077502}
   - component: {fileID: -6436890701874313473}
-  - component: {fileID: -3898842468933212969}
   m_Layer: 0
   m_Name: GreenOrc
   m_TagString: Untagged
@@ -204,7 +203,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3753708867781821852}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0287adcf749457e4ebb133009e866208, type: 3}
+  m_Script: {fileID: 11500000, guid: 23efe972f2c21d804a42891d89da966c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
@@ -219,11 +218,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 3753708867781821852}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 506abd375beeaf34c895f250cc3ded03, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b3f23616b3fb9a569a9a0ae30dca392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropItem: {fileID: 3593116272157070361, guid: 35e991e1e2988b7a2855cfda061cf731, type: 3}
-  dropAmount: 2
+  dropItems:
+  - {fileID: 3593116272157070361, guid: c870b35c20249a78f95866bae691d2ab, type: 3}
+  - {fileID: 2348523639259168720, guid: 6ec1969b4adadbfac94d5420ec3a4443, type: 3}
+  dropChanse:
+  - 0.6
+  - 0.4
+  dropAmount: 5
   health: 100
   hitAnimation: {fileID: 3119499938307508124}
   animator: {fileID: 3188651411791109451}
@@ -237,9 +241,10 @@ Animation:
   m_GameObject: {fileID: 3753708867781821852}
   m_Enabled: 1
   serializedVersion: 4
-  m_Animation: {fileID: 7400000, guid: 02681fc11cdd1c499859b9e86e8ac9dd, type: 2}
+  m_Animation: {fileID: 7400000, guid: 7d358d382aefedaab84a4ef9a83348df, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 02681fc11cdd1c499859b9e86e8ac9dd, type: 2}
+  - {fileID: 7400000, guid: 7d358d382aefedaab84a4ef9a83348df, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -281,18 +286,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 3753708867781821852}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc0f507af9b3aa94bbda2e490f963573, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-3898842468933212969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3753708867781821852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c91e40b924c2954f8d9e46356ad049f, type: 3}
+  m_Script: {fileID: 11500000, guid: 037a147aba387d0ef85f0cef6dfc4b18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
