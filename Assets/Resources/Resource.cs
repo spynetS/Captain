@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
-
+using System.Collections;
 
 public class Resource : MonoBehaviour
 {
@@ -11,6 +11,9 @@ public class Resource : MonoBehaviour
     public int dropAmount;
     public float health;
     public Animation hitAnimation;
+
+    public Animator animator;
+
 
     public TMP_Text health_text;
 
@@ -30,7 +33,6 @@ public class Resource : MonoBehaviour
 
     /** Drops the dropItem and destroyes it self */
     private void Die(){
-
         for(int i = 0; i < dropAmount; i++){
             for(int j = 0; j < dropItems.Count; j ++){
 
@@ -45,7 +47,9 @@ public class Resource : MonoBehaviour
 
             }
         }
-        Destroy(this.gameObject);
+        animator.SetBool("dead",true);
+        Destroy(this.gameObject,1);
     }
+
 
 }
