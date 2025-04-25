@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 4329511155067290272}
   - component: {fileID: 3119499938307508124}
   - component: {fileID: 1001851161092077502}
+  - component: {fileID: 9209746946655727160}
   m_Layer: 0
   m_Name: GreenOrc
   m_TagString: Untagged
@@ -270,3 +271,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &9209746946655727160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3753708867781821852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc0f507af9b3aa94bbda2e490f963573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
