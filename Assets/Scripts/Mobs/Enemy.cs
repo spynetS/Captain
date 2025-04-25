@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
     }
 
     private void Swarm()
-    {1
+    {
         if(playerObject)
             transform.position = Vector2.MoveTowards(transform.position, playerObject.transform.position, speed * Time.deltaTime); //move towards the player
     }
