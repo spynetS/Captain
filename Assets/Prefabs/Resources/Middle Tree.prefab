@@ -133,14 +133,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 4184516826273266970}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eaac2b5dc56e94928ba69e0bd35d3072, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b3f23616b3fb9a569a9a0ae30dca392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropItem: {fileID: 3593116272157070361, guid: 35e991e1e2988b7a2855cfda061cf731, type: 3}
-  dropAmount: 3
-  health: 100
+  dropItems:
+  - {fileID: 3593116272157070361, guid: c870b35c20249a78f95866bae691d2ab, type: 3}
+  dropChanse:
+  - 0.5
+  dropAmount: 10
+  health: 150
   hitAnimation: {fileID: 4242900603604152767}
-  health_text: {fileID: 859173076411928651}
+  animator: {fileID: 0}
+  health_text: {fileID: 0}
 --- !u!111 &4242900603604152767
 Animation:
   m_ObjectHideFlags: 0
@@ -150,9 +154,10 @@ Animation:
   m_GameObject: {fileID: 4184516826273266970}
   m_Enabled: 1
   serializedVersion: 4
-  m_Animation: {fileID: 7400000, guid: 02681fc11cdd1c499859b9e86e8ac9dd, type: 2}
+  m_Animation: {fileID: 7400000, guid: 7d358d382aefedaab84a4ef9a83348df, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 02681fc11cdd1c499859b9e86e8ac9dd, type: 2}
+  - {fileID: 7400000, guid: 7d358d382aefedaab84a4ef9a83348df, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0

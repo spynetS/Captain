@@ -44,12 +44,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2348523639259168720}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a89f34c86aac8f0978af9dffdae3437e, type: 3}
+  m_Script: {fileID: 11500000, guid: 17c1ba34e5de3e2a3805387cd34cbdef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextUpgrade: {fileID: 3593116272157070361, guid: 35e991e1e2988b7a2855cfda061cf731, type: 3}
+  nextUpgrade: {fileID: 0}
   cost: []
-  name: 
+  name: Stone
 --- !u!58 &8569606768400939538
 CircleCollider2D:
   m_ObjectHideFlags: 0

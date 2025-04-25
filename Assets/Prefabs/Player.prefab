@@ -115,9 +115,9 @@ GameObject:
   - component: {fileID: 5030340643802818958}
   - component: {fileID: 7780845254143709535}
   - component: {fileID: 1014503240444918471}
-  - component: {fileID: 4978728103267340480}
   - component: {fileID: 8345267620724748688}
   - component: {fileID: 7117267416804394633}
+  - component: {fileID: 1235707010279103618}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -152,12 +152,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 437164629685755293}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16545f4bd64a392418c2bfa4313a909a, type: 3}
+  m_Script: {fileID: 11500000, guid: ed7e350cd376dc841b357e098a0cf02b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
   hand: {fileID: 3459770824492737592}
-  inventory: {fileID: 4978728103267340480}
+  inventory: {fileID: 1014503240444918471}
 --- !u!114 &1014503240444918471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,23 +167,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 437164629685755293}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a824abf923a58b459c41bfd82e15996, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthText: {fileID: 0}
-  buffText: {fileID: 0}
-  health: {fileID: 0}
-  sprite: {fileID: 8642447702352719331}
---- !u!114 &4978728103267340480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 437164629685755293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe07ac763386a3945858ab6b75d67a25, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ecf19ad56ea5fef6bf8df1c30e0353a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slots:
@@ -273,8 +257,24 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.064686775, y: 1.6469741}
+  m_Offset: {x: 0, y: 0.93}
   m_Radius: 0.6386175
+--- !u!114 &1235707010279103618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437164629685755293}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02cad3de53acaeec28078346d66fef8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthText: {fileID: 0}
+  buffText: {fileID: 0}
+  health: {fileID: 0}
+  sprite: {fileID: 0}
 --- !u!1 &777870874230152789
 GameObject:
   m_ObjectHideFlags: 0

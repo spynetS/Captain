@@ -28,7 +28,8 @@ public class Resource : MonoBehaviour
         }
     }
     void Update(){
-        health_text.text = health.ToString();
+        if(health_text)
+            health_text.text = health.ToString();
     }
 
     /** Drops the dropItem and destroyes it self */
@@ -47,8 +48,13 @@ public class Resource : MonoBehaviour
 
             }
         }
-        animator.SetBool("dead",true);
-        Destroy(this.gameObject,1);
+        if(animator){
+            animator.SetBool("dead",true);
+            Destroy(this.gameObject,1);
+        }
+        else{
+            Destroy(this.gameObject);
+        }
     }
 
 

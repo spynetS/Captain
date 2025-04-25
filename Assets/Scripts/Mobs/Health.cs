@@ -1,56 +1,42 @@
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Health : MonoBehaviour
+public class Health : Resource
 {
-    public int maxHealth = 5;
-    public int currentHealth;
-    public Image healthBar;
-    public string deathMessage;
+    private int maxHealth = 100; //max health of the player
 
-    private float damageCooldown = 1f;
-    private float lastDamageTime = -999f;
-
-
-    void Start()
+    void Update()
     {
-        currentHealth = maxHealth;
-        UpdateBar();
-    }
-
-    public void TakeDamage(int damage)
-    {
-    if (Time.time - lastDamageTime < damageCooldown)
-        return;
-
-        lastDamageTime = Time.time;
-
-        currentHealth -= damage;
-        UpdateBar();
-
-    if (currentHealth <= 0)
+        if(Input.GetKeyDown(KeyCode.K)) //if space is pressed
         {
-        if (CompareTag("Player"))
-        {
-            GameObject.Find("GameManager").GetComponent<GameManager>().GameOver();
+            //Damage(10); //call damage method with 10 as argument
         }
-        else if (CompareTag("Enemy"))
+        if(Input.GetKeyDown(KeyCode.H))
         {
-            GameObject.Find("GameManager").GetComponent<GameManager>().Victory();
-        }
-
-        Destroy(gameObject);
+            //Heal(10); //call damage method with 10 as argument
         }
     }
 
-
-    void UpdateBar()
+    public void SetHealth(int maxHealth, int health)
     {
-        if (healthBar != null)
+        this.maxHealth = maxHealth;
+        this.health = health;
+    }
+    public void Heal(int amount)
+    {
+        if (amount < 0)
         {
-            float fill = (float)currentHealth / maxHealth;
-            healthBar.fillAmount = fill;
+            throw new System.ArgumentOutOfRangeException("amount", "Amount must be greater than or equal to 0");
         }
+
+        bool wouldOverMaxHealth = health + amount > maxHealth;
+        if (wouldOverMaxHealth)
+        {
+            this.health = maxHealth;
+        }
+        else
+        {
+            this.health += amount;
+        }
+
     }
 }
-

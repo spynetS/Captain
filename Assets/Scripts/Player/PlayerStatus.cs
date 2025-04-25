@@ -6,7 +6,7 @@ public class PlayerStatus : MonoBehaviour
 {
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI buffText;
-    public Health health;
+    public PlayerHealth health;
 
     private bool hasStrength;
     private bool hasSpeed;

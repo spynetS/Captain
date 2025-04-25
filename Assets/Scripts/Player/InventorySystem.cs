@@ -100,7 +100,7 @@ public class InventorySystem : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Item item = other.GetComponent<Item>();
-        if(item.transform.parent == this.hand) return;
+        if(!item || item.transform.parent == this.hand) return;
 
         if(item != null){
             int empty = GetEmptySlotIndex();
