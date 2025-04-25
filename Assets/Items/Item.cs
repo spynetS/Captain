@@ -14,7 +14,7 @@ public class Item : MonoBehaviour
 {
     public GameObject nextUpgrade;
     public List<GameObject> cost = new List<GameObject>();
-
+    public string name = "";
     /**
      * Method that starts uses an item. Abstract
      *  */

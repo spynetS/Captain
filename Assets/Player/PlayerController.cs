@@ -2,81 +2,43 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("Movement")]
-    [SerializeField] private float moveSpeed = 5f;
+    public float moveSpeed = 5f;
+    public Transform hand;
+    private float attackCooldown = 0.5f;
+    private float lastAttackTime = -999f;
 
-    private Vector2 movement;
-    private Rigidbody2D rb;
+    public InventorySystem inventory; // reference to the InventorySystem
 
-    [Header("Equipped Item")]
-    [SerializeField] private GameObject equippedItem; // Item assigned in Inspector or code
-
-    public GameObject EquippedItem => equippedItem; // Read-only access from other scripts (optional)
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
 
     void Update()
     {
-        HandleMovementInput();
-        HandleActionInput();
-    }
+        if (Time.timeScale == 0f) return;
 
-    void FixedUpdate()
-    {
         Move();
-    }
 
-    private void HandleMovementInput()
-    {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-    }
-
-    private void HandleActionInput()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            UseEquippedItem();
+        if(Input.GetKeyDown(KeyCode.Mouse0)){
+            inventory.UseSelectedItem();
+            Debug.Log("USE");
         }
-    }
 
-    private void Move()
-    {
-        rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
-
-        if (movement != Vector2.zero)
+        // Inventory controls
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
+//            GameObject item = Instantiate()
         }
+
+
+        if (Input.GetKeyDown(KeyCode.Q))
+            inventory.DropSelectedItem(); // calls inventory drop
     }
 
-    private void UseEquippedItem()
+    void Move()
     {
-        if (equippedItem != null)
-        {
-            Item usable = equippedItem.GetComponent<Item>();
-            if (usable != null)
-            {
-                usable.Use();
-            }
-            else
-            {
-                Debug.LogWarning("Equipped item has no IUsable component.");
-            }
-        }
-        else
-        {
-            Debug.Log("No item equipped.");
-        }
+        float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
+
+        Vector2 movement = new Vector2(x, y);//.normalized;
+        transform.Translate(movement * moveSpeed * Time.deltaTime);
     }
 
-    // Optional: Method to equip a new item via code
-    public void EquipItem(GameObject newItem)
-    {
-        equippedItem = newItem;
-    }
 }
