@@ -1,5 +1,5 @@
 name: Unity Testing
-'on':
+"on":
   - push
   - pull_request
 jobs:
@@ -14,15 +14,6 @@ jobs:
       - name: Run tests
         uses: game-ci/unity-test-runner@v4
         env:
-          UNITY_LICENSE: '${{ secrets.UNITY_LICENSE }}'
-          UNITY_EMAIL: '${{ secrets.UNITY_EMAIL }}'
-          UNITY_PASSWORD: '${{ secrets.UNITY_PASSWORD }}'
-      - name: Build project
-        uses: game-ci/unity-builder@v4
-        env:
-          UNITY_LICENSE: '${{ secrets.UNITY_LICENSE }}'
-          UNITY_EMAIL: '${{ secrets.UNITY_EMAIL }}'
-          UNITY_PASSWORD: '${{ secrets.UNITY_PASSWORD }}'
-        with:
-          allowDirtyBuild: true
-          targetPlatform: WebGL
+          UNITY_LICENSE: "${{ secrets.UNITY_LICENSE }}"
+          UNITY_EMAIL: "${{ secrets.UNITY_EMAIL }}"
+          UNITY_PASSWORD: "${{ secrets.UNITY_PASSWORD }}"
