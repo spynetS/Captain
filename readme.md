@@ -10,7 +10,6 @@ During the day the player can scavenge resources to upgrade their base.
 
 The player can mine stones, cut trees or scavenge loot creates to get resources. With the resources the play can craft other items, such as weapons or tools and armor. They can also upgrade the base with better walls, fence and such.
 
-
 ## Items
 
 1.  Weapons
