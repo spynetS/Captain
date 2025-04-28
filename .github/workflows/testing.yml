@@ -1,26 +1,36 @@
-name: Unity CI
+name: Unity Testing
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: [push, pull_request]
 
 jobs:
   build:
-    name: Build and Test
+    name: Build my project ✨
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v4
+      # Checkout
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
 
-    - name: Setup Unity
-      uses: game-ci/unity-actions/setup@v4.3.1
-      with:
-        unityVersion: 6000.1.0f1  # <-- Set your Unity version here
+      # Cache
+      - uses: actions/cache@v3
+        with:
+          path: Library
+          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: |
+            Library-
 
-    - name: Run Unity Tests
-      uses: game-ci/unity-test-runner@v4.3.1
-      with:
-        projectPath: .
-        testMode: all
+      # Test
+      - name: Run tests
+        uses: game-ci/unity-test-runner@v4
+
+      # Build
+      - name: Build project
+        uses: game-ci/unity-builder@v4
+
+      # Output
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Build
+          path: build
