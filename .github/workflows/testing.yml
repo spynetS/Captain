@@ -12,15 +12,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v4  # Always use the latest checkout action
 
     - name: Setup Unity
-      uses: game-ci/unity-actions/setup@v3
-      with:
-        unityVersion: 6000.0.43f1  # <-- Set your Unity version here
+      uses: game-ci/unity-actions/setup@v3.1.0  # Update this to the latest version
 
     - name: Run Unity Tests
-      uses: game-ci/unity-actions/test-runner@v4
+      uses: game-ci/unity-actions/test-runner@v3.1.0  # Update this to the latest version
       with:
         projectPath: .
         testMode: all
