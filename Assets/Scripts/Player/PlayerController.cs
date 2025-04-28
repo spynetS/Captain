@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Time.timeScale == 0f) return;
 
-        Move();
+        Move(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"));
 
         if(Input.GetKeyDown(KeyCode.Mouse0)){
             inventory.UseSelectedItem();
@@ -32,10 +32,8 @@ public class PlayerController : MonoBehaviour
             inventory.DropSelectedItem(); // calls inventory drop
     }
 
-    void Move()
+    public void Move(float x, float y)
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
 
         Vector2 movement = new Vector2(x, y);//.normalized;
         transform.Translate(movement * moveSpeed * Time.deltaTime);
