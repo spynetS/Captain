@@ -28,9 +28,3 @@ jobs:
       # Build
       - name: Build project
         uses: game-ci/unity-builder@v4
-
-      # Output
-      - uses: actions/upload-artifact@v3
-        with:
-          name: Build
-          path: build
