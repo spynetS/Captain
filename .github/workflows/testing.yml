@@ -1,0 +1,26 @@
+name: Unity Testing
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup Unity
+      uses: game-ci/unity-actions/setup@v3
+      with:
+        unityVersion: 6000.0.43f1  # <-- Set your Unity version here
+
+    - name: Run Unity Tests
+      uses: game-ci/unity-actions/test-runner@v3
+      with:
+        projectPath: .
+        testMode: all
