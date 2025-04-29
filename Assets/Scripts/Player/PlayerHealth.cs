@@ -3,14 +3,12 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 5;
+    public int maxHealth = 10;
     public int currentHealth;
-    public Image healthBar;
-    public string deathMessage;
+    public Image healthBarFill;
 
     private float damageCooldown = 1f;
     private float lastDamageTime = -999f;
-
 
     void Start()
     {
@@ -20,37 +18,53 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-    if (Time.time - lastDamageTime < damageCooldown)
-        return;
+        if (Time.time - lastDamageTime < damageCooldown)
+            return;
 
         lastDamageTime = Time.time;
 
         currentHealth -= damage;
         UpdateBar();
 
-    if (currentHealth <= 0)
+        if (currentHealth <= 0)
         {
-        if (CompareTag("Player"))
-        {
-            GameObject.Find("GameManager").GetComponent<GameManager>().GameOver();
-        }
-        else if (CompareTag("Enemy"))
-        {
-            GameObject.Find("GameManager").GetComponent<GameManager>().Victory();
-        }
+            if (CompareTag("Player"))
+            {
+                GameObject.Find("GameManager").GetComponent<GameManager>().GameOver();
+            }
+            else if (CompareTag("Enemy"))
+            {
+                GameObject.Find("GameManager").GetComponent<GameManager>().Victory();
+            }
 
-        Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
-
 
     void UpdateBar()
     {
-        if (healthBar != null)
+        if (healthBarFill != null)
         {
             float fill = (float)currentHealth / maxHealth;
-            healthBar.fillAmount = fill;
+            healthBarFill.fillAmount = fill;
+
+            // Blend from green to yellow to red
+            Color healthyColor = Color.green;
+            Color mediumColor = Color.yellow;
+            Color lowColor = Color.red;
+
+            if (fill > 0.5f)
+            {
+                // From Green to Yellow
+                float t = (fill - 0.5f) / 0.5f; // 1 at full, 0 at 50%
+                healthBarFill.color = Color.Lerp(mediumColor, healthyColor, t);
+            }
+            else
+            {
+                // From Yellow to Red
+                float t = fill / 0.5f; // 1 at 50%, 0 at 0%
+                healthBarFill.color = Color.Lerp(lowColor, mediumColor, t);
+            }
         }
     }
 }
-
