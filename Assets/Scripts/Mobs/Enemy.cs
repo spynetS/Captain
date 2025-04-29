@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     private float speed = 1.5f;
     [SerializeField]
     private EnemyData data;
+    public float stopDistance = 1.2f; // or whatever distance you want
 
     private GameObject playerObject;
 
@@ -34,8 +35,14 @@ public class Enemy : MonoBehaviour
 
     private void Swarm()
     {
-        if(playerObject)
-            transform.position = Vector2.MoveTowards(transform.position, playerObject.transform.position, speed * Time.deltaTime); //move towards the player
+        if (playerObject)
+        {
+            float distance = Vector2.Distance(transform.position, playerObject.transform.position);
+            if (distance > stopDistance) // stopDistance is the distance you want to keep
+            {
+                transform.position = Vector2.MoveTowards(transform.position, playerObject.transform.position, speed * Time.deltaTime);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)

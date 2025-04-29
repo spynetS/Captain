@@ -50,10 +50,10 @@ public class Resource : MonoBehaviour
         }
         if(animator){
             animator.SetBool("dead",true);
-            DestroyImmediate(this.gameObject);
+            Destroy(this.gameObject);
         }
         else{
-            DestroyImmediate(this.gameObject);
+            Destroy(this.gameObject);
         }
     }
 
