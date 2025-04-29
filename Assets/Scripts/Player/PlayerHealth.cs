@@ -16,6 +16,12 @@ public class PlayerHealth : MonoBehaviour
         UpdateBar();
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "enemy")
+            TakeDamage(10);
+    }
+
     public void TakeDamage(int damage)
     {
         if (Time.time - lastDamageTime < damageCooldown)
