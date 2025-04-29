@@ -13,6 +13,9 @@ public class Enemy : MonoBehaviour
     private EnemyData data;
     public float stopDistance = 1f; // or whatever distance you want
 
+    public float detectionRange = 5f; // distance at which the enemy detects the player
+
+
     private GameObject playerObject;
 
     private float timer = 0;
@@ -49,12 +52,15 @@ public class Enemy : MonoBehaviour
     }
 
 
-    private void Swarm()
+private void Swarm()
+{
+    if (playerObject)
     {
-        if (playerObject)
+        float distance = Vector2.Distance(transform.position, playerObject.transform.position);
+
+        if (distance <= detectionRange) // Only chase if within detection range
         {
-            float distance = Vector2.Distance(transform.position, playerObject.transform.position);
-            if (distance > stopDistance) // stopDistance is the distance you want to keep
+            if (distance > stopDistance) // stop moving if already close enough
             {
                 transform.position = Vector2.MoveTowards(transform.position, playerObject.transform.position, speed * Time.deltaTime);
             }
@@ -64,6 +70,7 @@ public class Enemy : MonoBehaviour
             }
         }
     }
+}
 
     private void OnTriggerEnter2D(Collider2D collider)
     {

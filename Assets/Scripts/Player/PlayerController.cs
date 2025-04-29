@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     public Transform hand;
     private float attackCooldown = 0.5f;
     private float lastAttackTime = -999f;
+    public Animator animator;
 
     public InventorySystem inventory; // reference to the InventorySystem
 
@@ -30,13 +31,25 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
             inventory.DropSelectedItem(); // calls inventory drop
+
     }
 
     public void Move(float x, float y)
     {
 
-        Vector2 movement = new Vector2(x, y);//.normalized;
+        Vector2 movement = new Vector2(x, y).normalized;
         transform.Translate(movement * moveSpeed * Time.deltaTime);
+
+        animator.SetFloat("MoveX", x);
+        animator.SetFloat("MoveY", y);
+        animator.SetBool("IsMoving", movement.magnitude > 0.01f);
+
+        if (x != 0)
+        {
+            Vector3 scale = transform.localScale;
+            scale.x = x > 0 ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
+            transform.localScale = scale;
+        }
     }
 
 }

@@ -9,27 +9,40 @@ public class InventorySystem : MonoBehaviour
 
     public Transform hand;// Currently selected slot
     public Sprite emptySlot;
+    public Sprite normalSlot;
     public Sprite selectedSlotSprite;
 
     public Collider2D collider;
 
     void Update()
     {
+        // Scroll input
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if (scroll > 0f)
+        {
+            selectedSlot = (selectedSlot - 1) % 10; // Scroll up
+        }
+        else if (scroll < 0f)
+        {
+            selectedSlot = (selectedSlot + 1 + 10) % 10; // Scroll down (wraps around)
+        }
+
         // Press number keys 1–0 to select slot 0–9
         for (int i = 0; i < 10; i++)
         {
-
-            if (Input.GetKeyDown(KeyCode.Alpha1 + (i % 10))){
+            if (Input.GetKeyDown(KeyCode.Alpha1 + (i % 10)))
+            {
                 selectedSlot = i;
             }
-            else{
-                Item item = items[i];
-                if(item != null){
-                    item.transform.gameObject.SetActive(selectedSlot == i ? true : false);
-                    slots[i].sprite = selectedSlot == i ? selectedSlotSprite : emptySlot;
-                }
+
+            Item item = items[i];
+            if (item != null)
+            {
+                item.transform.gameObject.SetActive(selectedSlot == i);
             }
+            slots[i].sprite = selectedSlot == i ? selectedSlotSprite : normalSlot;
         }
+
         UpdateUI();
     }
 
@@ -56,7 +69,11 @@ public class InventorySystem : MonoBehaviour
     public void UseSelectedItem(){
         Item item = items[selectedSlot];
         if(item != null){
+            Debug.Log("USING");
             item.Use();
+            if(item==null){
+                Debug.Log("DESTROYED");
+            }
         }
     }
 
