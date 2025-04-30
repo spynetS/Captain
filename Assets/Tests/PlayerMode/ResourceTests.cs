@@ -36,6 +36,7 @@ public class ResourceTests
 
         // Assert
         Assert.IsTrue(resource == null || resource.Equals(null)); // Unity overloads == for destroyed objects
+        yield return null; // after assertions
     }
 
     [UnityTest]
@@ -48,18 +49,30 @@ public class ResourceTests
 
         int afterCount = GameObject.FindObjectsOfType<Rigidbody2D>().Length;
         Assert.Greater(afterCount, initialCount);
+        yield return null; // after assertions
     }
 
     [TearDown]
     public void Teardown()
     {
         if (resourceObj)
-            Object.DestroyImmediate(resourceObj);
+        {
+            if (Application.isPlaying)
+                Object.Destroy(resourceObj);
+            else
+                Object.DestroyImmediate(resourceObj);
+        }
 
         foreach (var item in GameObject.FindObjectsOfType<GameObject>())
         {
             if (item.name.Contains("DropItem"))
-                Object.DestroyImmediate(item);
+            {
+                if (Application.isPlaying)
+                    Object.Destroy(item);
+                else
+                    Object.DestroyImmediate(item);
+            }
         }
     }
+
 }

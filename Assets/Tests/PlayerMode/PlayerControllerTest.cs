@@ -15,11 +15,12 @@ public class PlayerControllerTests
         playerObject = new GameObject("Player");
         playerController = playerObject.AddComponent<PlayerController>();
         inventory = playerObject.AddComponent<InventorySystem>();
+
         playerController.inventory = inventory;
         playerController.moveSpeed = 5f;
     }
 
-  [UnityTest]
+    [UnityTest]
     public IEnumerator TakeDamage_KillsResource_WhenHealthDepletes()
     {
                 // Arrange: Get the initial position
@@ -33,11 +34,15 @@ public class PlayerControllerTests
 
         // Assert: Check if the position has changed, which means movement happened
         Assert.AreNotEqual(initialPosition, playerController.transform.position, "Player should have moved.");
+        yield return null; // after assertions
     }
 
     [TearDown]
     public void Teardown()
     {
-        Object.DestroyImmediate(playerObject);
+        if(Application.isPlaying)
+            Object.Destroy(playerObject);
+        else
+            Object.DestroyImmediate(playerObject);
     }
 }

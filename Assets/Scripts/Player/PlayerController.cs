@@ -40,9 +40,11 @@ public class PlayerController : MonoBehaviour
         Vector2 movement = new Vector2(x, y).normalized;
         transform.Translate(movement * moveSpeed * Time.deltaTime);
 
-        animator.SetFloat("MoveX", x);
-        animator.SetFloat("MoveY", y);
-        animator.SetBool("IsMoving", movement.magnitude > 0.01f);
+        if(animator){
+            animator.SetFloat("MoveX", x);
+            animator.SetFloat("MoveY", y);
+            animator.SetBool("IsMoving", movement.magnitude > 0.01f);
+        }
 
         if (x != 0)
         {

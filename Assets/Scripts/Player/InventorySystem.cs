@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class InventorySystem : MonoBehaviour
 {
@@ -40,7 +41,8 @@ public class InventorySystem : MonoBehaviour
             {
                 item.transform.gameObject.SetActive(selectedSlot == i);
             }
-            slots[i].sprite = selectedSlot == i ? selectedSlotSprite : normalSlot;
+            if(selectedSlotSprite && normalSlot)
+                slots[i].sprite = selectedSlot == i ? selectedSlotSprite : normalSlot;
         }
 
         UpdateUI();
@@ -57,7 +59,7 @@ public class InventorySystem : MonoBehaviour
             GameObject dropped = item.gameObject;
             dropped.transform.SetParent(null);
             dropped.SetActive(true);
-            Vector2 randomDirection = Random.insideUnitCircle.normalized/2;
+            Vector2 randomDirection = UnityEngine.Random.insideUnitCircle.normalized/2;
             float force = 5f; // try something noticeable
             dropped.GetComponent<Rigidbody2D>().AddForce(randomDirection * force, ForceMode2D.Impulse);
 
@@ -97,10 +99,15 @@ public class InventorySystem : MonoBehaviour
             else
             {
                 // Set to empty slot sprite if item is null
-                Image childImage = slots[i].transform.GetChild(0).GetComponent<Image>();
-                if (childImage != null)
-                {
-                    childImage.sprite = emptySlot;
+                try{
+                    Image childImage = slots[i].transform.GetChild(0).GetComponent<Image>();
+                    if (childImage != null && emptySlot)
+                    {
+                        childImage.sprite = emptySlot;
+                    }
+                }
+                catch (Exception e){
+
                 }
             }
 
