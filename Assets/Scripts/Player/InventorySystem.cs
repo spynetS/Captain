@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using System.Collections.Generic;
+
 
 public class InventorySystem : MonoBehaviour
 {
     public Image[] slots = new Image[10];  // 10 UI text elements
-    public Item[] items = new Item[10];     // Inventory items
+    public Stack<Item>[] stacks = new Stack<Item>[10];
     private int selectedSlot = 0;
 
     public Transform hand;// Currently selected slot
@@ -14,6 +16,13 @@ public class InventorySystem : MonoBehaviour
     public Sprite selectedSlotSprite;
 
     public Collider2D collider;
+
+    void Start(){
+        for (int i = 0; i < stacks.Length; i++)
+        {
+            stacks[i] = new Stack<Item>();
+        }
+    }
 
     void Update()
     {
@@ -36,10 +45,11 @@ public class InventorySystem : MonoBehaviour
                 selectedSlot = i;
             }
 
-            Item item = items[i];
-            if (item != null)
+            if (stacks[i].Count > 0)
             {
-                item.transform.gameObject.SetActive(selectedSlot == i);
+                Item item = stacks[i].Peek();
+                if(item != null)
+                    item.transform.gameObject.SetActive(selectedSlot == i);
             }
             if(selectedSlotSprite && normalSlot)
                 slots[i].sprite = selectedSlot == i ? selectedSlotSprite : normalSlot;
@@ -51,9 +61,9 @@ public class InventorySystem : MonoBehaviour
 
     public void DropSelectedItem()
     {
-        if (null != (items[selectedSlot]))
+        if (stacks[selectedSlot].Count > 0)
         {
-            Item item = items[selectedSlot];
+            Item item = stacks[selectedSlot].Pop();
 
             // drop the item to the ground
             GameObject dropped = item.gameObject;
@@ -63,28 +73,35 @@ public class InventorySystem : MonoBehaviour
             float force = 5f; // try something noticeable
             dropped.GetComponent<Rigidbody2D>().AddForce(randomDirection * force, ForceMode2D.Impulse);
 
-            items[selectedSlot] = null;
             UpdateUI();
         }
     }
 
     public void UseSelectedItem(){
-        Item item = items[selectedSlot];
-        if(item != null){
-            Debug.Log("USING");
-            item.Use();
-            if(item==null){
-                Debug.Log("DESTROYED");
+        if(stacks[selectedSlot].Count > 0){
+            Item item = stacks[selectedSlot].Pop();
+            if(item != null){
+                Debug.Log("USING");
+                item.Use();
+
+                if (item == null || item.gameObject == null){
+                    Debug.Log("DESTROYED");
+                }
+                else{
+                    stacks[selectedSlot].Push(item);
+                }
             }
         }
+
     }
 
     void UpdateUI()
     {
         for (int i = 0; i < slots.Length; i++){
-            Item item = items[i];
-            if (item != null)
+            if (stacks[i].Count > 0)
             {
+                Item item = stacks[i].Peek();
+
                 // Get the sprite from the item's SpriteRenderer (or however you store it)
                 Sprite itemSprite = item.transform.GetComponentInChildren<SpriteRenderer>()?.sprite;
 
@@ -114,9 +131,10 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
-    private int GetEmptySlotIndex(){
+    private int GetEmptySlotIndex(Item item){
         for(int i = 0; i < 10; i ++){
-            if(items[i] == null) return i;
+            if(stacks[i].Count == 0) return i;
+            else if (stacks[i].Peek().name == item.name) return i;
         }
         return -1;
     }
@@ -127,10 +145,10 @@ public class InventorySystem : MonoBehaviour
         if(!item || item.transform.parent == this.hand) return;
 
         if(item != null){
-            int empty = GetEmptySlotIndex();
+            int empty = GetEmptySlotIndex(item);
             if(empty == -1) return;
 
-            items[empty] = item;
+            stacks[empty].Push(item);// = item;
             item.transform.SetParent(hand);
             item.transform.localPosition = Vector3.zero;
             //item.transform.position = Vector3.zero;
