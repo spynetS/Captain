@@ -1,5 +1,3 @@
-// enemy
-
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -13,11 +11,12 @@ public class Enemy : MonoBehaviour
     private EnemyData data;
 
     private GameObject playerObject;
+    private Rigidbody2D rb;
 
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         playerObject = GameObject.FindGameObjectWithTag("Player");
-        //this.SetEnemyValues(); //set the values of the enemy
     }
 
     void Update()
@@ -27,25 +26,28 @@ public class Enemy : MonoBehaviour
 
     private void SetEnemyValues()
     {
-        GetComponent<Health>().SetHealth(data.hp, data.hp); //set health of the enemy to the value in the scriptable object
-        damage = data.damage; 
+        GetComponent<Health>().SetHealth(data.hp, data.hp);
+        damage = data.damage;
         speed = data.speed;
     }
 
     private void Swarm()
     {
-        if(playerObject)
-            transform.position = Vector2.MoveTowards(transform.position, playerObject.transform.position, speed * Time.deltaTime); //move towards the player
+        if (playerObject)
+        {
+            Vector2 newPosition = Vector2.MoveTowards(rb.position, playerObject.transform.position, speed * Time.deltaTime);
+            rb.MovePosition(newPosition);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.GetComponent("Player"))
         {
-            if(collider.GetComponent<Health>() != null) //if collider has health component
+            if (collider.GetComponent<Health>() != null)
             {
-                collider.GetComponent<Health>().TakeDamage(damage); //damage the player
-                this.GetComponent<Health>().TakeDamage(10000); //damage the enemy
+                collider.GetComponent<Health>().TakeDamage(damage);
+                this.GetComponent<Health>().TakeDamage(10000);
             }
         }
     }
