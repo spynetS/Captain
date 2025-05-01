@@ -7,6 +7,9 @@ public class EnemyAI : MonoBehaviour
     private Transform player;
     private Coroutine damageCoroutine;
 
+    [HideInInspector] public bool isAttackingWall = false; // ADDED FOR TESTING, PLEASE WORK
+ 
+
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
@@ -14,7 +17,7 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
-        if (player != null)
+        if (player != null && !isAttackingWall) // ADDED FOR TESTING
         {
             Vector2 direction = (player.position - transform.position).normalized;
             transform.Translate(direction * speed * Time.deltaTime);

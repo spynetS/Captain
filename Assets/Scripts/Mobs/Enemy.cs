@@ -1,5 +1,3 @@
-// enemy
-
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -19,6 +17,7 @@ public class Enemy : MonoBehaviour
     private int defaultLayerMask = 1 << 0;
 
     private GameObject playerObject;
+    private Rigidbody2D rb;
 
     private float timer = 0;
     private float maxTimer = 10;
@@ -27,8 +26,8 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         playerObject = GameObject.FindGameObjectWithTag("Player");
-
     }
 
     void Update()
@@ -38,8 +37,8 @@ public class Enemy : MonoBehaviour
 
     private void SetEnemyValues()
     {
-        GetComponent<Health>().SetHealth(data.hp, data.hp); //set health of the enemy to the value in the scriptable object
-        damage = data.damage; 
+        GetComponent<Health>().SetHealth(data.hp, data.hp);
+        damage = data.damage;
         speed = data.speed;
     }
 
@@ -62,7 +61,6 @@ public class Enemy : MonoBehaviour
         if (playerObject)
         {
             float distance = Vector2.Distance(transform.position, playerObject.transform.position);
-
             // Flip enemy to face player
             Vector3 scale = transform.localScale;
             if (playerObject.transform.position.x < transform.position.x)
