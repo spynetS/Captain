@@ -15,8 +15,9 @@ public class ConsumableHealthItem : Item
 
         // if the health is lower then max then we consume
         if(health.currentHealth < health.maxHealth){
-            // i take negative damge here => gain in hp
-            health.TakeDamage(-healthGain);
+
+            health.currentHealth += healthGain;
+            health.UpdateBar();
             inventory.DestroyItem(this);
         }
     }

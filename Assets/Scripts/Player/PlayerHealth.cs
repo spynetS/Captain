@@ -47,7 +47,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    void UpdateBar()
+    public void UpdateBar()
     {
         if (healthBarFill != null)
         {

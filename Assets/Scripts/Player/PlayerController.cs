@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     private float attackCooldown = 0.5f;
     private float lastAttackTime = -999f;
     public Animator animator;
+    public GameObject swingEffect;
+
 
     public InventorySystem inventory; // reference to the InventorySystem
 
@@ -28,6 +30,16 @@ public class PlayerController : MonoBehaviour
 //            GameObject item = Instantiate()
         }
 
+        // Get mouse position in world space
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0f; // Ensure Z doesn't affect 2D
+
+        // Get direction from effect to mouse
+        Vector3 direction = mousePos - swingEffect.transform.position;
+
+        // Calculate angle and apply rotation
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        swingEffect.transform.rotation = Quaternion.Euler(0, 0, angle + 180f);
 
         if (Input.GetKeyDown(KeyCode.Q))
             inventory.DropSelectedItem(); // calls inventory drop

@@ -15,18 +15,19 @@ public class Enemy : MonoBehaviour
 
     public float detectionRange = 5f; // distance at which the enemy detects the player
 
+    public float hitRadius = 0.5f;
+    private int defaultLayerMask = 1 << 0;
 
     private GameObject playerObject;
 
     private float timer = 0;
     private float maxTimer = 10;
-    public Collider2D attackSpace;
+    public Animator swingAnimator;
+
 
     void Start()
     {
         playerObject = GameObject.FindGameObjectWithTag("Player");
-
-
 
     }
 
@@ -42,45 +43,55 @@ public class Enemy : MonoBehaviour
         speed = data.speed;
     }
 
-     public void FixedUpdate(){
-        if(timer >= maxTimer){
-            if(attackSpace.enabled) attackSpace.enabled = false;
-            timer = 0;
-        }
-        if(attackSpace.enabled) timer ++;
+    void DebugDrawCircle(Vector3 center, float radius, Color color, float duration = 0.5f, int segments = 16)
+    {
+        float angleStep = 360f / segments;
+        Vector3 prevPoint = center + new Vector3(Mathf.Cos(0), Mathf.Sin(0)) * radius;
 
+        for (int i = 1; i <= segments; i++)
+        {
+            float angle = i * angleStep * Mathf.Deg2Rad;
+            Vector3 nextPoint = center + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)) * radius;
+            Debug.DrawLine(prevPoint, nextPoint, color, duration);
+            prevPoint = nextPoint;
+        }
     }
 
-
-private void Swarm()
-{
-    if (playerObject)
+    private void Swarm()
     {
-        float distance = Vector2.Distance(transform.position, playerObject.transform.position);
-
-        if (distance <= detectionRange) // Only chase if within detection range
+        if (playerObject)
         {
-            if (distance > stopDistance) // stop moving if already close enough
-            {
-                transform.position = Vector2.MoveTowards(transform.position, playerObject.transform.position, speed * Time.deltaTime);
-            }
+            float distance = Vector2.Distance(transform.position, playerObject.transform.position);
+
+            // Flip enemy to face player
+            Vector3 scale = transform.localScale;
+            if (playerObject.transform.position.x < transform.position.x)
+                scale.x = -Mathf.Abs(scale.x); // face left
             else
-            {
-                attackSpace.enabled = true;
-            }
-        }
-    }
-}
+                scale.x = Mathf.Abs(scale.x); // face right
+            transform.localScale = scale;
 
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.GetComponent("Player"))
-        {
-            if(collider.GetComponent<Health>() != null) //if collider has health component
+            if (distance <= detectionRange)
             {
-                collider.GetComponent<Health>().TakeDamage(damage); //damage the player
-                this.GetComponent<Health>().TakeDamage(10000); //damage the enemy
+                if (distance > stopDistance)
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, playerObject.transform.position, speed * Time.deltaTime);
+                }
+                else
+                {
+                    Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, hitRadius, defaultLayerMask);
+                    DebugDrawCircle(transform.position, hitRadius, Color.red, 0.5f);
+                    foreach (Collider2D hit in hits)
+                    {
+                        PlayerHealth player = hit.GetComponent<PlayerHealth>();
+                        if (player != null)
+                            player.TakeDamage(damage);
+                    }
+                    swingAnimator.SetTrigger("attack");
+                }
             }
         }
     }
+
+
 }

@@ -10,7 +10,7 @@ public class Tool : Item, IGiveDamage
     private Coroutine swingCoroutine;
 
 
-    public float hitRadius = 0.5;
+    public float hitRadius = 0.5f;
     private int defaultLayerMask = 1 << 0;
 
     public float GiveDamage()
@@ -52,12 +52,13 @@ public class Tool : Item, IGiveDamage
 
 
         // Start swing animation
-        if (swingCoroutine != null)
-        {
-            StopCoroutine(swingCoroutine);
-        }
+        // if (swingCoroutine != null)
+        // {
+        //     StopCoroutine(swingCoroutine);
+        // }
 
-        swingCoroutine = StartCoroutine(SwingEffect());
+        //swingCoroutine = StartCoroutine(SwingEffect());
+        SwingEffect();
     }
 
     private void FlipTowardsMouse()
@@ -71,21 +72,12 @@ public class Tool : Item, IGiveDamage
     }
 
 
-    private IEnumerator SwingEffect()
+    private void SwingEffect()
     {
-        float duration = 0.2f;
-        float swingAngle = 30f;
-        float elapsed = 0f;
-
-        while (elapsed < duration)
-        {
-            elapsed += Time.deltaTime;
-            float angle = Mathf.Sin((elapsed / duration) * Mathf.PI) * swingAngle;
-            transform.localRotation = Quaternion.Euler(0f, 0f, angle);
-            yield return null;
-        }
-
-        transform.localRotation = Quaternion.identity;
+        // find player and swingAnimator and run attack on it
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        Animator animator = playerObject.GetComponent<PlayerController>().swingEffect.GetComponent<Animator>();
+        animator.SetTrigger("attack");
     }
 
 }

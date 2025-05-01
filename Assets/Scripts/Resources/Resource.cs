@@ -9,6 +9,7 @@ public class Resource : YSort
     public List<float>      dropChanse;// the chanse that the item (at the smae index) has to be droped
 
     public int dropAmount;
+    public float maxHealth;
     public float health;
     public Animation hitAnimation;
 
@@ -28,8 +29,15 @@ public class Resource : YSort
         }
     }
     void Update(){
-        if(health_text)
-            health_text.text = health.ToString();
+        if(health_text){
+            if(health < maxHealth){
+                health_text.text = health.ToString();
+            }
+            else{
+                health_text.text = "";
+            }
+        }
+
     }
 
     /** Drops the dropItem and destroyes it self */
