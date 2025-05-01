@@ -23,7 +23,8 @@ public class Resource : YSort
      *  */
     public void TakeDamage(float damage){
         this.health -= damage;
-        hitAnimation.Play();
+        if(hitAnimation != null)
+            hitAnimation.Play();
         if(this.health <= 0){
             this.Die();
         }
