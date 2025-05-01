@@ -24,23 +24,20 @@ public class PlayerController : MonoBehaviour
             Debug.Log("USE");
         }
 
-        // Inventory controls
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-//            GameObject item = Instantiate()
+        if(Camera.main){
+            // Get mouse position in world space
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos.z = 0f; // Ensure Z doesn't affect 2D
+
+            // Get direction from effect to mouse
+            Vector3 direction = mousePos - swingEffect.transform.position;
+
+            // Calculate angle and apply rotation
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            swingEffect.transform.rotation = Quaternion.Euler(0, 0, angle + 180f);
         }
 
-        // Get mouse position in world space
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0f; // Ensure Z doesn't affect 2D
-
-        // Get direction from effect to mouse
-        Vector3 direction = mousePos - swingEffect.transform.position;
-
-        // Calculate angle and apply rotation
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        swingEffect.transform.rotation = Quaternion.Euler(0, 0, angle + 180f);
-
+        
         if (Input.GetKeyDown(KeyCode.Q))
             inventory.DropSelectedItem(); // calls inventory drop
 

@@ -136,7 +136,9 @@ public class InventorySystem : MonoBehaviour
     {
         for (int i = 0; i < slots.Length; i++){
 
-            Text childText   = slots[i].GetComponentInChildren<Text>();
+            if(slots[i] == null) return;
+
+            Text childText = slots[i].GetComponentInChildren<Text>();
             if(childText != null){
                 childText.text = stacks[i].Count.ToString();
             }
