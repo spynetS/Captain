@@ -18,7 +18,7 @@ public class Item : MonoBehaviour
     /**
      * Method that starts uses an item. Abstract
      *  */
-    public virtual void Use()
+    public virtual void Use(InventorySystem inventory)
     {
 
     }

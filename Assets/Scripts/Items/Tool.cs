@@ -5,42 +5,51 @@ using System.Collections;
 public class Tool : Item, IGiveDamage
 {
     public float damage;
-    public Collider2D collider;
     private float timer = 0;
     private float maxTimer = 10;
     private Coroutine swingCoroutine;
 
 
+    public float hitRadius = 0.5;
+    private int defaultLayerMask = 1 << 0;
 
     public float GiveDamage()
     {
         return damage;
     }
 
-    public void FixedUpdate()
-    {
-        if (timer >= maxTimer)
-        {
-            if (collider.enabled) collider.enabled = false;
-            timer = 0;
-        }
-
-        if (collider.enabled) timer++;
-    }
-
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            Use();
-        }
         //RotateTowardsMouse();
         FlipTowardsMouse();
     }
 
-    public void Use()
+    void DebugDrawCircle(Vector3 center, float radius, Color color, float duration = 0.5f, int segments = 16)
     {
-        collider.enabled = true;
+        float angleStep = 360f / segments;
+        Vector3 prevPoint = center + new Vector3(Mathf.Cos(0), Mathf.Sin(0)) * radius;
+
+        for (int i = 1; i <= segments; i++)
+        {
+            float angle = i * angleStep * Mathf.Deg2Rad;
+            Vector3 nextPoint = center + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)) * radius;
+            Debug.DrawLine(prevPoint, nextPoint, color, duration);
+            prevPoint = nextPoint;
+        }
+    }
+
+
+    public override void Use(InventorySystem inventory)
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, hitRadius, defaultLayerMask);
+        DebugDrawCircle(transform.position, hitRadius, Color.red, 0.5f);
+        foreach (Collider2D hit in hits)
+        {
+            Resource res = hit.GetComponent<Resource>();
+            if (res != null)
+                res.TakeDamage(damage);
+        }
+
 
         // Start swing animation
         if (swingCoroutine != null)
@@ -79,14 +88,4 @@ public class Tool : Item, IGiveDamage
         transform.localRotation = Quaternion.identity;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-
-        Debug.Log("Trigger enter");
-        Resource giveDamage = other.GetComponent<Resource>();
-        if (giveDamage != null)
-        {
-            giveDamage.TakeDamage(GiveDamage());
-        }
-    }
 }

@@ -8,7 +8,7 @@ public class ConsumableHealthItem : Item
 {
     public int healthGain;
 
-    public override void Use()
+    public override void Use(InventorySystem inventory)
     {
         GameObject player = GameObject.FindWithTag("Player");
         PlayerHealth health = player.GetComponent<PlayerHealth>();
@@ -17,8 +17,7 @@ public class ConsumableHealthItem : Item
         if(health.currentHealth < health.maxHealth){
             // i take negative damge here => gain in hp
             health.TakeDamage(-healthGain);
-            Destroy(this.gameObject);
+            inventory.DestroyItem(this);
         }
-
     }
 }

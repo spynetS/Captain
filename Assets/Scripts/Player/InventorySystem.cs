@@ -45,14 +45,27 @@ public class InventorySystem : MonoBehaviour
                 selectedSlot = i;
             }
 
-            if (stacks[i].Count > 0)
+            for (int j = 0; j < stacks.Length; j++)
             {
-                Item item = stacks[i].Peek();
-                if(item != null)
-                    item.transform.gameObject.SetActive(selectedSlot == i);
+                foreach (Item item in stacks[j])
+                {
+                    if (item != null)
+                        item.transform.gameObject.SetActive(false); // Turn off all items
+                }
+
+                // Enable only the top item in the selected slot
+                if (j == selectedSlot && stacks[j].Count > 0)
+                {
+                    Item topItem = stacks[j].Peek();
+                    if (topItem != null)
+                        topItem.transform.gameObject.SetActive(true);
+                }
             }
+
+
             if(selectedSlotSprite && normalSlot)
                 slots[i].sprite = selectedSlot == i ? selectedSlotSprite : normalSlot;
+
         }
 
         UpdateUI();
@@ -77,27 +90,57 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
-    public void UseSelectedItem(){
-        if(stacks[selectedSlot].Count > 0){
-            Item item = stacks[selectedSlot].Pop();
-            if(item != null){
-                Debug.Log("USING");
-                item.Use();
+    public void DestroyItem(Item item)
+    {
+        // Remove item from stack
+        for (int i = 0; i < stacks.Length; i++)
+        {
+            if (stacks[i].Contains(item))
+            {
+                var tempStack = new Stack<Item>();
+                while (stacks[i].Count > 0)
+                {
+                    Item popped = stacks[i].Pop();
+                    if (popped != item)
+                    {
+                        tempStack.Push(popped);
+                    }
+                }
 
-                if (item == null || item.gameObject == null){
-                    Debug.Log("DESTROYED");
+                // Rebuild the stack without the item
+                while (tempStack.Count > 0)
+                {
+                    stacks[i].Push(tempStack.Pop());
                 }
-                else{
-                    stacks[selectedSlot].Push(item);
-                }
+
+                break;
             }
         }
 
+        Destroy(item.gameObject);
+    }
+
+
+    public void UseSelectedItem(){
+        if(stacks[selectedSlot].Count > 0){
+            Item item = stacks[selectedSlot].Peek();
+            if(item != null){
+                Debug.Log("USING");
+                item.Use(this);
+            }
+        }
+        UpdateUI();
     }
 
     void UpdateUI()
     {
         for (int i = 0; i < slots.Length; i++){
+
+            Text childText   = slots[i].GetComponentInChildren<Text>();
+            if(childText != null){
+                childText.text = stacks[i].Count.ToString();
+            }
+
             if (stacks[i].Count > 0)
             {
                 Item item = stacks[i].Peek();
@@ -107,7 +150,6 @@ public class InventorySystem : MonoBehaviour
 
                 // Find the child Image under the slot
                 Image childImage = slots[i].transform.GetChild(0).GetComponent<Image>();
-
                 if (childImage != null && itemSprite != null)
                 {
                     childImage.sprite = itemSprite;
