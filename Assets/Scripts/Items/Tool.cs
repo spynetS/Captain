@@ -1,50 +1,83 @@
 using UnityEngine;
+using System.Collections;
 
-/**
- * This is a item that the player can consume, either eating, drink
- * etc. When used it
- *  */
-public class Tool : Item , IGiveDamage
+
+public class Tool : Item, IGiveDamage
 {
     public float damage;
-    public Collider2D collider;
     private float timer = 0;
     private float maxTimer = 10;
+    private Coroutine swingCoroutine;
 
-    public void Start(){
-        this.collider.enabled = false;
-    }
 
-    public float GiveDamage(){
+    public float hitRadius = 0.5f;
+    private int defaultLayerMask = 1 << 0;
+
+    public float GiveDamage()
+    {
         return damage;
     }
 
-    public void FixedUpdate(){
-        if(timer >= maxTimer){
-            if(collider.enabled) collider.enabled = false;
-            timer = 0;
-        }
-        if(collider.enabled) timer ++;
-
-    }
-
-    public void Use(){
-        collider.enabled = true;
-    }
-
-    public void Update(){
-        if(Input.GetKeyDown(KeyCode.Mouse0)){
-            Use();
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
+    public void Update()
     {
-        Debug.Log("Trigger enter");
-        Resource giveDamage = other.GetComponent<Resource>();
-        if(giveDamage != null){
-            giveDamage.TakeDamage(GiveDamage());
+        //RotateTowardsMouse();
+        FlipTowardsMouse();
+    }
+
+    void DebugDrawCircle(Vector3 center, float radius, Color color, float duration = 0.5f, int segments = 16)
+    {
+        float angleStep = 360f / segments;
+        Vector3 prevPoint = center + new Vector3(Mathf.Cos(0), Mathf.Sin(0)) * radius;
+
+        for (int i = 1; i <= segments; i++)
+        {
+            float angle = i * angleStep * Mathf.Deg2Rad;
+            Vector3 nextPoint = center + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)) * radius;
+            Debug.DrawLine(prevPoint, nextPoint, color, duration);
+            prevPoint = nextPoint;
         }
+    }
+
+
+    public override void Use(InventorySystem inventory)
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, hitRadius, defaultLayerMask);
+        DebugDrawCircle(transform.position, hitRadius, Color.red, 0.5f);
+        foreach (Collider2D hit in hits)
+        {
+            Resource res = hit.GetComponent<Resource>();
+            if (res != null)
+                res.TakeDamage(damage);
+        }
+
+
+        // Start swing animation
+        // if (swingCoroutine != null)
+        // {
+        //     StopCoroutine(swingCoroutine);
+        // }
+
+        //swingCoroutine = StartCoroutine(SwingEffect());
+        SwingEffect();
+    }
+
+    private void FlipTowardsMouse()
+    {
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 direction = mouseWorldPos - transform.position;
+
+        Vector3 scale = transform.localScale;
+        scale.x = -Mathf.Abs(scale.x) * (direction.x >= 0 ? 1 : -1);
+        transform.localScale = scale;
+    }
+
+
+    private void SwingEffect()
+    {
+        // find player and swingAnimator and run attack on it
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        Animator animator = playerObject.GetComponent<PlayerController>().swingEffect.GetComponent<Animator>();
+        animator.SetTrigger("attack");
     }
 
 }

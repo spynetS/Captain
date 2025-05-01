@@ -10,7 +10,7 @@ using System.Collections.Generic;
  *
  * How to upgrade
  * *  */
-public class Item : MonoBehaviour
+public class Item : YSort
 {
     public GameObject nextUpgrade;
     public List<GameObject> cost = new List<GameObject>();
@@ -18,7 +18,7 @@ public class Item : MonoBehaviour
     /**
      * Method that starts uses an item. Abstract
      *  */
-    public virtual void Use()
+    public virtual void Use(InventorySystem inventory)
     {
 
     }
