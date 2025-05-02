@@ -259,7 +259,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SlashFX Combo3 sheet_0: 3679201514497855568
+      SlashFX Combo3 sheet_1: -669632192562743492
+      SlashFX Combo3 sheet_2: -8504501931282011906
+      SlashFX Combo3 sheet_3: -4952648635671445252
+      SlashFX Combo3 sheet_4: 5690443051400067676
+      SlashFX Combo3 sheet_5: -7867354919124456816
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

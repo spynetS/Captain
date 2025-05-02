@@ -8,7 +8,7 @@ public class InventorySystem : MonoBehaviour
 {
     public Image[] slots = new Image[10];  // 10 UI text elements
     public Stack<Item>[] stacks = new Stack<Item>[10];
-    private int selectedSlot = 0;
+    public int selectedSlot = 0;
 
     public Transform hand;// Currently selected slot
     public Sprite emptySlot;
@@ -88,6 +88,33 @@ public class InventorySystem : MonoBehaviour
 
             UpdateUI();
         }
+    }
+    /**
+     * This function will upgrade the item
+     * at the @index slot
+     * with the @cost gameobjects
+     *
+     * */
+    public void UpgradeItemAt(int index, List<Item> cost){
+        if(this.stacks[index].Count > 0){
+            Item item = this.stacks[index].Pop();
+            if(item.nextUpgrade){
+                GameObject newGO = item.Upgrade(item.getCost());
+                if(newGO != null){
+                    Item newItem = newGO.GetComponent<Item>();
+                    this.stacks[this.GetEmptySlotIndex(newItem)].Push(newItem);
+                }
+                else{
+                    this.stacks[index].Push(item);
+                }
+            }
+            else{
+                // if the item cant be upgraded we just add the item back
+                this.stacks[index].Push(item);
+            }
+
+        }
+
     }
 
     public void DestroyItem(Item item)

@@ -41,6 +41,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
             inventory.DropSelectedItem(); // calls inventory drop
 
+        if (Input.GetKeyDown(KeyCode.E)){
+            inventory.UpgradeItemAt(inventory.selectedSlot,null);
+        }
+
+
     }
 
     public void Move(float x, float y)

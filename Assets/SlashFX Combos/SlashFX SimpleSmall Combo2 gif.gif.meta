@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SlashFX SimpleSmall Combo2 gif_0: -4374019785411660835
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
