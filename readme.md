@@ -81,3 +81,14 @@ I, Alfred Roos, declare that I am the sole author of the content I add to this r
 I, Stefan Strand, declare that I am the sole author of the content I add to this repository.    
 I, Leo Modin, declare that I am the sole author of the content I add to this repository. 
 
+# How to run the unit tests
+The unit tests can be run trough the test runner in the unity editor. The test runner will show if the tests fail or succeeds. It will also describe any issues if the tests would 
+
+# Code coverage
+To generate code coverage one can start a new code coverage report in the unity editor. Then run the unit tests and then stop the report. This will generate an report at */CodeCoverage* folder.
+
+# Run a linter
+There is an built in linter for visual studio which will work if the unity packages are installed correctly. 
+
+
+
