@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
     private float maxTimer = 10;
     public Animator swingAnimator;
 
+    public int Damage => damage;
 
     void Start()
     {
@@ -35,6 +36,7 @@ public class Enemy : MonoBehaviour
         Swarm();
     }
 
+    // needed?
     private void SetEnemyValues()
     {
         GetComponent<Health>().SetHealth(data.hp, data.hp);
@@ -89,6 +91,12 @@ public class Enemy : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void IncreaseDmg(float amount)
+    {
+        damage += (int)amount;
+        Debug.Log($"Enemy damage increased to: {damage}");
     }
 
 

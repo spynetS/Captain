@@ -105,6 +105,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -209,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SlashFX SimpleSmall Combo1 sheet_0: 6809493419194432320
+      SlashFX SimpleSmall Combo1 sheet_1: 2920159451561828530
+      SlashFX SimpleSmall Combo1 sheet_2: 5155520625921772926
+      SlashFX SimpleSmall Combo1 sheet_3: 1677893486265665197
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
