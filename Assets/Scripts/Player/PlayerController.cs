@@ -44,12 +44,14 @@ public class PlayerController : MonoBehaviour
             inventory.DropSelectedItem(); // calls inventory drop
 
         if (Input.GetKeyDown(KeyCode.E)){
+            // create a list of the items in the inventory
             List<Item> cost = new List<Item>();
             foreach(Stack<Item> stack in inventory.stacks){
                 foreach(Item item in stack){
                     cost.Add(item);
                 }
             }
+            // upgrade the selected slot with the created list
             inventory.UpgradeItemAt(inventory.selectedSlot,cost);
         }
 

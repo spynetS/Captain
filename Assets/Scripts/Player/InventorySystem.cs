@@ -99,10 +99,12 @@ public class InventorySystem : MonoBehaviour
         if(this.stacks[index].Count > 0){
             Item item = this.stacks[index].Pop();
             if(item.nextUpgrade){
-                GameObject newGO = item.Upgrade(cost);
+                GameObject newGO = item.Upgrade(this,cost);
                 if(newGO != null){
+                    // push the upgraded item to the inventory
                     Item newItem = newGO.GetComponent<Item>();
                     this.stacks[this.GetEmptySlotIndex(newItem)].Push(newItem);
+
                 }
                 else{
                     this.stacks[index].Push(item);

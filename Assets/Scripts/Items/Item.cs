@@ -24,12 +24,6 @@ public class Item : YSort
 
     }
 
-    public void Update(){
-        if(Input.GetKeyDown(KeyCode.Escape)){
-            this.Upgrade(cost);
-        }
-    }
-
     private bool CheckCost(List<Item> cost) {
         List<Item> remainingOffers = new List<Item>(cost); // Clone to track used items
 
@@ -50,18 +44,30 @@ public class Item : YSort
         return true; // all required items matched
     }
 
+    private void DestroyCost(InventorySystem inventory, List<Item> cost) {
+        List<Item> remainingOffers = new List<Item>(cost); // Clone to track used items
+
+        foreach (Item requiredItem in this.cost) {
+            for (int i = 0; i < remainingOffers.Count; i++) {
+                if (remainingOffers[i] != null && remainingOffers[i].name == requiredItem.name) {
+                    inventory.DestroyItem(remainingOffers[i]);
+                    remainingOffers.RemoveAt(i);
+                    break;
+                }
+            }
+        }
+    }
+
 
     /**
      * Method to handle upgrading of items. If the
      * cost is the same as the cost then the item
      * gets repalced with the `nextUpgrade` item.
      *  */
-    public GameObject Upgrade(List<Item> cost){
+    public GameObject Upgrade(InventorySystem inventory, List<Item> cost){
         if(nextUpgrade){
             if(CheckCost(cost)){
-                foreach(Item v in cost){
-                    //Destroy(v);
-                }
+                this.DestroyCost(inventory,cost);
                 GameObject newGameObject = Instantiate(nextUpgrade, transform.position, transform.rotation, gameObject.transform.parent);
                 Destroy(gameObject);
                 return newGameObject;
