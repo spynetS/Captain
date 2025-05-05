@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8178856349434589477}
   - component: {fileID: 8569606768400939538}
   - component: {fileID: 7450163891393945976}
-  - component: {fileID: 6469506273755084772}
   m_Layer: 0
   m_Name: Carrot
   m_TagString: Untagged
@@ -98,22 +97,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &6469506273755084772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2348523639259168720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4da34fbaa37aebae8434055eab2c0f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextUpgrade: {fileID: 0}
-  cost: []
-  name: Carrot
-  healthGain: 10
 --- !u!1 &5271173688723728894
 GameObject:
   m_ObjectHideFlags: 0
