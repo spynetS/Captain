@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections.Generic;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -42,7 +44,13 @@ public class PlayerController : MonoBehaviour
             inventory.DropSelectedItem(); // calls inventory drop
 
         if (Input.GetKeyDown(KeyCode.E)){
-            inventory.UpgradeItemAt(inventory.selectedSlot,null);
+            List<Item> cost = new List<Item>();
+            foreach(Stack<Item> stack in inventory.stacks){
+                foreach(Item item in stack){
+                    cost.Add(item);
+                }
+            }
+            inventory.UpgradeItemAt(inventory.selectedSlot,cost);
         }
 
 

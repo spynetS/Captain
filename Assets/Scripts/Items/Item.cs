@@ -58,7 +58,7 @@ public class Item : YSort
      *  */
     public GameObject Upgrade(List<Item> cost){
         if(nextUpgrade){
-            if(CheckCost(this.cost)){
+            if(CheckCost(cost)){
                 foreach(Item v in cost){
                     //Destroy(v);
                 }

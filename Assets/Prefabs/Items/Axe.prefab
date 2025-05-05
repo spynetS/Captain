@@ -49,13 +49,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextUpgrade: {fileID: 648524801874651794, guid: ad0abee6b0c322706b988196a1097ba8, type: 3}
   cost:
-  - {fileID: 3593116272157070361, guid: c870b35c20249a78f95866bae691d2ab, type: 3}
-  - {fileID: 3593116272157070361, guid: c870b35c20249a78f95866bae691d2ab, type: 3}
-  - {fileID: 3593116272157070361, guid: c870b35c20249a78f95866bae691d2ab, type: 3}
-  - {fileID: 2348523639259168720, guid: 6ec1969b4adadbfac94d5420ec3a4443, type: 3}
-  - {fileID: 2348523639259168720, guid: 6ec1969b4adadbfac94d5420ec3a4443, type: 3}
+  - {fileID: 4998535566727422195, guid: c870b35c20249a78f95866bae691d2ab, type: 3}
+  - {fileID: 4998535566727422195, guid: c870b35c20249a78f95866bae691d2ab, type: 3}
+  - {fileID: 3277352953123495333, guid: 6ec1969b4adadbfac94d5420ec3a4443, type: 3}
+  - {fileID: 3277352953123495333, guid: 6ec1969b4adadbfac94d5420ec3a4443, type: 3}
+  - {fileID: 3277352953123495333, guid: 6ec1969b4adadbfac94d5420ec3a4443, type: 3}
   name: Axe
-  damage: 10
+  damage: 1
   hitRadius: 1
 --- !u!61 &-4854566625441222091
 BoxCollider2D:
