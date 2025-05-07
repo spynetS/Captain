@@ -272,6 +272,7 @@ MonoBehaviour:
   - {fileID: 7032700856529333299}
   - {fileID: 6020171743485153377}
   - {fileID: 3048569253458831525}
+  selectedSlot: 0
   hand: {fileID: 3459770824492737592}
   emptySlot: {fileID: 4796889811297207966, guid: 893042a8b0e24d1409602fc11952c5bb, type: 3}
   normalSlot: {fileID: 9164097274103974401, guid: e48909a7a711a8cf4a3d80a64a369474, type: 3}
@@ -352,10 +353,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02cad3de53acaeec28078346d66fef8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthText: {fileID: 0}
-  buffText: {fileID: 0}
-  health: {fileID: 0}
-  sprite: {fileID: 0}
 --- !u!114 &6389037447064789082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,7 +543,7 @@ GameObject:
   - component: {fileID: 3459770824492737592}
   m_Layer: 0
   m_Name: Hand
-  m_TagString: Untagged
+  m_TagString: hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -560,7 +557,7 @@ Transform:
   m_GameObject: {fileID: 869839792363621946}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.031, y: -0.057, z: 0}
+  m_LocalPosition: {x: -0.0252, y: -0.0512, z: 0}
   m_LocalScale: {x: -0.16666667, y: 0.16666667, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

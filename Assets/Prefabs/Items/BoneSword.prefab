@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 648524801874651794}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 16.00816, y: -5.52, z: 0.09636259}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -47,31 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3070885e1ff8cb85dafc265801908b5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextUpgrade: {fileID: 648524801874651794, guid: ad0abee6b0c322706b988196a1097ba8, type: 3}
-  cost:
-  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
-  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
-  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
-  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
-  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
-  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
-  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
-  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
-  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
-  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
-  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
-  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
-  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
-  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
-  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
-  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
-  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
-  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
-  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
-  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
-  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
+  nextUpgrade: {fileID: 0}
+  cost: []
   name: BoneSword
-  damage: 1
+  damage: 50
   hitRadius: 1
 --- !u!61 &-4854566625441222091
 BoxCollider2D:
@@ -172,7 +151,7 @@ Transform:
   m_GameObject: {fileID: 1300260876322508375}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.022306154}
+  m_LocalPosition: {x: 0.003, y: 0.223, z: 0.022306154}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children: []

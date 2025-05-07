@@ -63,8 +63,10 @@ public class InventorySystem : MonoBehaviour
             }
 
 
-            if(selectedSlotSprite && normalSlot)
+            if(selectedSlotSprite && normalSlot){
                 slots[i].sprite = selectedSlot == i ? selectedSlotSprite : normalSlot;
+            }
+
 
         }
 
@@ -180,6 +182,7 @@ public class InventorySystem : MonoBehaviour
                 if (childImage != null && itemSprite != null)
                 {
                     childImage.sprite = itemSprite;
+                    childImage.preserveAspect = true;
                 }
             }
             else

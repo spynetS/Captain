@@ -24,6 +24,15 @@ public class Item : YSort
 
     }
 
+    void LateUpdate(){
+        if(transform.parent != null && transform.parent.tag == "hand"){
+            this.UpdateOrder(transform.parent.GetComponentInParent<SpriteRenderer>().sortingOrder+1);
+        }
+        else{
+            this.UpdateOrder();
+        }
+    }
+
     private bool CheckCost(List<Item> required, List<Item> offers) {
         // Count required quantities
         var neededCounts = new Dictionary<string,int>();
