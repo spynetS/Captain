@@ -242,6 +242,7 @@ public class InventorySystem : MonoBehaviour
             stacks[empty].Push(item);// = item;
             item.transform.SetParent(hand);
             item.transform.localPosition = Vector3.zero;
+            item.transform.localRotation = Quaternion.identity;
             //item.transform.position = Vector3.zero;
         }
     }

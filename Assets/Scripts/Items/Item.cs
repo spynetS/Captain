@@ -26,7 +26,7 @@ public class Item : YSort
 
     void LateUpdate(){
         if(transform.parent != null && transform.parent.tag == "hand"){
-            this.UpdateOrder(transform.parent.GetComponentInParent<SpriteRenderer>().sortingOrder+1);
+            this.UpdateOrder(transform.parent.GetComponentInParent<SpriteRenderer>().sortingOrder-1);
         }
         else{
             this.UpdateOrder();

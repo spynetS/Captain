@@ -21,7 +21,7 @@ public class Tool : Item, IGiveDamage
     public void Update()
     {
         //RotateTowardsMouse();
-        FlipTowardsMouse();
+        //FlipTowardsMouse();
     }
 
     void DebugDrawCircle(Vector3 center, float radius, Color color, float duration = 0.5f, int segments = 16)
