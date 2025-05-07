@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
     private float maxTimer = 10;
     public Animator swingAnimator;
 
+    public int Damage => damage;
 
     void Start()
     {
@@ -35,6 +36,7 @@ public class Enemy : MonoBehaviour
         Swarm();
     }
 
+    // needed?
     private void SetEnemyValues()
     {
         GetComponent<Health>().SetHealth(data.hp, data.hp);
@@ -54,6 +56,20 @@ public class Enemy : MonoBehaviour
             Debug.DrawLine(prevPoint, nextPoint, color, duration);
             prevPoint = nextPoint;
         }
+    }
+
+
+    public void Attack(){
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, hitRadius, defaultLayerMask);
+        DebugDrawCircle(transform.position, hitRadius, Color.red, 0.5f);
+        foreach (Collider2D hit in hits)
+        {
+            if (hit.transform == this.transform) continue;
+            ITakeDamage player = hit.GetComponent<ITakeDamage>();
+            if (player != null)
+                player.TakeDamage(damage);
+        }
+        swingAnimator.SetTrigger("attack");
     }
 
     private void Swarm()
@@ -77,18 +93,16 @@ public class Enemy : MonoBehaviour
                 }
                 else
                 {
-                    Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, hitRadius, defaultLayerMask);
-                    DebugDrawCircle(transform.position, hitRadius, Color.red, 0.5f);
-                    foreach (Collider2D hit in hits)
-                    {
-                        PlayerHealth player = hit.GetComponent<PlayerHealth>();
-                        if (player != null)
-                            player.TakeDamage(damage);
-                    }
-                    swingAnimator.SetTrigger("attack");
+                    Attack();
                 }
             }
         }
+    }
+
+    public void IncreaseDmg(float amount)
+    {
+        damage += (int)amount;
+        Debug.Log($"Enemy damage increased to: {damage}");
     }
 
 
