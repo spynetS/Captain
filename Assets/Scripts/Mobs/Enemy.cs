@@ -58,6 +58,20 @@ public class Enemy : MonoBehaviour
         }
     }
 
+
+    public void Attack(){
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, hitRadius, defaultLayerMask);
+        DebugDrawCircle(transform.position, hitRadius, Color.red, 0.5f);
+        foreach (Collider2D hit in hits)
+        {
+            if (hit.transform == this.transform) continue;
+            ITakeDamage player = hit.GetComponent<ITakeDamage>();
+            if (player != null)
+                player.TakeDamage(damage);
+        }
+        swingAnimator.SetTrigger("attack");
+    }
+
     private void Swarm()
     {
         if (playerObject)
@@ -79,15 +93,7 @@ public class Enemy : MonoBehaviour
                 }
                 else
                 {
-                    Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, hitRadius, defaultLayerMask);
-                    DebugDrawCircle(transform.position, hitRadius, Color.red, 0.5f);
-                    foreach (Collider2D hit in hits)
-                    {
-                        PlayerHealth player = hit.GetComponent<PlayerHealth>();
-                        if (player != null)
-                            player.TakeDamage(damage);
-                    }
-                    swingAnimator.SetTrigger("attack");
+                    Attack();
                 }
             }
         }
