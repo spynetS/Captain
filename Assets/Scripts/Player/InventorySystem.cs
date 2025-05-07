@@ -224,7 +224,7 @@ public class InventorySystem : MonoBehaviour
 
     public Item PopItem(string name){
         foreach(Stack<Item> stack in stacks){
-            if(stack.Peek().name == name){
+            if(stack.Peek() != null && stack.Peek().name == name){
                 return stack.Pop();
             }
         }
@@ -233,7 +233,7 @@ public class InventorySystem : MonoBehaviour
 
      public int CountItems(string name){
         foreach(Stack<Item> stack in stacks){
-            if(stack.Peek().name == name){
+            if(stack.Peek() != null && stack.Peek().name == name){
                 return stack.Count;
             }
         }
@@ -242,11 +242,17 @@ public class InventorySystem : MonoBehaviour
 
 
     private int GetEmptySlotIndex(Item item){
+        // we loop through and if there is an empty we save it
+        // if there is a stack with the same item we return it directly
+        // else we return the empty we found
+        int empty = -1;
         for(int i = 0; i < 10; i ++){
-            if(stacks[i].Count == 0) return i;
-            else if (stacks[i].Peek().name == item.name) return i;
+            if(empty == -1 && stacks[i].Count == 0) empty = i;
+            if (stacks[i].Peek().name == item.name) return i;
         }
-        return -1;
+
+
+        return empty; // dangerus hehe
     }
 
     private void OnTriggerEnter2D(Collider2D other)
