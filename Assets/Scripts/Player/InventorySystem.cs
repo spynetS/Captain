@@ -222,6 +222,25 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
+    public Item PopItem(string name){
+        foreach(Stack<Item> stack in stacks){
+            if(stack.Peek().name == name){
+                return stack.Pop();
+            }
+        }
+        return null;
+    }
+
+     public int CountItems(string name){
+        foreach(Stack<Item> stack in stacks){
+            if(stack.Peek().name == name){
+                return stack.Count;
+            }
+        }
+        return 0;
+    }
+
+
     private int GetEmptySlotIndex(Item item){
         for(int i = 0; i < 10; i ++){
             if(stacks[i].Count == 0) return i;

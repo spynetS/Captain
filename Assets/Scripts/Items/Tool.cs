@@ -11,7 +11,8 @@ public class Tool : Item, IGiveDamage
 
 
     public float hitRadius = 0.5f;
-    private int defaultLayerMask = 1 << 0;
+    public LayerMask hitMask; // Set this in the Inspector (e.g. "Enemy" or "Resource")
+
 
     public float GiveDamage()
     {
@@ -41,7 +42,7 @@ public class Tool : Item, IGiveDamage
 
     public override void Use(InventorySystem inventory)
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, hitRadius, defaultLayerMask);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, hitRadius, hitMask);
         DebugDrawCircle(transform.position, hitRadius, Color.red, 0.5f);
         foreach (Collider2D hit in hits)
         {
@@ -49,15 +50,6 @@ public class Tool : Item, IGiveDamage
             if (res != null)
                 res.TakeDamage(damage);
         }
-
-
-        // Start swing animation
-        // if (swingCoroutine != null)
-        // {
-        //     StopCoroutine(swingCoroutine);
-        // }
-
-        //swingCoroutine = StartCoroutine(SwingEffect());
         SwingEffect();
     }
 
