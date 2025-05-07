@@ -73,20 +73,39 @@ public class InventorySystem : MonoBehaviour
         UpdateUI();
     }
 
-
     public void DropSelectedItem()
     {
         if (stacks[selectedSlot].Count > 0)
         {
             Item item = stacks[selectedSlot].Pop();
 
-            // drop the item to the ground
+            // Drop the item into the world
             GameObject dropped = item.gameObject;
             dropped.transform.SetParent(null);
             dropped.SetActive(true);
-            Vector2 randomDirection = UnityEngine.Random.insideUnitCircle.normalized/2;
-            float force = 5f; // try something noticeable
-            dropped.GetComponent<Rigidbody2D>().AddForce(randomDirection * force, ForceMode2D.Impulse);
+
+
+            // Set the drop position to the player's position
+            Vector3 playerPos = transform.position;
+
+            // Get mouse position in world space
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos.z = 0f;
+
+            // Calculate direction from player to mouse
+            Vector3 direction = (mousePos - playerPos).normalized;
+
+            dropped.transform.position = playerPos+direction;
+
+
+            // Apply force to "throw" the item
+            float force = 2f;
+            Rigidbody2D rb = dropped.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.linearVelocity = Vector2.zero; // Clear any existing velocity
+                rb.AddForce(direction * force, ForceMode2D.Impulse);
+            }
 
             UpdateUI();
         }
