@@ -648,12 +648,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItems:
-  - {fileID: 3593116272157070361, guid: c870b35c20249a78f95866bae691d2ab, type: 3}
-  - {fileID: 2348523639259168720, guid: 6ec1969b4adadbfac94d5420ec3a4443, type: 3}
+  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
+  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
+  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
+  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
+  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
   dropChanse:
-  - 0.7
-  - 0.3
-  dropAmount: 1
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
+  dropAmount: 5
   maxHealth: 75
   health: 75
   hitAnimation: {fileID: 3119499938307508124}

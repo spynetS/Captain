@@ -16,12 +16,31 @@ public class Item : YSort
     public GameObject nextUpgrade;
     public List<Item> cost = new List<Item>();
     public string name = "";
-    /**
-     * Method that starts uses an item. Abstract
-     *  */
-    public virtual void Use(InventorySystem inventory)
-    {
 
+    // New: Cooldown settings
+    [Header("Use Rate Settings")]
+    [Tooltip("How many times per second this item can be used")]
+    public float usesPerSecond = 1f;
+    public bool canHold = false;
+    private float lastUseTime = -Mathf.Infinity;
+
+    public virtual void Use(InventorySystem inventory){}
+
+    public void CallUse(InventorySystem inventory)
+    {
+        if (CanUse()) {
+            lastUseTime = Time.time;
+            this.Use(inventory);
+            // Actual use logic goes here
+            Debug.Log($"{name} used.");
+        } else {
+            Debug.Log($"{name} is on cooldown.");
+        }
+    }
+
+    private bool CanUse()
+    {
+        return Time.time >= lastUseTime + (1f / usesPerSecond);
     }
 
     void LateUpdate(){

@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
         Move(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"));
 
-        if(Input.GetKeyDown(KeyCode.Mouse0)){
+        if(Input.GetKey(KeyCode.Mouse0)){
             inventory.UseSelectedItem();
             Debug.Log("USE");
         }
