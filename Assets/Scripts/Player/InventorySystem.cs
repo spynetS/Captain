@@ -89,35 +89,6 @@ public class InventorySystem : MonoBehaviour
             UpdateUI();
         }
     }
-    /**
-     * This function will upgrade the item
-     * at the @index slot
-     * with the @cost gameobjects
-     *
-     * */
-    public void UpgradeItemAt(int index, List<Item> cost){
-        if(this.stacks[index].Count > 0){
-            Item item = this.stacks[index].Pop();
-            if(item.nextUpgrade){
-                GameObject newGO = item.Upgrade(this,cost);
-                if(newGO != null){
-                    // push the upgraded item to the inventory
-                    Item newItem = newGO.GetComponent<Item>();
-                    this.stacks[this.GetEmptySlotIndex(newItem)].Push(newItem);
-
-                }
-                else{
-                    this.stacks[index].Push(item);
-                }
-            }
-            else{
-                // if the item cant be upgraded we just add the item back
-                this.stacks[index].Push(item);
-            }
-
-        }
-
-    }
 
     public void DestroyItem(Item item)
     {
@@ -149,6 +120,31 @@ public class InventorySystem : MonoBehaviour
         Destroy(item.gameObject);
     }
 
+    /**
+     * This function will upgrade the item
+     * at the @index slot
+     * with the @cost gameobjects
+     *
+     * */
+    public void UpgradeItemAt(int index, List<Item> cost){
+        if(this.stacks[index].Count > 0){
+            Item item = this.stacks[index].Pop();
+            if(item.nextUpgrade){
+                GameObject newGO = item.Upgrade(this,cost);
+                if(newGO != null){
+                    // push the upgraded item to the inventory
+                    Item newItem = newGO.GetComponent<Item>();
+                    this.stacks[this.GetEmptySlotIndex(newItem)].Push(newItem);
+                }
+                else{
+                    this.stacks[index].Push(item);
+                }
+            }
+            else{
+                this.stacks[index].Push(item);
+            }
+        }
+}
 
     public void UseSelectedItem(){
         if(stacks[selectedSlot].Count > 0){
