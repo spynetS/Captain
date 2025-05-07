@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using System.Collections;
 
-public class Resource : YSort
+public class Resource : YSort, ITakeDamage
 {
     public List<GameObject> dropItems; // the items that can be droped
     public List<float>      dropChanse;// the chanse that the item (at the smae index) has to be droped
