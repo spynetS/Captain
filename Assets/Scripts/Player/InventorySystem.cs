@@ -248,7 +248,7 @@ public class InventorySystem : MonoBehaviour
         int empty = -1;
         for(int i = 0; i < 10; i ++){
             if(empty == -1 && stacks[i].Count == 0) empty = i;
-            if (stacks[i].Peek().name == item.name) return i;
+            if (stacks[i].Peek() != null && stacks[i].Peek().name == item.name) return i;
         }
 
 
