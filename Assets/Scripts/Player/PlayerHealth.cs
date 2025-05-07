@@ -32,19 +32,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= damage;
         UpdateBar();
 
-        if (currentHealth <= 0)
-        {
-            if (CompareTag("Player"))
-            {
-                GameObject.Find("GameManager").GetComponent<GameManager>().GameOver();
-            }
-            else if (CompareTag("Enemy"))
-            {
-                GameObject.Find("GameManager").GetComponent<GameManager>().Victory();
-            }
-
-            Destroy(gameObject);
-        }
+        ///if (currentHealth <= 0){if (CompareTag("Player")){GameObject.Find("GameManager").GetComponent<GameManager>().GameOver();}else if (CompareTag("Enemy")){GameObject.Find("GameManager").GetComponent<GameManager>().Victory();}Destroy(gameObject);}
     }
 
     public void UpdateBar()
