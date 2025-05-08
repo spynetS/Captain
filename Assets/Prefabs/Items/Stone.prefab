@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.49, y: -0.07533378, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6768207613139203059}
@@ -50,6 +50,8 @@ MonoBehaviour:
   nextUpgrade: {fileID: 0}
   cost: []
   name: Stone
+  usesPerSecond: 1
+  canHold: 0
 --- !u!58 &8569606768400939538
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -85,7 +87,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.7
+  m_Radius: 0.2
 --- !u!50 &7450163891393945976
 Rigidbody2D:
   serializedVersion: 5
@@ -141,7 +143,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8178856349434589477}

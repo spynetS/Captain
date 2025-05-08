@@ -16,33 +16,61 @@ public class Item : YSort
     public GameObject nextUpgrade;
     public List<Item> cost = new List<Item>();
     public string name = "";
-    /**
-     * Method that starts uses an item. Abstract
-     *  */
-    public virtual void Use(InventorySystem inventory)
-    {
 
+    // New: Cooldown settings
+    [Header("Use Rate Settings")]
+    [Tooltip("How many times per second this item can be used")]
+    public float usesPerSecond = 1f;
+    public bool canHold = false;
+    private float lastUseTime = -Mathf.Infinity;
+
+    public virtual void Use(InventorySystem inventory){}
+
+    public void CallUse(InventorySystem inventory)
+    {
+        if (CanUse()) {
+            lastUseTime = Time.time;
+            this.Use(inventory);
+        }
     }
 
-    private bool CheckCost(List<Item> cost) {
-        List<Item> remainingOffers = new List<Item>(cost); // Clone to track used items
+    private bool CanUse()
+    {
+        return Time.time >= lastUseTime + (1f / usesPerSecond);
+    }
 
-        foreach (Item requiredItem in this.cost) {
-            bool matched = false;
-            for (int i = 0; i < remainingOffers.Count; i++) {
-                if (remainingOffers[i] != null && remainingOffers[i].name == requiredItem.name) {
-                    remainingOffers.RemoveAt(i);
-                    matched = true;
-                    break;
-                }
-            }
-            if (!matched) {
-                return false; // requiredItem not found in offers
-            }
+    void LateUpdate(){
+        if(transform.parent != null && transform.parent.tag == "hand"){
+            this.UpdateOrder(transform.parent.GetComponentInParent<SpriteRenderer>().sortingOrder-1);
+        }
+        else{
+            this.UpdateOrder();
+        }
+    }
+
+    private bool CheckCost(List<Item> required, List<Item> offers) {
+        // Count required quantities
+        var neededCounts = new Dictionary<string,int>();
+        foreach (var need in required) {
+            if (!neededCounts.TryGetValue(need.name, out var cnt)) cnt = 0;
+            neededCounts[need.name] = cnt + 1;
         }
 
-        return true; // all required items matched
+        // Count offer quantities
+        var offerCounts = new Dictionary<string,int>();
+        foreach (var offer in offers) {
+            if (!offerCounts.TryGetValue(offer.name, out var cnt)) cnt = 0;
+            offerCounts[offer.name] = cnt + 1;
+        }
+
+        // Ensure every required count is met
+        foreach (var kv in neededCounts) {
+            if (!offerCounts.TryGetValue(kv.Key, out var have) || have < kv.Value)
+                return false;
+        }
+        return true;
     }
+
 
     private void DestroyCost(InventorySystem inventory, List<Item> cost) {
         List<Item> remainingOffers = new List<Item>(cost); // Clone to track used items
@@ -66,7 +94,7 @@ public class Item : YSort
      *  */
     public GameObject Upgrade(InventorySystem inventory, List<Item> cost){
         if(nextUpgrade){
-            if(CheckCost(cost)){
+            if(CheckCost(this.cost,cost)){
                 this.DestroyCost(inventory,cost);
                 GameObject newGameObject = Instantiate(nextUpgrade, transform.position, transform.rotation, gameObject.transform.parent);
                 Destroy(gameObject);

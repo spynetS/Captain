@@ -388,7 +388,6 @@ GameObject:
   - component: {fileID: 3119499938307508124}
   - component: {fileID: 1001851161092077502}
   - component: {fileID: -3898842468933212969}
-  - component: {fileID: -4369175079382880260}
   m_Layer: 0
   m_Name: GreenOrcWarrior
   m_TagString: enemy
@@ -450,7 +449,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.019930303, y: -0.019930482}
+  m_Offset: {x: -0.025749147, y: 0.18562758}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -460,7 +459,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.959643, y: 1.3053834}
+  m_Size: {x: 1.3479193, y: 1.7164996}
   m_EdgeRadius: 0
 --- !u!114 &8737560580518160210
 MonoBehaviour:
@@ -562,7 +561,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 037a147aba387d0ef85f0cef6dfc4b18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-
+  targetTag: Wall
+  attackDelay: 0
+  dmgPerHit: 0
 --- !u!1 &5901132103149862339
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,8 +640,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-
-  m_Size: {x: 2, y: 1.2}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &6779696462400454410
 GameObject:

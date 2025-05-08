@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
@@ -21,9 +20,8 @@ public class PlayerController : MonoBehaviour
 
         Move(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"));
 
-        if(Input.GetKeyDown(KeyCode.Mouse0)){
+        if(Input.GetKey(KeyCode.Mouse0)){
             inventory.UseSelectedItem();
-            Debug.Log("USE");
         }
 
         if(Camera.main){
@@ -39,10 +37,6 @@ public class PlayerController : MonoBehaviour
             swingEffect.transform.rotation = Quaternion.Euler(0, 0, angle + 180f);
         }
 
-        
-        if (Input.GetKeyDown(KeyCode.Q))
-            inventory.DropSelectedItem(); // calls inventory drop
-
         if (Input.GetKeyDown(KeyCode.E)){
             // create a list of the items in the inventory
             List<Item> cost = new List<Item>();
@@ -53,7 +47,10 @@ public class PlayerController : MonoBehaviour
             }
             // upgrade the selected slot with the created list
             inventory.UpgradeItemAt(inventory.selectedSlot,cost);
-        }
+        } //
+
+        if (Input.GetKeyDown(KeyCode.Q))
+            inventory.DropSelectedItem(); // calls inventory drop
 
 
     }

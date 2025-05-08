@@ -3,22 +3,19 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags:
-  - Wall
-  - enemy
-  - Egg
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - enemy
+  - 
   - Water
   - UI
   - 
   - 
   - 
   - 
-  - Fence
+  - 
   - 
   - 
   - 
