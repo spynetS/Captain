@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetKey(KeyCode.Mouse0)){
             inventory.UseSelectedItem();
-            Debug.Log("USE");
         }
 
         if(Camera.main){

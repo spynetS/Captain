@@ -155,6 +155,9 @@ public class InventorySystem : MonoBehaviour
                 if(newGO != null){
                     // push the upgraded item to the inventory
                     Item newItem = newGO.GetComponent<Item>();
+                    newItem.transform.localPosition = Vector3.zero;
+                    newItem.transform.localScale = new Vector3(1,1,1);
+                    newItem.transform.localRotation = Quaternion.identity;
                     this.stacks[this.GetEmptySlotIndex(newItem)].Push(newItem);
                 }
                 else{
@@ -171,7 +174,6 @@ public class InventorySystem : MonoBehaviour
         if(stacks[selectedSlot].Count > 0){
             Item item = stacks[selectedSlot].Peek();
             if(item != null){
-                Debug.Log("USING");
                 item.CallUse(this);
             }
         }
@@ -267,8 +269,10 @@ public class InventorySystem : MonoBehaviour
             stacks[empty].Push(item);// = item;
             item.transform.SetParent(hand);
             item.transform.localPosition = Vector3.zero;
+            //item.transform.localScale = new Vector3(1,1,1);
             item.transform.localRotation = Quaternion.identity;
             //item.transform.position = Vector3.zero;
+
         }
     }
 

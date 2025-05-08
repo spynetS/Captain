@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2069551278504144500}
@@ -50,6 +50,8 @@ MonoBehaviour:
   nextUpgrade: {fileID: 0}
   cost: []
   name: Wood
+  usesPerSecond: 1
+  canHold: 0
 --- !u!58 &3703229739666254413
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -85,7 +87,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.7
+  m_Radius: 0.1
 --- !u!50 &3305139229866848829
 Rigidbody2D:
   serializedVersion: 5
@@ -141,7 +143,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.063, y: -0.021, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7967374075030528656}

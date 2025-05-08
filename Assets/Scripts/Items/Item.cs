@@ -31,10 +31,6 @@ public class Item : YSort
         if (CanUse()) {
             lastUseTime = Time.time;
             this.Use(inventory);
-            // Actual use logic goes here
-            Debug.Log($"{name} used.");
-        } else {
-            Debug.Log($"{name} is on cooldown.");
         }
     }
 
