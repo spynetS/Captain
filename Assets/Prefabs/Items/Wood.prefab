@@ -52,6 +52,7 @@ MonoBehaviour:
   name: Wood
   usesPerSecond: 1
   canHold: 0
+  sprite: {fileID: 8210238055038910229, guid: 387fbe6cc526648eb9fb243ee6dab089, type: 3}
 --- !u!58 &3703229739666254413
 CircleCollider2D:
   m_ObjectHideFlags: 0

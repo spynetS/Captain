@@ -17,10 +17,8 @@ public class UpgradeMenu : MonoBehaviour
 
     void Update(){
         if(Input.GetKeyDown(KeyCode.G)){
-
             this.UpdateUi();
         }
-
     }
 
     void UpdateUi(){

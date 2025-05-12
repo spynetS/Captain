@@ -21,17 +21,20 @@ public class UpgradeListItem : MonoBehaviour
             nextItemImage.sprite = item.nextUpgrade.GetComponentInChildren<SpriteRenderer>().sprite;
             nextItemImage.preserveAspect = true;
         }
+        Dictionary<string, GameObject> addedItems = new Dictionary<string, GameObject>();
 
         foreach(Item cost in item.getCost()){
-            GameObject newCost = Instantiate(costPrefab, costList.transform);
 
-            // Optionally reset its local scale and position
-            newCost.transform.localScale = Vector3.one;
-            newCost.transform.localPosition = Vector3.zero;
+            if(!addedItems.ContainsKey(cost.name)){
+                GameObject newCost = Instantiate(costPrefab, costList.transform);
+                newCost.transform.localScale = Vector3.one;
+                newCost.GetComponent<Image>().sprite = cost.transform.GetComponentInChildren<SpriteRenderer>().sprite;
+                //addedItems.Put(cost.name,newCost);
+                addedItems[cost.name] = newCost;
+            }
 
-            costPrefab.GetComponent<SpriteRenderer>().sprite = newCost.GetComponentInChildren<SpriteRenderer>().sprite;
-
-
+            var text = addedItems[cost.name].GetComponentInChildren<Text>();
+            text.text = (int.Parse(text.text)+1).ToString();
         }
 
 
