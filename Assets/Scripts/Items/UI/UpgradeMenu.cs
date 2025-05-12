@@ -12,7 +12,6 @@ public class UpgradeMenu : MonoBehaviour
 
     void Start(){
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<InventorySystem>();
-
     }
 
     void Update(){

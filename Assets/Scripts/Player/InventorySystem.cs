@@ -24,6 +24,21 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
+    public int GetStackIndexByItemName(string targetName)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            if (this.stacks[i].Count > 0 && this.stacks[i].Peek().name == targetName)
+            {
+                return i;
+            }
+        }
+
+        // Not found
+        return -1;
+    }
+
+
     void Update()
     {
         // Scroll input
@@ -168,7 +183,7 @@ public class InventorySystem : MonoBehaviour
                 this.stacks[index].Push(item);
             }
         }
-}
+    }
 
     public void UseSelectedItem(){
         if(stacks[selectedSlot].Count > 0){

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class UpgradeListItem : MonoBehaviour
 {
-    Item item;
+    public Item item;
 
     public Image itemImage;
     public Image nextItemImage;
@@ -12,8 +12,16 @@ public class UpgradeListItem : MonoBehaviour
     public GameObject costPrefab;
     public GameObject costList;
 
+    public InventorySystem inventory;
+
+
+    void Start(){
+        inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<InventorySystem>();
+    }
+
     // this will update the ui for the prefab when called
     public void SetItem(Item item){
+        this.item = item;
         if(item.transform != null){
             itemImage.sprite = item.transform.GetComponentInChildren<SpriteRenderer>().sprite;
             itemImage.preserveAspect = true;
@@ -41,6 +49,9 @@ public class UpgradeListItem : MonoBehaviour
     }
     // this will upgrade the class item
     public void UpgradeItem(){
+        Debug.Log("Name is "+this.item.name);
+        inventory.UpgradeItemAt(inventory.GetStackIndexByItemName(this.item.name),inventory.GetAllItems());
+
 
     }
 
