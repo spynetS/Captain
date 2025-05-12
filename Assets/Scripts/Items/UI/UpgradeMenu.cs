@@ -17,21 +17,37 @@ public class UpgradeMenu : MonoBehaviour
 
     void Update(){
         if(Input.GetKeyDown(KeyCode.G)){
+            this.CheckUpgradable();
             this.UpdateUi();
         }
     }
 
+    void CheckUpgradable(){
+        itemsCanBeUpgraded.Clear();// clear before add
+        foreach(Stack<Item> stack in inventory.stacks){
+            if(stack.Count > 0 && stack.Peek().nextUpgrade != null){
+                if(stack.Peek().CheckCost(stack.Peek().getCost(),inventory.GetAllItems())){
+                    itemsCanBeUpgraded.Add(stack.Peek());
+                }
+            }
+        }
+    }
+
     void UpdateUi(){
+        // clear the elements before add
+        foreach (Transform child in upgradeHolder.transform) {
+            GameObject.Destroy(child.gameObject);
+        }
+
         foreach(Item item in this.itemsCanBeUpgraded){
-        GameObject newUpgrade = Instantiate(this.upgradePrefab, upgradeHolder);
+            GameObject newUpgrade = Instantiate(this.upgradePrefab, upgradeHolder);
+            // Optionally reset its local scale and position
+            newUpgrade.transform.localScale = Vector3.one;
+            newUpgrade.transform.localPosition = Vector3.zero;
 
-        // Optionally reset its local scale and position
-        newUpgrade.transform.localScale = Vector3.one;
-        newUpgrade.transform.localPosition = Vector3.zero;
+            UpgradeListItem uli = newUpgrade.GetComponent<UpgradeListItem>();
 
-        UpgradeListItem uli = newUpgrade.GetComponent<UpgradeListItem>();
-
-        uli.SetItem(item);
+            uli.SetItem(item);
 
         }
     }

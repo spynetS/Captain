@@ -180,6 +180,16 @@ public class InventorySystem : MonoBehaviour
         UpdateUI();
     }
 
+    public List<Item> GetAllItems(){
+        List<Item> cost = new List<Item>();
+        foreach(Stack<Item> stack in this.stacks){
+            foreach(Item item in stack){
+                cost.Add(item);
+            }
+        }
+        return cost;
+    }
+
     void UpdateUI()
     {
         for (int i = 0; i < slots.Length; i++){
