@@ -14,12 +14,20 @@ public class Resource : YSort, ITakeDamage
     public Animation hitAnimation;
 
     public Animator animator;
+<<<<<<< HEAD
 
     public TMP_Text health_text;
 
     public AudioSource audioSource;
     public AudioClip clip;
 
+=======
+    public AudioSource audioSource;
+    public AudioClip clip;
+
+    public TMP_Text health_text;
+
+>>>>>>> main
     void Start(){
         if(audioSource == null){
             audioSource = gameObject.AddComponent<AudioSource>();
@@ -37,13 +45,14 @@ public class Resource : YSort, ITakeDamage
         if(this.health <= 0){
             this.Die();
         }
+        audioSource.PlayOneShot(clip);
     }
     void Update(){
         if(health_text){
             if(health < maxHealth){
                 health_text.text = health.ToString();
             }
-            else{
+            else {
                 health_text.text = "";
             }
         }

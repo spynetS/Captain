@@ -12,7 +12,11 @@ GameObject:
   - component: {fileID: -7219519989142447704}
   - component: {fileID: -4854566625441222091}
   - component: {fileID: -4972339452525123682}
+<<<<<<< HEAD
   - component: {fileID: -5594299833411158918}
+=======
+  - component: {fileID: 5509939330425041259}
+>>>>>>> main
   m_Layer: 0
   m_Name: MachineGun
   m_TagString: Untagged
@@ -53,8 +57,13 @@ MonoBehaviour:
   cost: []
   name: Machinegun
   usesPerSecond: 10
+<<<<<<< HEAD
   canHold: 1
   audioSource: {fileID: 2950978078072084577, guid: 849414a6e4bd88658a650fcc4d1e959f, type: 3}
+=======
+  canHold: 0
+  audioSource: {fileID: 5509939330425041259}
+>>>>>>> main
   clip: {fileID: 8300000, guid: 0f50084c36409bdff92bc3c84e94b98c, type: 3}
   maxDistance: 50
   hitMask:
@@ -137,7 +146,11 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+<<<<<<< HEAD
 --- !u!82 &-5594299833411158918
+=======
+--- !u!82 &5509939330425041259
+>>>>>>> main
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

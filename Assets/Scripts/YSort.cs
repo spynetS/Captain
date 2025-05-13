@@ -8,8 +8,19 @@ public class YSort : MonoBehaviour
         // Get all SpriteRenderers in this object and its children
         spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
     }
+    private bool visible = false;
+
+    void OnBecameVisible(){
+        this.visible = true;
+    }
+
+    void OnBecameInvisible(){
+        this.visible = false;
+    }
 
     protected void UpdateOrder(float order=-1){
+        if(!this.visible) return;
+
         foreach (var sr in this.spriteRenderers){
             if (sr != null){
                 if (sr.transform.parent != null &&
