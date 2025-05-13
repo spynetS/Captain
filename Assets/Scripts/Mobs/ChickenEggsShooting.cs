@@ -11,6 +11,18 @@ public class Shoot : MonoBehaviour
 
     private float shootTimer;
 
+
+    void Start()
+    {
+        if (player == null)
+        {
+            GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+            if (playerObject != null)
+            {
+                player = playerObject.transform;
+            }
+        }
+    }
     void Update()
     {
         shootTimer -= Time.deltaTime; // counter
