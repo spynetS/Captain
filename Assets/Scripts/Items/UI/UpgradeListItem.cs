@@ -13,15 +13,16 @@ public class UpgradeListItem : MonoBehaviour
     public GameObject costList;
 
     public InventorySystem inventory;
-
+    private UpgradeMenu menu;
 
     void Start(){
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<InventorySystem>();
     }
 
     // this will update the ui for the prefab when called
-    public void SetItem(Item item){
+    public void SetItem(Item item, UpgradeMenu menu){
         this.item = item;
+        this.menu = menu;
         if(item.transform != null){
             itemImage.sprite = item.transform.GetComponentInChildren<SpriteRenderer>().sprite;
             itemImage.preserveAspect = true;
@@ -49,10 +50,8 @@ public class UpgradeListItem : MonoBehaviour
     }
     // this will upgrade the class item
     public void UpgradeItem(){
-        Debug.Log("Name is "+this.item.name);
         inventory.UpgradeItemAt(inventory.GetStackIndexByItemName(this.item.name),inventory.GetAllItems());
-
-
+        menu.UpdateMenu();
     }
 
 

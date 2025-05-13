@@ -16,9 +16,13 @@ public class UpgradeMenu : MonoBehaviour
 
     void Update(){
         if(Input.GetKeyDown(KeyCode.G)){
-            this.CheckUpgradable();
-            this.UpdateUi();
+            this.UpdateMenu();
         }
+    }
+
+    public void UpdateMenu(){
+        this.CheckUpgradable();
+        this.UpdateUi();
     }
 
     void CheckUpgradable(){
@@ -32,7 +36,7 @@ public class UpgradeMenu : MonoBehaviour
         }
     }
 
-    void UpdateUi(){
+    private void UpdateUi(){
         // clear the elements before add
         foreach (Transform child in upgradeHolder.transform) {
             GameObject.Destroy(child.gameObject);
@@ -46,7 +50,7 @@ public class UpgradeMenu : MonoBehaviour
 
             UpgradeListItem uli = newUpgrade.GetComponent<UpgradeListItem>();
 
-            uli.SetItem(item);
+            uli.SetItem(item,this);
 
         }
     }
