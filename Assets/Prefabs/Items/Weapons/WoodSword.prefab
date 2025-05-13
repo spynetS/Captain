@@ -57,7 +57,7 @@ MonoBehaviour:
   hitRadius: 1
   hitMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
 --- !u!61 &-4854566625441222091
 BoxCollider2D:
   m_ObjectHideFlags: 0
