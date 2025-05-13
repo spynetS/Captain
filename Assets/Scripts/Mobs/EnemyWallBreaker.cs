@@ -37,6 +37,7 @@ public class EnemyWallBreaker : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        
         if (other.CompareTag(targetTag))
         {
             Resource res = other.GetComponent<Resource>();
@@ -76,34 +77,38 @@ public class EnemyWallBreaker : MonoBehaviour
 
         if (rb != null)
         {
-            rb.linearVelocity = Vector2.zero; // rb.linearVelocity = Vector2.zero; // Stop the enemy's movement
+            rb.velocity = Vector2.zero;
         }
-
         if (enemyAI != null)
         {
-            enemyAI.isAttackingWall = true; // ADDED FOR TESTING
+            enemyAI.isAttackingWall = true;
         }
 
         while (targetWall != null)
         {
             if (me != null)
+            {
                 me.Attack();
-            
-            if(targetWall.health <= 0)
+            }
+            // Call TakeDamage on the wall
+            targetWall.TakeDamage(dmgPerHit);
+
+            // Stop if wall was destroyed
+            if (targetWall.health <= 0)
             {
                 targetWall = null;
                 break;
             }
-            yield return new WaitForSeconds(attackDelay); // Wait for the attack delay before next hit
+
+            yield return new WaitForSeconds(attackDelay);
         }
 
         if (enemyAI != null)
         {
-            enemyAI.isAttackingWall = false; // ADDED FOR TESTING
+            enemyAI.isAttackingWall = false;
         }
-
-        
-        attackCoroutine = null; // Reset the coroutine reference
+        attackCoroutine = null;
         isAttacking = false;
     }
+
 }
