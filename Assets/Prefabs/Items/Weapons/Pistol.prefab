@@ -58,10 +58,12 @@ MonoBehaviour:
   name: Pistol
   usesPerSecond: 2
   canHold: 0
+  audioSource: {fileID: 0}
+  clip: {fileID: 8300000, guid: 0f50084c36409bdff92bc3c84e94b98c, type: 3}
   maxDistance: 100
   hitMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   firePoint: {fileID: 8568689336033835779}
   muzzleFlash: {fileID: 6465792300272675, guid: 92778315d10a16fa9a176f60a5a61e34, type: 3}
   damage: 10

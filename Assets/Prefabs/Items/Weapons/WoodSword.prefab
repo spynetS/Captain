@@ -53,11 +53,13 @@ MonoBehaviour:
   name: WoodSword
   usesPerSecond: 1
   canHold: 0
+  audioSource: {fileID: 0}
+  clip: {fileID: 8300000, guid: 28a70fc036dff593d9a1c90534daa524, type: 3}
   damage: 10
   hitRadius: 1
   hitMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
 --- !u!61 &-4854566625441222091
 BoxCollider2D:
   m_ObjectHideFlags: 0
