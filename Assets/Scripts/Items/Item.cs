@@ -26,11 +26,22 @@ public class Item : YSort
 
     public virtual void Use(InventorySystem inventory){}
 
+    public AudioSource audioSource;
+    public AudioClip clip;
+
+    void Start(){
+        if(audioSource == null){
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+    }
+
+
     public void CallUse(InventorySystem inventory)
     {
         if (CanUse()) {
             lastUseTime = Time.time;
             this.Use(inventory);
+            audioSource.PlayOneShot(clip);
         }
     }
 
