@@ -48,7 +48,7 @@ public class Item : YSort
         }
     }
 
-    private bool CheckCost(List<Item> required, List<Item> offers) {
+    public bool CheckCost(List<Item> required, List<Item> offers) {
         // Count required quantities
         var neededCounts = new Dictionary<string,int>();
         foreach (var need in required) {

@@ -57,10 +57,11 @@ MonoBehaviour:
   - {fileID: 3277352953123495333, guid: 6ec1969b4adadbfac94d5420ec3a4443, type: 3}
   name: Pistol
   usesPerSecond: 2
+  canHold: 0
   maxDistance: 100
   hitMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   firePoint: {fileID: 8568689336033835779}
   muzzleFlash: {fileID: 6465792300272675, guid: 92778315d10a16fa9a176f60a5a61e34, type: 3}
   damage: 10
