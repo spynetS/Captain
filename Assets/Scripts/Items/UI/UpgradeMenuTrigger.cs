@@ -4,15 +4,27 @@ public class UpgradeMenuTrigger : MonoBehaviour
 {
 	public UpgradeMenu upgradeMenu;
 
-	void OnTriggerEnter2D(Collider2D other){
-		if(upgradeMenu){
-			upgradeMenu.ToggleMenu();
-		}
+	private Transform player;
+
+	void Start(){
+		player = GameObject.FindGameObjectWithTag("Player").transform;
 	}
 
-	void OnTriggerExit2D(Collider2D other){
-		if(upgradeMenu){
-			upgradeMenu.ToggleMenu();
-		}
+	void Update(){
+		float distance = Vector2.Distance(transform.position, player.position);
+		upgradeMenu.ToggleMenu(distance < 2);
+
 	}
+
+//	void OnTriggerEnter2D(Collider2D other){
+//		if(upgradeMenu && other.CompareTag("Player")){
+//			upgradeMenu.ToggleMenu(true);
+//		}
+//	}
+//
+//	void OnTriggerExit2D(Collider2D other){
+//		if(upgradeMenu && other.CompareTag("Player")){
+//			upgradeMenu.ToggleMenu(false);
+//		}
+//	}
 }

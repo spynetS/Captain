@@ -9,10 +9,17 @@ public class UpgradeMenu : MonoBehaviour
 
     public Transform upgradeHolder;
     public GameObject upgradePrefab;
+    private CanvasGroup canvasGroup;
 
-
-    void Start(){
+    void Start()
+    {
+        canvasGroup = GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+        {
+            canvasGroup = gameObject.AddComponent<CanvasGroup>();
+        }
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<InventorySystem>();
+
     }
 
     void Update(){
@@ -20,11 +27,19 @@ public class UpgradeMenu : MonoBehaviour
             this.UpdateMenu();
         }
     }
+    private bool show = true;
+    public void ToggleMenu(bool show){
+        if(this.show != show){
+            transform.localScale = show ? Vector3.one : Vector3.zero;
+            canvasGroup.interactable = show;
+            canvasGroup.blocksRaycasts = show;
+            canvasGroup.alpha = show ? 1f : 0f;
+            if (show){
+                UpdateMenu();
+            }
+            this.show = show;
+        }
 
-    public void ToggleMenu(){
-        inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<InventorySystem>();
-        this.gameObject.SetActive(!this.gameObject.activeSelf);
-        this.UpdateMenu();
     }
 
     
