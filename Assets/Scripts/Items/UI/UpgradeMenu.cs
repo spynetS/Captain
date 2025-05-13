@@ -10,6 +10,7 @@ public class UpgradeMenu : MonoBehaviour
     public Transform upgradeHolder;
     public GameObject upgradePrefab;
 
+
     void Start(){
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<InventorySystem>();
     }
@@ -20,6 +21,12 @@ public class UpgradeMenu : MonoBehaviour
         }
     }
 
+    public void ToggleMenu(){
+        this.gameObject.SetActive(!this.gameObject.activeSelf);
+        this.UpdateMenu();
+    }
+
+    
     public void UpdateMenu(){
         this.CheckUpgradable();
         this.UpdateUi();
