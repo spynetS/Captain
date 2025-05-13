@@ -15,8 +15,16 @@ public class Resource : YSort, ITakeDamage
 
     public Animator animator;
 
-
     public TMP_Text health_text;
+
+    public AudioSource audioSource;
+    public AudioClip clip;
+
+    void Start(){
+        if(audioSource == null){
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+    }
 
     /**
      *  Method to give damage to the Resource untill it dies and drop the drop items
@@ -28,6 +36,7 @@ public class Resource : YSort, ITakeDamage
         if(this.health <= 0){
             this.Die();
         }
+        audioSource.PlayOneShot(clip);
     }
     void Update(){
         if(health_text){

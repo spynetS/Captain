@@ -665,6 +665,8 @@ MonoBehaviour:
   hitAnimation: {fileID: 3119499938307508124}
   animator: {fileID: 3188651411791109451}
   health_text: {fileID: 1025804169526013117}
+  audioSource: {fileID: 0}
+  clip: {fileID: 8300000, guid: e88c23e63fb39b8718bb76b0b4c5123d, type: 3}
 --- !u!114 &3725749770702472828
 MonoBehaviour:
   m_ObjectHideFlags: 0
