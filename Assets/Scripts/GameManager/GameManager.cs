@@ -8,8 +8,9 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public int currentCycle = 1;
-    public float dayDuration = 180f;
-    public float nightDuration = 120f;
+
+    [SerializeField] private float dayDuration = 180f;
+    [SerializeField] private float nightDuration = 120f;
 
     public TextMeshProUGUI clockText;
     public TextMeshProUGUI dayCounterText;
@@ -31,6 +32,30 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
+
+        string difficulty = PlayerPrefs.GetString("GameDifficulty", "Normal");
+
+        switch (difficulty)
+        {
+            case "Easy":
+                dayDuration = 180f;
+                nightDuration = 120f;
+                break;
+            case "Normal":
+                dayDuration = 120f;
+                nightDuration = 90f;
+                break;
+            case "Hard":
+                dayDuration = 90f;
+                nightDuration = 60f;
+                break;
+            default:
+                Debug.LogWarning("Unknown difficulty: " + difficulty);
+                break;
+        }
+
+        Debug.Log($"[DIFFICULTY: {difficulty}] Day: {dayDuration}s | Night: {nightDuration}s");
+
         StartDay();
     }
 
@@ -47,7 +72,6 @@ public class GameManager : MonoBehaviour
         {
             currentTime = 0f;
             isDay = !isDay;
-
             currentCycle++;
 
             if (isDay)
@@ -74,8 +98,6 @@ public class GameManager : MonoBehaviour
         {
             screenTint.color = new Color(0.7f, 0f, 0f, 0.75f);
             dayCounterText.text = "Last Night";
-
-            // Win the game after night ends
             Invoke(nameof(WinGame), nightDuration);
         }
         else if (nightNumber == 5)
@@ -112,7 +134,6 @@ public class GameManager : MonoBehaviour
         clockText.text = $"{displayHour}:00 {suffix}";
     }
 
-    // Called when player wins
     public void WinGame()
     {
         if (gameHasEnded) return;
@@ -123,7 +144,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("You Win!");
     }
 
-    // Called when base is destroyed
     public void BaseDestroyed()
     {
         if (gameHasEnded) return;
@@ -134,11 +154,9 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Over! Base destroyed.");
     }
 
-    // Restart button calls this
     public void RestartGame()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
-
