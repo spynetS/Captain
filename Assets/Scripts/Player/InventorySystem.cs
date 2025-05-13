@@ -16,8 +16,10 @@ public class InventorySystem : MonoBehaviour
     public Sprite selectedSlotSprite;
 
     public Collider2D collider;
+    public AudioClip clip;
 
     void Start(){
+
         for (int i = 0; i < stacks.Length; i++)
         {
             stacks[i] = new Stack<Item>();
@@ -180,6 +182,17 @@ public class InventorySystem : MonoBehaviour
         UpdateUI();
     }
 
+    public Item GetSelectedItem(){
+        if(stacks[selectedSlot].Count > 0){
+            Item item = stacks[selectedSlot].Peek();
+            if(item != null){
+                return item;
+            }
+        }
+        return null;
+    }
+
+
     void UpdateUI()
     {
         for (int i = 0; i < slots.Length; i++){
@@ -272,8 +285,9 @@ public class InventorySystem : MonoBehaviour
             //item.transform.localScale = new Vector3(1,1,1);
             item.transform.localRotation = Quaternion.identity;
             //item.transform.position = Vector3.zero;
-
+            AudioSource.PlayClipAtPoint(clip, transform.position);
         }
+
     }
 
 }

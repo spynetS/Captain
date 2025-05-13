@@ -30,13 +30,13 @@ public class Resource : YSort, ITakeDamage
      *  Method to give damage to the Resource untill it dies and drop the drop items
      * */
     public void TakeDamage(float damage){
+        audioSource.PlayOneShot(clip);
         this.health -= damage;
         if(hitAnimation != null)
             hitAnimation.Play();
         if(this.health <= 0){
             this.Die();
         }
-        audioSource.PlayOneShot(clip);
     }
     void Update(){
         if(health_text){
