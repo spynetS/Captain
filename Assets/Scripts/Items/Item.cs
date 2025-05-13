@@ -33,10 +33,7 @@ public class Item : YSort
         if(audioSource == null){
             audioSource = gameObject.AddComponent<AudioSource>();
         }
-<<<<<<< HEAD
         audioSource.spatialBlend = 0f; // Makes it 2D
-=======
->>>>>>> main
     }
 
 

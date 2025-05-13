@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
         Move(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"));
 
-        if(inventory.GetSelectedItem().canHold && Input.GetKey(KeyCode.Mouse0)){
+        if(inventory.GetSelectedItem() != null && inventory.GetSelectedItem().canHold && Input.GetKey(KeyCode.Mouse0)){
             inventory.UseSelectedItem();
         }
         else if(Input.GetKeyDown(KeyCode.Mouse0)){

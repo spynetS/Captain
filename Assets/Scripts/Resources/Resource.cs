@@ -14,20 +14,12 @@ public class Resource : YSort, ITakeDamage
     public Animation hitAnimation;
 
     public Animator animator;
-<<<<<<< HEAD
 
     public TMP_Text health_text;
 
     public AudioSource audioSource;
     public AudioClip clip;
 
-=======
-    public AudioSource audioSource;
-    public AudioClip clip;
-
-    public TMP_Text health_text;
-
->>>>>>> main
     void Start(){
         if(audioSource == null){
             audioSource = gameObject.AddComponent<AudioSource>();

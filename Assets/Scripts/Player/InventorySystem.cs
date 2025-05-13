@@ -197,7 +197,6 @@ public class InventorySystem : MonoBehaviour
         UpdateUI();
     }
 
-<<<<<<< HEAD
     public Item GetSelectedItem(){
         if(stacks[selectedSlot].Count > 0){
             Item item = stacks[selectedSlot].Peek();
@@ -209,7 +208,6 @@ public class InventorySystem : MonoBehaviour
     }
 
 
-=======
     public List<Item> GetAllItems(){
         List<Item> cost = new List<Item>();
         foreach(Stack<Item> stack in this.stacks){
@@ -220,7 +218,6 @@ public class InventorySystem : MonoBehaviour
         return cost;
     }
 
->>>>>>> main
     void UpdateUI()
     {
         for (int i = 0; i < slots.Length; i++){
