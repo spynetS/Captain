@@ -35,7 +35,7 @@ public class EnemyWallBreaker : MonoBehaviour
         enemyAI = GetComponent<EnemyAI>(); // ADDED FOR TESTING
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         
         if (other.CompareTag(targetTag))
@@ -77,7 +77,7 @@ public class EnemyWallBreaker : MonoBehaviour
 
         if (rb != null)
         {
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
         }
         if (enemyAI != null)
         {
