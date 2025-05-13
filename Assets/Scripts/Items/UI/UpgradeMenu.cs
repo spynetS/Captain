@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class UpgradeMenu : MonoBehaviour
 {
 
-    private InventorySystem inventory;
+    public InventorySystem inventory;
     public List<Item> itemsCanBeUpgraded = new List<Item>(); // the items that can be upgraded
 
     public Transform upgradeHolder;
@@ -22,6 +22,7 @@ public class UpgradeMenu : MonoBehaviour
     }
 
     public void ToggleMenu(){
+        inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<InventorySystem>();
         this.gameObject.SetActive(!this.gameObject.activeSelf);
         this.UpdateMenu();
     }
