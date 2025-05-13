@@ -8,7 +8,7 @@ public class InventorySystem : MonoBehaviour
 {
     public Image[] slots = new Image[10];  // 10 UI text elements
     public Stack<Item>[] stacks = new Stack<Item>[10];
-    private int selectedSlot = 0;
+    public int selectedSlot = 0;
 
     public Transform hand;// Currently selected slot
     public Sprite emptySlot;
@@ -63,14 +63,15 @@ public class InventorySystem : MonoBehaviour
             }
 
 
-            if(selectedSlotSprite && normalSlot)
+            if(selectedSlotSprite && normalSlot){
                 slots[i].sprite = selectedSlot == i ? selectedSlotSprite : normalSlot;
+            }
+
 
         }
 
         UpdateUI();
     }
-
 
     public void DropSelectedItem()
     {
@@ -78,13 +79,33 @@ public class InventorySystem : MonoBehaviour
         {
             Item item = stacks[selectedSlot].Pop();
 
-            // drop the item to the ground
+            // Drop the item into the world
             GameObject dropped = item.gameObject;
             dropped.transform.SetParent(null);
             dropped.SetActive(true);
-            Vector2 randomDirection = UnityEngine.Random.insideUnitCircle.normalized/2;
-            float force = 5f; // try something noticeable
-            dropped.GetComponent<Rigidbody2D>().AddForce(randomDirection * force, ForceMode2D.Impulse);
+
+
+            // Set the drop position to the player's position
+            Vector3 playerPos = transform.position;
+
+            // Get mouse position in world space
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos.z = 0f;
+
+            // Calculate direction from player to mouse
+            Vector3 direction = (mousePos - playerPos).normalized;
+
+            dropped.transform.position = playerPos+direction;
+
+
+            // Apply force to "throw" the item
+            float force = 2f;
+            Rigidbody2D rb = dropped.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.linearVelocity = Vector2.zero; // Clear any existing velocity
+                rb.AddForce(direction * force, ForceMode2D.Impulse);
+            }
 
             UpdateUI();
         }
@@ -120,13 +141,40 @@ public class InventorySystem : MonoBehaviour
         Destroy(item.gameObject);
     }
 
+    /**
+     * This function will upgrade the item
+     * at the @index slot
+     * with the @cost gameobjects
+     *
+     * */
+    public void UpgradeItemAt(int index, List<Item> cost){
+        if(this.stacks[index].Count > 0){
+            Item item = this.stacks[index].Pop();
+            if(item.nextUpgrade){
+                GameObject newGO = item.Upgrade(this,cost);
+                if(newGO != null){
+                    // push the upgraded item to the inventory
+                    Item newItem = newGO.GetComponent<Item>();
+                    newItem.transform.localPosition = Vector3.zero;
+                    newItem.transform.localScale = new Vector3(1,1,1);
+                    newItem.transform.localRotation = Quaternion.identity;
+                    this.stacks[this.GetEmptySlotIndex(newItem)].Push(newItem);
+                }
+                else{
+                    this.stacks[index].Push(item);
+                }
+            }
+            else{
+                this.stacks[index].Push(item);
+            }
+        }
+}
 
     public void UseSelectedItem(){
         if(stacks[selectedSlot].Count > 0){
             Item item = stacks[selectedSlot].Peek();
             if(item != null){
-                Debug.Log("USING");
-                item.Use(this);
+                item.CallUse(this);
             }
         }
         UpdateUI();
@@ -155,6 +203,7 @@ public class InventorySystem : MonoBehaviour
                 if (childImage != null && itemSprite != null)
                 {
                     childImage.sprite = itemSprite;
+                    childImage.preserveAspect = true;
                 }
             }
             else
@@ -175,12 +224,37 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
-    private int GetEmptySlotIndex(Item item){
-        for(int i = 0; i < 10; i ++){
-            if(stacks[i].Count == 0) return i;
-            else if (stacks[i].Peek().name == item.name) return i;
+    public Item PopItem(string name){
+        foreach(Stack<Item> stack in stacks){
+            if(stack.Peek() != null && stack.Peek().name == name){
+                return stack.Pop();
+            }
         }
-        return -1;
+        return null;
+    }
+
+     public int CountItems(string name){
+        foreach(Stack<Item> stack in stacks){
+            if(stack.Peek() != null && stack.Peek().name == name){
+                return stack.Count;
+            }
+        }
+        return 0;
+    }
+
+
+    private int GetEmptySlotIndex(Item item){
+        // we loop through and if there is an empty we save it
+        // if there is a stack with the same item we return it directly
+        // else we return the empty we found
+        int empty = -1;
+        for(int i = 0; i < 10; i ++){
+            if(empty == -1 && stacks[i].Count == 0) empty = i;
+            if (stacks[i].Count > 0 && stacks[i].Peek().name == item.name) return i;
+        }
+
+
+        return empty; // dangerus hehe
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -195,7 +269,10 @@ public class InventorySystem : MonoBehaviour
             stacks[empty].Push(item);// = item;
             item.transform.SetParent(hand);
             item.transform.localPosition = Vector3.zero;
+            //item.transform.localScale = new Vector3(1,1,1);
+            item.transform.localRotation = Quaternion.identity;
             //item.transform.position = Vector3.zero;
+
         }
     }
 

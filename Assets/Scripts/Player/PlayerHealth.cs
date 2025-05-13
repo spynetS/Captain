@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour, ITakeDamage
 {
     public int maxHealth = 10;
     public int currentHealth;
@@ -22,29 +22,17 @@ public class PlayerHealth : MonoBehaviour
             TakeDamage(10);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         if (Time.time - lastDamageTime < damageCooldown)
             return;
 
         lastDamageTime = Time.time;
 
-        currentHealth -= damage;
+        currentHealth -= (int) damage;
         UpdateBar();
 
-        if (currentHealth <= 0)
-        {
-            if (CompareTag("Player"))
-            {
-                GameObject.Find("GameManager").GetComponent<GameManager>().GameOver();
-            }
-            else if (CompareTag("Enemy"))
-            {
-                GameObject.Find("GameManager").GetComponent<GameManager>().Victory();
-            }
-
-            Destroy(gameObject);
-        }
+        ///if (currentHealth <= 0){if (CompareTag("Player")){GameObject.Find("GameManager").GetComponent<GameManager>().GameOver();}else if (CompareTag("Enemy")){GameObject.Find("GameManager").GetComponent<GameManager>().Victory();}Destroy(gameObject);}
     }
 
     public void UpdateBar()

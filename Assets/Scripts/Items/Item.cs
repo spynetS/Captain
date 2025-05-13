@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq; // For LINQ methods like Select
 
 
 
@@ -13,41 +14,98 @@ using System.Collections.Generic;
 public class Item : YSort
 {
     public GameObject nextUpgrade;
-    public List<GameObject> cost = new List<GameObject>();
+    public List<Item> cost = new List<Item>();
     public string name = "";
-    /**
-     * Method that starts uses an item. Abstract
-     *  */
-    public virtual void Use(InventorySystem inventory)
+
+    // New: Cooldown settings
+    [Header("Use Rate Settings")]
+    [Tooltip("How many times per second this item can be used")]
+    public float usesPerSecond = 1f;
+    public bool canHold = false;
+    private float lastUseTime = -Mathf.Infinity;
+
+    public virtual void Use(InventorySystem inventory){}
+
+    public void CallUse(InventorySystem inventory)
     {
-
-    }
-
-    public void Update(){
-        if(Input.GetKeyDown(KeyCode.Escape)){
-            this.Upgrade(cost);
+        if (CanUse()) {
+            lastUseTime = Time.time;
+            this.Use(inventory);
         }
     }
+
+    private bool CanUse()
+    {
+        return Time.time >= lastUseTime + (1f / usesPerSecond);
+    }
+
+    void LateUpdate(){
+        if(transform.parent != null && transform.parent.tag == "hand"){
+            this.UpdateOrder(transform.parent.GetComponentInParent<SpriteRenderer>().sortingOrder-1);
+        }
+        else{
+            this.UpdateOrder();
+        }
+    }
+
+    private bool CheckCost(List<Item> required, List<Item> offers) {
+        // Count required quantities
+        var neededCounts = new Dictionary<string,int>();
+        foreach (var need in required) {
+            if (!neededCounts.TryGetValue(need.name, out var cnt)) cnt = 0;
+            neededCounts[need.name] = cnt + 1;
+        }
+
+        // Count offer quantities
+        var offerCounts = new Dictionary<string,int>();
+        foreach (var offer in offers) {
+            if (!offerCounts.TryGetValue(offer.name, out var cnt)) cnt = 0;
+            offerCounts[offer.name] = cnt + 1;
+        }
+
+        // Ensure every required count is met
+        foreach (var kv in neededCounts) {
+            if (!offerCounts.TryGetValue(kv.Key, out var have) || have < kv.Value)
+                return false;
+        }
+        return true;
+    }
+
+
+    private void DestroyCost(InventorySystem inventory, List<Item> cost) {
+        List<Item> remainingOffers = new List<Item>(cost); // Clone to track used items
+
+        foreach (Item requiredItem in this.cost) {
+            for (int i = 0; i < remainingOffers.Count; i++) {
+                if (remainingOffers[i] != null && remainingOffers[i].name == requiredItem.name) {
+                    inventory.DestroyItem(remainingOffers[i]);
+                    remainingOffers.RemoveAt(i);
+                    break;
+                }
+            }
+        }
+    }
+
+
     /**
      * Method to handle upgrading of items. If the
      * cost is the same as the cost then the item
      * gets repalced with the `nextUpgrade` item.
      *  */
-    public bool Upgrade(List<GameObject> cost){
+    public GameObject Upgrade(InventorySystem inventory, List<Item> cost){
         if(nextUpgrade){
-            if(this.cost == (cost)){
-                foreach(GameObject v in cost){
-                    Destroy(v);
-                }
+            if(CheckCost(this.cost,cost)){
+                this.DestroyCost(inventory,cost);
                 GameObject newGameObject = Instantiate(nextUpgrade, transform.position, transform.rotation, gameObject.transform.parent);
                 Destroy(gameObject);
-                return true;
+                return newGameObject;
             }
         }
-        return false;
+        return null;
     }
     /** Returns the cost to be upgraded */
-    public List<GameObject> getCost(){
+    public List<Item> getCost(){
         return this.cost;
     }
+
 }

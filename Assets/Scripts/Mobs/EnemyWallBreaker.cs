@@ -24,11 +24,13 @@ public class EnemyWallBreaker : MonoBehaviour
     private bool isAttacking = false;
     private Coroutine attackCoroutine;
     private EnemyAI enemyAI; // Reference to the EnemyAI script, ADDED FOR TESTING
+    private Enemy me;
 
     private Rigidbody2D rb;
 
     void Start()
     {
+        me = GetComponent<Enemy>();
         rb = GetComponent<Rigidbody2D>();
         enemyAI = GetComponent<EnemyAI>(); // ADDED FOR TESTING
     }
@@ -84,7 +86,8 @@ public class EnemyWallBreaker : MonoBehaviour
 
         while (targetWall != null)
         {
-            targetWall.TakeDamage(dmgPerHit);
+            if (me != null)
+                me.Attack();
             
             if(targetWall.health <= 0)
             {

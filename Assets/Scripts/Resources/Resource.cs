@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using System.Collections;
 
-public class Resource : YSort
+public class Resource : YSort, ITakeDamage
 {
     public List<GameObject> dropItems; // the items that can be droped
     public List<float>      dropChanse;// the chanse that the item (at the smae index) has to be droped
@@ -20,7 +20,7 @@ public class Resource : YSort
 
     /**
      *  Method to give damage to the Resource untill it dies and drop the drop items
-     *  */
+     * */
     public void TakeDamage(float damage){
         this.health -= damage;
         if(hitAnimation != null)

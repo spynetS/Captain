@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2669922892751837095}
   - component: {fileID: 5419316849223459864}
   - component: {fileID: -4854566625441222091}
-  - component: {fileID: -4972339452525123682}
+  - component: {fileID: 4665842078201097804}
   m_Layer: 0
-  m_Name: Axe
+  m_Name: Saw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,14 +27,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 648524801874651794}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 16.00816, y: -5.52, z: 0.09636259}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2805053104008364413}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5419316849223459864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,16 +47,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3070885e1ff8cb85dafc265801908b5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextUpgrade: {fileID: 648524801874651794, guid: ad0abee6b0c322706b988196a1097ba8, type: 3}
-  cost:
-  - {fileID: 3593116272157070361, guid: c870b35c20249a78f95866bae691d2ab, type: 3}
-  - {fileID: 3593116272157070361, guid: c870b35c20249a78f95866bae691d2ab, type: 3}
-  - {fileID: 3593116272157070361, guid: c870b35c20249a78f95866bae691d2ab, type: 3}
-  - {fileID: 2348523639259168720, guid: 6ec1969b4adadbfac94d5420ec3a4443, type: 3}
-  - {fileID: 2348523639259168720, guid: 6ec1969b4adadbfac94d5420ec3a4443, type: 3}
-  name: Axe
-  damage: 10
+  nextUpgrade: {fileID: 0}
+  cost: []
+  name: Saw
+  usesPerSecond: 5
+  damage: 20
   hitRadius: 1
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!61 &-4854566625441222091
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -87,11 +86,11 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0011170693, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -101,9 +100,9 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.11202239, y: 0.11}
+  m_Size: {x: 0.15, y: 0.11}
   m_EdgeRadius: 0
---- !u!50 &-4972339452525123682
+--- !u!50 &4665842078201097804
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -156,7 +155,7 @@ Transform:
   m_GameObject: {fileID: 1300260876322508375}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.022306154}
+  m_LocalPosition: {x: 0.0617, y: 0.0093, z: 0.022306154}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -206,7 +205,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 8198346204976274233, guid: ad7a82eb677f14c18873fc4e5a5d1249, type: 3}
+  m_Sprite: {fileID: -2318285518543234687, guid: 525cc053598380eeabf85e63ed3d4d08, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

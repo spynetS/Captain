@@ -61,6 +61,20 @@ public class Enemy : MonoBehaviour
         }
     }
 
+
+    public void Attack(){
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, hitRadius, defaultLayerMask);
+        DebugDrawCircle(transform.position, hitRadius, Color.red, 0.5f);
+        foreach (Collider2D hit in hits)
+        {
+            if (hit.transform == this.transform) continue;
+            ITakeDamage player = hit.GetComponent<ITakeDamage>();
+            if (player != null)
+                player.TakeDamage(damage);
+        }
+        swingAnimator.SetTrigger("attack");
+    }
+
     private void Swarm()
     {
         GameObject target = baseObject;
@@ -94,18 +108,7 @@ public class Enemy : MonoBehaviour
             }
             else if (target == playerObject) // Attack only if the target is the player
             {
-                Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, hitRadius, defaultLayerMask);
-                DebugDrawCircle(transform.position, hitRadius, Color.red, 0.5f);
-                foreach (Collider2D hit in hits)
-                {
-                    PlayerHealth player = hit.GetComponent<PlayerHealth>();
-                    if (player != null)
-                    {
-                        player.TakeDamage(damage);
-                    }
-                }
-
-                swingAnimator.SetTrigger("attack");
+                Attack();
             }
         }
     }

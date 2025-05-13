@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8178856349434589477}
   - component: {fileID: 8569606768400939538}
   - component: {fileID: 7450163891393945976}
-  - component: {fileID: 6469506273755084772}
   m_Layer: 0
   m_Name: Carrot
   m_TagString: Untagged
@@ -28,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 2348523639259168720}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.49, y: -0.07533378, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6768207613139203059}
@@ -65,12 +64,12 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.7
+  m_Radius: 0.16
 --- !u!50 &7450163891393945976
 Rigidbody2D:
   serializedVersion: 5
@@ -98,22 +97,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &6469506273755084772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2348523639259168720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4da34fbaa37aebae8434055eab2c0f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextUpgrade: {fileID: 0}
-  cost: []
-  name: Carrot
-  healthGain: 10
 --- !u!1 &5271173688723728894
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,13 +123,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5271173688723728894}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalRotation: {x: -0, y: -0, z: 0.42016435, w: 0.90744805}
+  m_LocalPosition: {x: -0, y: 0.098, z: 0}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8178856349434589477}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 49.69}
 --- !u!212 &999209475569869669
 SpriteRenderer:
   m_ObjectHideFlags: 0
