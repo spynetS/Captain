@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1128061032256321896}
   - component: {fileID: 2626073004353320833}
   m_Layer: 0
-  m_Name: BarbWireFence
+  m_Name: StoneFencePillar
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,8 +79,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2059408177963369617, guid: 138560e4f1a80c040914b1027a404eb7, type: 3}
-  m_Color: {r: 0.19548771, g: 0.21698111, b: 0.21698111, a: 1}
+  m_Sprite: {fileID: 1701601025, guid: 0385bf293bc5e4b46a4d414f623a5635, type: 3}
+  m_Color: {r: 0.9811321, g: 0.9579922, b: 0.9579922, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -108,7 +108,7 @@ MonoBehaviour:
   - 0.5
   dropAmount: 3
   maxHealth: 0
-  health: 225
+  health: 150
   hitAnimation: {fileID: 0}
   animator: {fileID: 0}
   health_text: {fileID: 0}

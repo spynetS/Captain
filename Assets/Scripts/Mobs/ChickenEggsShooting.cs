@@ -29,6 +29,6 @@ public class Shoot : MonoBehaviour
     void ShootEgg()
     {
         var egg = Instantiate(eggPrefab, shootPoint.position, shootPoint.rotation);
-        egg.GetComponent<Rigidbody2D>().velocity = shootPoint.up * EggSpeed;
+        egg.GetComponent<Rigidbody2D>().linearVelocity = shootPoint.up * EggSpeed;
     }
 }

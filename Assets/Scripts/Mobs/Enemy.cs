@@ -1,3 +1,4 @@
+using Codice.CM.Common;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -17,6 +18,7 @@ public class Enemy : MonoBehaviour
     private int defaultLayerMask = 1 << 0;
 
     private GameObject playerObject;
+    private GameObject baseObject;
     private Rigidbody2D rb;
 
     private float timer = 0;
@@ -29,6 +31,7 @@ public class Enemy : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerObject = GameObject.FindGameObjectWithTag("Player");
+        baseObject = GameObject.FindGameObjectWithTag("Base");
     }
 
     void Update()
@@ -37,12 +40,12 @@ public class Enemy : MonoBehaviour
     }
 
     // needed?
-    private void SetEnemyValues()
-    {
-        GetComponent<Health>().SetHealth(data.hp, data.hp);
-        damage = data.damage;
-        speed = data.speed;
-    }
+    // private void SetEnemyValues()
+    // {
+    //     GetComponent<Health>().SetHealth(data.hp, data.hp);
+    //     damage = data.damage;
+    //     speed = data.speed;
+    // }
 
     void DebugDrawCircle(Vector3 center, float radius, Color color, float duration = 0.5f, int segments = 16)
     {
@@ -60,35 +63,49 @@ public class Enemy : MonoBehaviour
 
     private void Swarm()
     {
+        GameObject target = baseObject;
+
         if (playerObject)
         {
-            float distance = Vector2.Distance(transform.position, playerObject.transform.position);
-            // Flip enemy to face player
+            float playerDistance = Vector2.Distance(transform.position, playerObject.transform.position);
+
+            // If the player is within detection range, switch target to the player
+            if (playerDistance <= detectionRange)
+            {
+                target = playerObject;
+            }
+        }
+
+        if (target)
+        {
+            float distance = Vector2.Distance(transform.position, target.transform.position);
+
             Vector3 scale = transform.localScale;
-            if (playerObject.transform.position.x < transform.position.x)
+            if (target.transform.position.x < transform.position.x)
                 scale.x = -Mathf.Abs(scale.x); // face left
             else
                 scale.x = Mathf.Abs(scale.x); // face right
             transform.localScale = scale;
 
-            if (distance <= detectionRange)
+            // Move towards the target if not within stopDistance
+            if (distance > stopDistance)
             {
-                if (distance > stopDistance)
+                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+            }
+            else if (target == playerObject) // Attack only if the target is the player
+            {
+                Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, hitRadius, defaultLayerMask);
+                DebugDrawCircle(transform.position, hitRadius, Color.red, 0.5f);
+                foreach (Collider2D hit in hits)
                 {
-                    transform.position = Vector2.MoveTowards(transform.position, playerObject.transform.position, speed * Time.deltaTime);
-                }
-                else
-                {
-                    Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, hitRadius, defaultLayerMask);
-                    DebugDrawCircle(transform.position, hitRadius, Color.red, 0.5f);
-                    foreach (Collider2D hit in hits)
+                    PlayerHealth player = hit.GetComponent<PlayerHealth>();
+                    if (player != null)
                     {
-                        PlayerHealth player = hit.GetComponent<PlayerHealth>();
-                        if (player != null)
-                            player.TakeDamage(damage);
+                        player.TakeDamage(damage);
                     }
-                    swingAnimator.SetTrigger("attack");
                 }
+
+                swingAnimator.SetTrigger("attack");
             }
         }
     }
