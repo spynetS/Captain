@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3352320285838178320
+--- !u!1 &949347349505786457
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2130430941936347249}
-  - component: {fileID: 8697668548139277448}
-  - component: {fileID: 4763627417884588983}
-  - component: {fileID: 1128061032256321896}
-  - component: {fileID: 2626073004353320833}
+  - component: {fileID: 7280171463662832565}
+  - component: {fileID: 2367766906240545724}
+  - component: {fileID: 7647655235174830520}
+  - component: {fileID: 2747184482536541079}
+  - component: {fileID: 3109085739752958092}
   m_Layer: 0
-  m_Name: MetalFence
+  m_Name: WoodFenceVertical
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2130430941936347249
+--- !u!4 &7280171463662832565
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3352320285838178320}
+  m_GameObject: {fileID: 949347349505786457}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.03, y: -0.3, z: -1}
+  m_LocalPosition: {x: -4.6, y: -0.86, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8697668548139277448
+--- !u!212 &2367766906240545724
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3352320285838178320}
+  m_GameObject: {fileID: 949347349505786457}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -79,8 +79,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  m_Sprite: {fileID: -1789187102, guid: 138560e4f1a80c040914b1027a404eb7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -90,35 +90,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4763627417884588983
+--- !u!114 &7647655235174830520
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3352320285838178320}
+  m_GameObject: {fileID: 949347349505786457}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b3f23616b3fb9a569a9a0ae30dca392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropItems:
-  - {fileID: 3593116272157070361, guid: c870b35c20249a78f95866bae691d2ab, type: 3}
-  dropChanse:
-  - 0.5
+  dropItems: []
+  dropChanse: []
   dropAmount: 3
   maxHealth: 0
-  health: 150
+  health: 75
   hitAnimation: {fileID: 0}
   animator: {fileID: 0}
   health_text: {fileID: 0}
---- !u!61 &1128061032256321896
+--- !u!61 &2747184482536541079
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3352320285838178320}
+  m_GameObject: {fileID: 949347349505786457}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -150,7 +148,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.75, y: 0.75}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -158,13 +156,13 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!61 &2626073004353320833
+--- !u!61 &3109085739752958092
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3352320285838178320}
+  m_GameObject: {fileID: 949347349505786457}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -196,7 +194,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.75, y: 0.75}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
