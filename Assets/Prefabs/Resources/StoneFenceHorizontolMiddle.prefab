@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8699521701598108786}
   - component: {fileID: 4467300217048981040}
   - component: {fileID: 4749325989097670545}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: StoneFenceHorizontolMiddle
   m_TagString: Wall
   m_Icon: {fileID: 0}

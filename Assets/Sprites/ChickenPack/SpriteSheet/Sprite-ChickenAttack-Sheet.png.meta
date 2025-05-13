@@ -497,7 +497,22 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sprite-ChickenAttack-Sheet_0: 1636475296716602614
+      Sprite-ChickenAttack-Sheet_1: -6741067820553322367
+      Sprite-ChickenAttack-Sheet_10: 7941220087475186826
+      Sprite-ChickenAttack-Sheet_11: -8755003630666251784
+      Sprite-ChickenAttack-Sheet_12: -4993711484707799571
+      Sprite-ChickenAttack-Sheet_13: -8898407558761834812
+      Sprite-ChickenAttack-Sheet_14: 3073248278681120
+      Sprite-ChickenAttack-Sheet_2: 3976910574530672073
+      Sprite-ChickenAttack-Sheet_3: -2666244743731077055
+      Sprite-ChickenAttack-Sheet_4: 5277045816567997585
+      Sprite-ChickenAttack-Sheet_5: -7408745824853915876
+      Sprite-ChickenAttack-Sheet_6: 8265497355568647213
+      Sprite-ChickenAttack-Sheet_7: -3718382946459879574
+      Sprite-ChickenAttack-Sheet_8: -1108888249398271364
+      Sprite-ChickenAttack-Sheet_9: -6318786609353615859
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

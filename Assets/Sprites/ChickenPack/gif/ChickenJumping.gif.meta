@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ChickenJumping_0: 1520999182529702680
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

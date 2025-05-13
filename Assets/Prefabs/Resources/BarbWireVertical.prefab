@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7613701832292866315}
   - component: {fileID: 8071359932496117164}
   - component: {fileID: 2135029015308710381}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BarbWireVertical
   m_TagString: Wall
   m_Icon: {fileID: 0}

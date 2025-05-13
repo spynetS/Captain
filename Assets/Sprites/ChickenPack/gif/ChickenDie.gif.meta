@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ChickenDie_0: 8351634183974226884
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

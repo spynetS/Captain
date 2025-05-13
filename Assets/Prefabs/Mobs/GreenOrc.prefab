@@ -584,7 +584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  speed: 8
+  speed: 2
   data: {fileID: 0}
   stopDistance: 1.2
   detectionRange: 5

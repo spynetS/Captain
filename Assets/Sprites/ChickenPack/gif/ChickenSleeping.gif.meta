@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ChickenSleeping_0: 8663602753021249417
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

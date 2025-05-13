@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ChikcenWalking_0: 2178503173058190788
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

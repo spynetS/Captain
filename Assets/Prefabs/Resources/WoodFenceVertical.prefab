@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7647655235174830520}
   - component: {fileID: 2747184482536541079}
   - component: {fileID: 3109085739752958092}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WoodFenceVertical
   m_TagString: Wall
   m_Icon: {fileID: 0}

@@ -247,7 +247,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ChickenFly-Sheet_0: -5055410040821408755
+      ChickenFly-Sheet_1: -2729217494354547650
+      ChickenFly-Sheet_2: 579633891555150243
+      ChickenFly-Sheet_3: 822889838184020871
+      ChickenFly-Sheet_4: 6954416108432526267
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

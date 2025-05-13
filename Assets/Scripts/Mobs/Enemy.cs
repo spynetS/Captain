@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private int damage = 5;
     [SerializeField]
-    private float speed = 1.5f;
+    public float speed = 1.5f;
     [SerializeField]
     private EnemyData data;
     public float stopDistance = 1f; // or whatever distance you want
@@ -75,7 +75,7 @@ public class Enemy : MonoBehaviour
         swingAnimator.SetTrigger("attack");
     }
 
-    private void Swarm()
+    public void Swarm()
     {
         GameObject target = baseObject;
 

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2643231915964468228}
   - component: {fileID: 5781338786745866502}
   - component: {fileID: 4033120159468049981}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BarbWireHorizontal
   m_TagString: Wall
   m_Icon: {fileID: 0}

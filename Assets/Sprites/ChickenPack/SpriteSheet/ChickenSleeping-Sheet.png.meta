@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ChickenSleeping-Sheet_0: 8766519348566487956
+      ChickenSleeping-Sheet_1: 7168968017974344552
+      ChickenSleeping-Sheet_2: -306764577353673632
+      ChickenSleeping-Sheet_3: -3912022328067471611
+      ChickenSleeping-Sheet_4: 6587452797244117181
+      ChickenSleeping-Sheet_5: -9091838371193736675
+      ChickenSleeping-Sheet_6: 5693230083532482882
+      ChickenSleeping-Sheet_7: 6794983611500636929
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
