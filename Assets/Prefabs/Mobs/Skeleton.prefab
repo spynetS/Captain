@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8733689440874242900}
   - component: {fileID: 7249207802368533560}
   - component: {fileID: 3188651411791109451}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6271776149570690956}
   - component: {fileID: 7815611577744326363}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Shadows_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 628797746533488408}
   - component: {fileID: 8074544492017050181}
   - component: {fileID: 1025804169526013117}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 2547599044371468751}
   - component: {fileID: 3133701747099330183}
   - component: {fileID: 4562270003439579881}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: swing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -498,7 +498,7 @@ GameObject:
   - component: {fileID: 1001851161092077502}
   - component: {fileID: -6436890701874313473}
   - component: {fileID: 3725749770702472828}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Skeleton
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -690,7 +690,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5243462361114291576}
   - component: {fileID: 4064181454121780108}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}

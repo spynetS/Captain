@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9143334650282098544}
   - component: {fileID: 5722149180186704363}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Shadows_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 8733689440874242900}
   - component: {fileID: 7249207802368533560}
   - component: {fileID: 3188651411791109451}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 7357555511942747498}
   - component: {fileID: 4409656408515958762}
   - component: {fileID: 574543939268554623}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: swing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ GameObject:
   - component: {fileID: 5988826221987448151}
   - component: {fileID: 4430886501541793459}
   - component: {fileID: 3170060961372084339}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -498,7 +498,7 @@ GameObject:
   - component: {fileID: 3119499938307508124}
   - component: {fileID: 1001851161092077502}
   - component: {fileID: -6436890701874313473}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GreenOrc
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -684,7 +684,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8102839276991082437}
   - component: {fileID: 5067074792238099438}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
