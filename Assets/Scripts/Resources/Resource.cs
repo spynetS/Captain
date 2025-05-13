@@ -42,7 +42,7 @@ public class Resource : YSort, ITakeDamage
             if(health < maxHealth){
                 health_text.text = health.ToString();
             }
-            else{
+            else {
                 health_text.text = "";
             }
         }
