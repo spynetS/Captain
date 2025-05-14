@@ -23,6 +23,27 @@ public class GameManager : MonoBehaviour
     private bool isDay = true;
     private bool gameHasEnded = false;
 
+    
+    public string GetClockDisplay(float t, bool isDay)
+    {
+    int hour;
+    if (isDay)
+    {
+        hour = Mathf.FloorToInt(Mathf.Lerp(7f, 21f, t));
+    }
+    else
+    {
+        hour = Mathf.FloorToInt(Mathf.Lerp(21f, 31f, t));
+        if (hour >= 24) hour -= 24;
+    }
+
+    string suffix = hour >= 12 ? "PM" : "AM";
+    int displayHour = hour % 12;
+    if (displayHour == 0) displayHour = 12;
+
+    return $"{displayHour}:00 {suffix}";
+    }
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
