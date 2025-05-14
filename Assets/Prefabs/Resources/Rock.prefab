@@ -230,8 +230,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropItems:
   - {fileID: 2348523639259168720, guid: 6ec1969b4adadbfac94d5420ec3a4443, type: 3}
+  - {fileID: 2348523639259168720, guid: 0758526216defd6d6bbdc8a1753e8992, type: 3}
   dropChanse:
-  - 1
+  - 0.7
+  - 0.5
   dropAmount: 5
   maxHealth: 100
   health: 100
