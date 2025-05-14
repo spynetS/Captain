@@ -112,8 +112,12 @@ public class GameManager : MonoBehaviour
         dayCounterText.text = $"Day {dayNumber}";
 
         Debug.Log("Day Started! Cycle: " + currentCycle);
-        resourcePlacer.ClearFoliage();
-        resourcePlacer.SpawnFoliage();
+
+        if(resourcePlacer != null){
+            resourcePlacer.ClearFoliage();
+            resourcePlacer.SpawnFoliage();
+        }
+
     }
 
     void StartNight()
