@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     private bool isDay = true;
     private bool gameHasEnded = false;
 
+    public FoliageAreaSpawner resourcePlacer;
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -88,6 +90,8 @@ public class GameManager : MonoBehaviour
         dayCounterText.text = $"Day {dayNumber}";
 
         Debug.Log("Day Started! Cycle: " + currentCycle);
+        resourcePlacer.ClearFoliage();
+        resourcePlacer.SpawnFoliage();
     }
 
     void StartNight()

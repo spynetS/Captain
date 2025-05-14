@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2941850519527359967}
   - component: {fileID: 511395187339210684}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Shadows_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 931514086085590380}
   - component: {fileID: 1299452202000162126}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 1989874230513968165}
   - component: {fileID: 8612925250108203376}
   - component: {fileID: 822424739667575002}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Big Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 2310546735966024866}
   - component: {fileID: 6509183138858270356}
   - component: {fileID: 4908620175696921679}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
