@@ -12,9 +12,21 @@ public class Gun : Item
     public int bulletUse = 1;
 
 
+    protected override bool CanUse(InventorySystem inventory)
+    {
+        // First, check base timing logic
+        if (Time.time < lastUseTime + (1f / usesPerSecond))
+            return false;
+
+        // Then, check if there are enough bullets in the inventory
+        if (inventory.CountItems("Bullet") < bulletUse)
+            return false;
+
+        return true;
+    }
+
     public override void Use(InventorySystem inventory)
     {
-        if(inventory.CountItems("Bullet") < bulletUse) return;
         // use bullets if there is not enough canse the shooting
         for(int i = 0; i < bulletUse; i ++){
             Item bullet = inventory.PopItem("Bullet");

@@ -24,6 +24,7 @@ public class ConsumableItem : Item
 
     public override void Use(InventorySystem inventory)
     {
+
         GameObject player = GameObject.FindWithTag("Player");
 
         if (player == null)
@@ -32,6 +33,7 @@ public class ConsumableItem : Item
             return;
         }
 
+        bool used = false;
         PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
         PlayerBuffStatus buffStatus = player.GetComponent<PlayerBuffStatus>();
 
@@ -40,16 +42,18 @@ public class ConsumableItem : Item
         {
             playerHealth.currentHealth = Mathf.Min(playerHealth.currentHealth + healthGain, playerHealth.maxHealth);
             playerHealth.UpdateBar();
+            used = true;
         }
 
         // Apply buffs
         if (buffStatus != null)
         {
-            if (grantsStrength) buffStatus.ActivateStrength(strengthDuration);
-            if (grantsSpeed) buffStatus.ActivateSpeed(speedDuration);
-            if (grantsRegen) buffStatus.ActivateRegen(regenDuration, regenPercent);
-        }
+            if (grantsStrength ) buffStatus.ActivateStrength(strengthDuration); used = true;
+            if (grantsSpeed) buffStatus.ActivateSpeed(speedDuration); used = true;
+            if (grantsRegen) buffStatus.ActivateRegen(regenDuration, regenPercent); used = true;
 
-        inventory.DestroyItem(this);
+        }
+        if(used)
+            inventory.DestroyItem(this);
     }
 }

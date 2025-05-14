@@ -1,42 +1,38 @@
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
-public class FoliageTilemapPlacer : MonoBehaviour
+public class FoliageAreaSpawner : MonoBehaviour
 {
     [Header("Foliage Settings")]
     public GameObject[] foliagePrefabs;
     public float spawnChance = 0.3f;
 
-    [Header("References")]
-    public Tilemap targetTilemap; // The tilemap to read from (like Ground)
-    public Vector2 offset = Vector2.zero; // Optional: adjust spawn height
+    [Header("Spawn Area")]
+    public Vector2 areaSize = new Vector2(10, 10);
+    public int density = 100; // Number of spawn attempts
 
-    [ContextMenu("Place Foliage")]
-    public void PlaceFoliage()
+    [ContextMenu("Spawn Foliage")]
+    public void SpawnFoliage()
     {
-        if (foliagePrefabs == null || foliagePrefabs.Length == 0 || targetTilemap == null)
+        if (foliagePrefabs == null || foliagePrefabs.Length == 0)
         {
-            Debug.LogWarning("Missing foliage prefabs or tilemap reference!");
+            Debug.LogWarning("No foliage prefabs assigned.");
             return;
         }
 
-        // Get bounds of the tilemap
-        BoundsInt bounds = targetTilemap.cellBounds;
-
-        for (int x = bounds.xMin; x < bounds.xMax; x++)
+        for (int i = 0; i < density; i++)
         {
-            for (int y = bounds.yMin; y < bounds.yMax; y++)
+            if (Random.value <= spawnChance)
             {
-                Vector3Int cellPosition = new Vector3Int(x, y, 0);
-                TileBase tile = targetTilemap.GetTile(cellPosition);
+                Vector3 randomPos = new Vector3(
+                    Random.Range(-areaSize.x / 2f, areaSize.x / 2f),
+                    Random.Range(-areaSize.y / 2f, areaSize.y / 2f),
+                    0f
+                );
 
-                if (tile != null && Random.value <= spawnChance)
-                {
-                    Vector3 worldPos = targetTilemap.CellToWorld(cellPosition) + (Vector3)offset;
+                Vector3 worldPos = transform.position + randomPos;
 
-                    GameObject prefab = foliagePrefabs[Random.Range(0, foliagePrefabs.Length)];
-                    Instantiate(prefab, worldPos, Quaternion.identity, this.transform);
-                }
+                GameObject prefab = foliagePrefabs[Random.Range(0, foliagePrefabs.Length)];
+                Instantiate(prefab, worldPos, Quaternion.identity, this.transform);
             }
         }
     }
@@ -44,10 +40,15 @@ public class FoliageTilemapPlacer : MonoBehaviour
     [ContextMenu("Clear Foliage")]
     public void ClearFoliage()
     {
-        // Delete all placed foliage
         for (int i = transform.childCount - 1; i >= 0; i--)
         {
             DestroyImmediate(transform.GetChild(i).gameObject);
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube(transform.position, new Vector3(areaSize.x, areaSize.y, 0.1f));
     }
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7856417141904323660}
   - component: {fileID: 7743683581164113522}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Vegetation_33
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5432461714566473760}
   - component: {fileID: 8390381579821295351}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Vegetation_34 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 1095463093655099621}
   - component: {fileID: 7117790249413076694}
   - component: {fileID: 4272907392305370846}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,6 +238,8 @@ MonoBehaviour:
   hitAnimation: {fileID: 1095463093655099621}
   animator: {fileID: 0}
   health_text: {fileID: 6854459437932366054}
+  audioSource: {fileID: 0}
+  clip: {fileID: 8300000, guid: e88c23e63fb39b8718bb76b0b4c5123d, type: 3}
 --- !u!111 &1095463093655099621
 Animation:
   m_ObjectHideFlags: 0
@@ -339,7 +341,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8561432236108475054}
   - component: {fileID: 4027205156692349160}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Vegetation_34
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8143043016998287993}
   - component: {fileID: 4481208849869338742}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Vegetation_34 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -513,7 +515,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5480122502855460696}
   - component: {fileID: 5129210032053686195}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -600,7 +602,7 @@ GameObject:
   m_Component:
   - component: {fileID: 66696965936732252}
   - component: {fileID: 4059889963991588016}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Shadows_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -688,7 +690,7 @@ GameObject:
   - component: {fileID: 8520300387601385727}
   - component: {fileID: 2305125345279738825}
   - component: {fileID: 6854459437932366054}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1330519474638136011}
   - component: {fileID: 8689015680537801822}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Shadows_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 975001818623369576}
   - component: {fileID: 8387168741330064783}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 4242900603604152767}
   - component: {fileID: 4933979716449901873}
   - component: {fileID: 7982501389655891189}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Middle Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,6 +234,8 @@ MonoBehaviour:
   hitAnimation: {fileID: 4242900603604152767}
   animator: {fileID: 0}
   health_text: {fileID: 859173076411928651}
+  audioSource: {fileID: 0}
+  clip: {fileID: 8300000, guid: e88c23e63fb39b8718bb76b0b4c5123d, type: 3}
 --- !u!111 &4242900603604152767
 Animation:
   m_ObjectHideFlags: 0
@@ -336,7 +338,7 @@ GameObject:
   - component: {fileID: 6090772370082308929}
   - component: {fileID: 8353836047475509766}
   - component: {fileID: 859173076411928651}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

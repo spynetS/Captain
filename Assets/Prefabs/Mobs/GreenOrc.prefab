@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9143334650282098544}
   - component: {fileID: 5722149180186704363}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Shadows_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 8733689440874242900}
   - component: {fileID: 7249207802368533560}
   - component: {fileID: 3188651411791109451}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 7357555511942747498}
   - component: {fileID: 4409656408515958762}
   - component: {fileID: 574543939268554623}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: swing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ GameObject:
   - component: {fileID: 5988826221987448151}
   - component: {fileID: 4430886501541793459}
   - component: {fileID: 3170060961372084339}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -498,7 +498,7 @@ GameObject:
   - component: {fileID: 3119499938307508124}
   - component: {fileID: 1001851161092077502}
   - component: {fileID: -6436890701874313473}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GreenOrc
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -559,7 +559,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.052545786, y: 0.13740623}
+  m_Offset: {x: 0.0172735, y: 0.19913274}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -569,7 +569,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.3856146, y: 1.529916}
+  m_Size: {x: 0.73307717, y: 1.2301015}
   m_EdgeRadius: 0
 --- !u!114 &8737560580518160210
 MonoBehaviour:
@@ -584,7 +584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  speed: 8
+  speed: 2
   data: {fileID: 0}
   stopDistance: 1.2
   detectionRange: 5
@@ -613,7 +613,11 @@ MonoBehaviour:
   health: 100
   hitAnimation: {fileID: 3119499938307508124}
   animator: {fileID: 3188651411791109451}
+  audioSource: {fileID: 0}
+  clip: {fileID: 8300000, guid: e88c23e63fb39b8718bb76b0b4c5123d, type: 3}
   health_text: {fileID: 3170060961372084339}
+  audioSource: {fileID: 0}
+  clip: {fileID: 8300000, guid: e88c23e63fb39b8718bb76b0b4c5123d, type: 3}
 --- !u!111 &3119499938307508124
 Animation:
   m_ObjectHideFlags: 0
@@ -684,7 +688,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8102839276991082437}
   - component: {fileID: 5067074792238099438}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -740,7 +744,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.2777694}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -750,5 +754,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2, y: 1.2}
+  m_Size: {x: 2, y: 1.8789917}
   m_EdgeRadius: 0

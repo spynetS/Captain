@@ -18,10 +18,12 @@ public class GameManager : MonoBehaviour
 
     public GameObject gameOverScreen;
     public GameObject victoryScreen;
+    public FoliageAreaSpawner resourcePlacer;
 
     private float currentTime = 0f;
     private bool isDay = true;
     private bool gameHasEnded = false;
+
 
     
     public string GetClockDisplay(float t, bool isDay)
@@ -43,6 +45,7 @@ public class GameManager : MonoBehaviour
 
     return $"{displayHour}:00 {suffix}";
     }
+
 
     private void Awake()
     {
@@ -109,6 +112,8 @@ public class GameManager : MonoBehaviour
         dayCounterText.text = $"Day {dayNumber}";
 
         Debug.Log("Day Started! Cycle: " + currentCycle);
+        resourcePlacer.ClearFoliage();
+        resourcePlacer.SpawnFoliage();
     }
 
     void StartNight()
