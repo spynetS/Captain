@@ -113,7 +113,7 @@ public class FenceLocation : MonoBehaviour
     {
         foreach (Vector3 position in pillarPositions)
         {
-            Vector3 adjustedPosition = new Vector3(position.x, position.y, -1);
+            Vector3 adjustedPosition = new Vector3(position.x, position.y, -1)+this.transform.position;
             GameObject pillar = Instantiate(pillarPrefabs[currentPillarPrefabIndex], adjustedPosition, Quaternion.identity);
             placedPillars.Add(pillar);
         }
@@ -123,7 +123,7 @@ public class FenceLocation : MonoBehaviour
     {
         foreach (Vector3 position in wallVerticalPositions)
         {
-            Vector3 adjustedPosition = new Vector3(position.x, position.y, 0);
+            Vector3 adjustedPosition = new Vector3(position.x, position.y, 0)+this.transform.position;
             GameObject wall = Instantiate(wallVerticalPrefabs[currentWallVerticalPrefabIndex], adjustedPosition, Quaternion.identity);
             placedVerticalWalls.Add(wall);
         }
@@ -133,7 +133,7 @@ public class FenceLocation : MonoBehaviour
     {
         foreach (Vector3 position in wallHorizontolPositions)
         {
-            GameObject wall = Instantiate(wallHorizontalPrefabs[currentWallHorizontalPrefabIndex], position, Quaternion.identity);
+            GameObject wall = Instantiate(wallHorizontalPrefabs[currentWallHorizontalPrefabIndex], position+this.transform.position, Quaternion.identity);
             placedWallsHorizontal.Add(wall);
         }
     }
