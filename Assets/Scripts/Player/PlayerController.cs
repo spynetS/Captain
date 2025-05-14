@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
             transform.localScale = scale;
         }
 
-        if (movement.magnitude > 0.01f)
+        if (footstepClip != null && movement.magnitude > 0.01f)
         {
             footstepTimer -= Time.deltaTime;
             if (footstepTimer <= 0f)
