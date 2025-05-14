@@ -59,7 +59,7 @@ MonoBehaviour:
   canHold: 1
   audioSource: {fileID: 0}
   clip: {fileID: 8300000, guid: 28a70fc036dff593d9a1c90534daa524, type: 3}
-  damage: 1
+  damage: 5
   hitRadius: 1
   hitMask:
     serializedVersion: 2
