@@ -14,10 +14,11 @@ public class Resource : YSort, ITakeDamage
     public Animation hitAnimation;
 
     public Animator animator;
-    public AudioSource audioSource;
-    public AudioClip clip;
 
     public TMP_Text health_text;
+
+    public AudioSource audioSource;
+    public AudioClip clip;
 
     void Start(){
         if(audioSource == null){
@@ -29,6 +30,7 @@ public class Resource : YSort, ITakeDamage
      *  Method to give damage to the Resource untill it dies and drop the drop items
      * */
     public void TakeDamage(float damage){
+        audioSource.PlayOneShot(clip);
         this.health -= damage;
         if(hitAnimation != null)
             hitAnimation.Play();

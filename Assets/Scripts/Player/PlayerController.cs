@@ -12,6 +12,10 @@ public class PlayerController : MonoBehaviour
 
 
     public InventorySystem inventory; // reference to the InventorySystem
+    public AudioClip footstepClip;
+    public float footstepInterval = 0.1f; // How often to play a step sound
+
+    private float footstepTimer = 0f;
 
 
     void Update()
@@ -20,7 +24,10 @@ public class PlayerController : MonoBehaviour
 
         Move(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"));
 
-        if(Input.GetKey(KeyCode.Mouse0)){
+        if(inventory.GetSelectedItem() != null && inventory.GetSelectedItem().canHold && Input.GetKey(KeyCode.Mouse0)){
+            inventory.UseSelectedItem();
+        }
+        else if(Input.GetKeyDown(KeyCode.Mouse0)){
             inventory.UseSelectedItem();
         }
 
@@ -50,22 +57,39 @@ public class PlayerController : MonoBehaviour
 
     public void Move(float x, float y)
     {
-
         Vector2 movement = new Vector2(x, y).normalized;
         transform.Translate(movement * moveSpeed * Time.deltaTime);
 
-        if(animator){
+        // Animation update
+        if (animator)
+        {
             animator.SetFloat("MoveX", x);
             animator.SetFloat("MoveY", y);
             animator.SetBool("IsMoving", movement.magnitude > 0.01f);
         }
 
+        // Flip sprite
         if (x != 0)
         {
             Vector3 scale = transform.localScale;
             scale.x = x > 0 ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
             transform.localScale = scale;
         }
+
+        if (footstepClip != null && movement.magnitude > 0.01f)
+        {
+            footstepTimer -= Time.deltaTime;
+            if (footstepTimer <= 0f)
+            {
+                AudioSource.PlayClipAtPoint(footstepClip, transform.position);
+                footstepTimer = footstepInterval;
+            }
+        }
+        else
+        {
+            footstepTimer = 0f; // Reset when idle
+        }
     }
+
 
 }

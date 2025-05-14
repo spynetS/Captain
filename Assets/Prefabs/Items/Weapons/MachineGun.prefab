@@ -53,7 +53,7 @@ MonoBehaviour:
   cost: []
   name: Machinegun
   usesPerSecond: 10
-  canHold: 0
+  canHold: 1
   audioSource: {fileID: 5509939330425041259}
   clip: {fileID: 8300000, guid: 0f50084c36409bdff92bc3c84e94b98c, type: 3}
   maxDistance: 50
