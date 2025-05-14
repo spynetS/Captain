@@ -97,9 +97,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7013810352106225605}
   - component: {fileID: 5066219713770923220}
-  - component: {fileID: 583300254898260780}
   - component: {fileID: 8825631058739177519}
   - component: {fileID: 4970978034391504887}
+  - component: {fileID: -3014208952023869873}
+  - component: {fileID: -9042262960736203415}
   m_Layer: 0
   m_Name: Base
   m_TagString: Base
@@ -178,28 +179,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &583300254898260780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8453708597211011882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b3f23616b3fb9a569a9a0ae30dca392, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dropItems: []
-  dropChanse: []
-  dropAmount: 0
-  maxHealth: 0
-  health: 0
-  hitAnimation: {fileID: 0}
-  animator: {fileID: 0}
-  health_text: {fileID: 0}
-  audioSource: {fileID: 0}
-  clip: {fileID: 0}
 --- !u!61 &8825631058739177519
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -234,7 +213,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.21133333}
+  m_Offset: {x: 0.5252342, y: -3.590139}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -244,7 +223,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 17.05716, y: 18.608398}
   m_EdgeRadius: 0
 --- !u!61 &4970978034391504887
 BoxCollider2D:
@@ -280,7 +259,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.21133333}
+  m_Offset: {x: 0.45020103, y: -3.6237094}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -290,5 +269,57 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 17.107178, y: 18.674543}
   m_EdgeRadius: 0
+--- !u!50 &-3014208952023869873
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8453708597211011882}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &-9042262960736203415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8453708597211011882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d932b93b5ac99e569ab59d44bc6e4a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItems: []
+  dropChanse: []
+  dropAmount: 0
+  maxHealth: 0
+  health: 0
+  hitAnimation: {fileID: 0}
+  animator: {fileID: 0}
+  health_text: {fileID: 0}
+  audioSource: {fileID: 0}
+  clip: {fileID: 0}
+  fenceUprade: 0
+  fenceLocation: {fileID: 0}
+  fenceItem: {fileID: 4998535566727422195, guid: eea6c5c9ef12844ef92c13a566c7fad6, type: 3}

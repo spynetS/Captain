@@ -109,6 +109,19 @@ public class FenceLocation : MonoBehaviour
         }
     }
 
+    public void PlaceWalls(){
+        PlaceraPillars();
+        PlaceraVerticalVäggar();
+        PlaceraHorizontalVäggar();
+        wallsPlaced = true;
+    }
+
+    public void UpgradeWalls(int amount){
+        BytPillarPrefab(amount); // Byt till prefab på index amount
+        BytWallVerticalPrefab(amount); // Byt till prefab på index amount
+        BytWallHorizontalPrefab(amount); // Byt till prefab på index 1
+    }
+
     void PlaceraPillars()
     {
         foreach (Vector3 position in pillarPositions)
