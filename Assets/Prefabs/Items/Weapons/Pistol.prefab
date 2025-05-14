@@ -56,7 +56,10 @@ MonoBehaviour:
   - {fileID: 3277352953123495333, guid: 6ec1969b4adadbfac94d5420ec3a4443, type: 3}
   - {fileID: 3277352953123495333, guid: 6ec1969b4adadbfac94d5420ec3a4443, type: 3}
   name: Pistol
-  usesPerSecond: 2
+  usesPerSecond: 3
+  canHold: 1
+  audioSource: {fileID: 0}
+  clip: {fileID: 8300000, guid: 0f50084c36409bdff92bc3c84e94b98c, type: 3}
   maxDistance: 100
   hitMask:
     serializedVersion: 2

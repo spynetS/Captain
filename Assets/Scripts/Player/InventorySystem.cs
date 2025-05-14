@@ -16,13 +16,30 @@ public class InventorySystem : MonoBehaviour
     public Sprite selectedSlotSprite;
 
     public Collider2D collider;
+    public AudioClip clip;
 
     void Start(){
+
         for (int i = 0; i < stacks.Length; i++)
         {
             stacks[i] = new Stack<Item>();
         }
     }
+
+    public int GetStackIndexByItemName(string targetName)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            if (this.stacks[i].Count > 0 && this.stacks[i].Peek().name == targetName)
+            {
+                return i;
+            }
+        }
+
+        // Not found
+        return -1;
+    }
+
 
     void Update()
     {
@@ -168,7 +185,7 @@ public class InventorySystem : MonoBehaviour
                 this.stacks[index].Push(item);
             }
         }
-}
+    }
 
     public void UseSelectedItem(){
         if(stacks[selectedSlot].Count > 0){
@@ -178,6 +195,27 @@ public class InventorySystem : MonoBehaviour
             }
         }
         UpdateUI();
+    }
+
+    public Item GetSelectedItem(){
+        if(stacks[selectedSlot].Count > 0){
+            Item item = stacks[selectedSlot].Peek();
+            if(item != null){
+                return item;
+            }
+        }
+        return null;
+    }
+
+
+    public List<Item> GetAllItems(){
+        List<Item> cost = new List<Item>();
+        foreach(Stack<Item> stack in this.stacks){
+            foreach(Item item in stack){
+                cost.Add(item);
+            }
+        }
+        return cost;
     }
 
     void UpdateUI()
@@ -272,8 +310,9 @@ public class InventorySystem : MonoBehaviour
             //item.transform.localScale = new Vector3(1,1,1);
             item.transform.localRotation = Quaternion.identity;
             //item.transform.position = Vector3.zero;
-
+            AudioSource.PlayClipAtPoint(clip, transform.position);
         }
+
     }
 
 }

@@ -110,6 +110,8 @@ MonoBehaviour:
   hitAnimation: {fileID: 0}
   animator: {fileID: 0}
   health_text: {fileID: 0}
+  audioSource: {fileID: 0}
+  clip: {fileID: 8300000, guid: e88c23e63fb39b8718bb76b0b4c5123d, type: 3}
 --- !u!61 &8071359932496117164
 BoxCollider2D:
   m_ObjectHideFlags: 0

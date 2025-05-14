@@ -105,7 +105,7 @@ Animator:
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
-  m_WarningMessage: 
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
@@ -289,8 +289,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -478,7 +478,7 @@ Animator:
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_AnimatePhysics: 0
-  m_WarningMessage: 
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
@@ -581,8 +581,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23efe972f2c21d804a42891d89da966c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   damage: 5
   speed: 1.5
   data: {fileID: 0}
@@ -645,8 +645,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b3f23616b3fb9a569a9a0ae30dca392, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   dropItems:
   - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
   - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
@@ -665,6 +665,8 @@ MonoBehaviour:
   hitAnimation: {fileID: 3119499938307508124}
   animator: {fileID: 3188651411791109451}
   health_text: {fileID: 1025804169526013117}
+  audioSource: {fileID: 0}
+  clip: {fileID: 8300000, guid: e88c23e63fb39b8718bb76b0b4c5123d, type: 3}
 --- !u!114 &3725749770702472828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -675,8 +677,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 037a147aba387d0ef85f0cef6dfc4b18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   targetTag: Wall
   attackDelay: 0
   dmgPerHit: 0

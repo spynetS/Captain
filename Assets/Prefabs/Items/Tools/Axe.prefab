@@ -56,7 +56,9 @@ MonoBehaviour:
   - {fileID: 3277352953123495333, guid: 6ec1969b4adadbfac94d5420ec3a4443, type: 3}
   name: Axe
   usesPerSecond: 5
-  canHold: 0
+  canHold: 1
+  audioSource: {fileID: 0}
+  clip: {fileID: 8300000, guid: 28a70fc036dff593d9a1c90534daa524, type: 3}
   damage: 1
   hitRadius: 1
   hitMask:

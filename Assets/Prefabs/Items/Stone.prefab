@@ -52,6 +52,7 @@ MonoBehaviour:
   name: Stone
   usesPerSecond: 1
   canHold: 0
+  sprite: {fileID: -5342935890121459157, guid: 805833e81e3ac112b85fe13e4fb0b16c, type: 3}
 --- !u!58 &8569606768400939538
 CircleCollider2D:
   m_ObjectHideFlags: 0

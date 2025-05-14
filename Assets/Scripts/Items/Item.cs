@@ -21,20 +21,33 @@ public class Item : YSort
     [Header("Use Rate Settings")]
     [Tooltip("How many times per second this item can be used")]
     public float usesPerSecond = 1f;
-    public bool canHold = false;
-    private float lastUseTime = -Mathf.Infinity;
+    public bool canHold = true;
+    protected float lastUseTime = -Mathf.Infinity;
 
     public virtual void Use(InventorySystem inventory){}
 
+    public AudioSource audioSource;
+    public AudioClip clip;
+
+    void Start(){
+        if(audioSource == null){
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+        audioSource.spatialBlend = 0f; // Makes it 2D
+    }
+
+
     public void CallUse(InventorySystem inventory)
     {
-        if (CanUse()) {
+        if (CanUse(inventory)) {
             lastUseTime = Time.time;
+            AudioSource.PlayClipAtPoint(clip, transform.position);
             this.Use(inventory);
+            audioSource.PlayOneShot(clip);
         }
     }
 
-    private bool CanUse()
+    protected virtual bool CanUse(InventorySystem inventory)
     {
         return Time.time >= lastUseTime + (1f / usesPerSecond);
     }
@@ -48,7 +61,7 @@ public class Item : YSort
         }
     }
 
-    private bool CheckCost(List<Item> required, List<Item> offers) {
+    public bool CheckCost(List<Item> required, List<Item> offers) {
         // Count required quantities
         var neededCounts = new Dictionary<string,int>();
         foreach (var need in required) {
