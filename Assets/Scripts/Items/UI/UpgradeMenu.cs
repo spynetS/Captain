@@ -11,6 +11,7 @@ public class UpgradeMenu : MonoBehaviour
     public GameObject upgradePrefab;
     private CanvasGroup canvasGroup;
 
+    public bool show = true;
     public Base myBase;
 
     void Start()
@@ -29,7 +30,7 @@ public class UpgradeMenu : MonoBehaviour
             this.UpdateMenu();
         }
     }
-    private bool show = true;
+
     public void ToggleMenu(bool show){
         if(this.show != show){
             transform.localScale = show ? Vector3.one : Vector3.zero;
