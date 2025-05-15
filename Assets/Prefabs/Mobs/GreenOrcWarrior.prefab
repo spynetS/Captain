@@ -444,7 +444,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -472,6 +472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23efe972f2c21d804a42891d89da966c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  usesPerSecond: 1
   damage: 5
   speed: 4
   data: {fileID: 0}
@@ -563,8 +564,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Wall
-  attackDelay: 0
-  dmgPerHit: 0
+  attackDelay: 1
+  dmgPerHit: 10
+  targetWall: {fileID: 0}
 --- !u!1 &6779696462400454410
 GameObject:
   m_ObjectHideFlags: 0

@@ -80,7 +80,9 @@ public class Enemy : MonoBehaviour
             DebugDrawCircle(transform.position, hitRadius, Color.red, 0.5f);
             foreach (Collider2D hit in hits)
             {
+
                 if (hit.transform == this.transform) continue;
+                Debug.Log(hit);
                 ITakeDamage player = hit.GetComponent<ITakeDamage>();
                 if (player != null)
                     player.TakeDamage(damage);
