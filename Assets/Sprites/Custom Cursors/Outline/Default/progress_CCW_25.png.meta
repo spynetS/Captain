@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      progress_CCW_25_0: -5064490842962799146
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
