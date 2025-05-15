@@ -105,8 +105,8 @@ MonoBehaviour:
   dropItems: []
   dropChanse: []
   dropAmount: 3
-  maxHealth: 0
-  health: 75
+  maxHealth: 30
+  health: 30
   hitAnimation: {fileID: 0}
   animator: {fileID: 0}
   health_text: {fileID: 0}

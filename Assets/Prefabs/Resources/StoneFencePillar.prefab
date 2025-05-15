@@ -107,8 +107,8 @@ MonoBehaviour:
   dropChanse:
   - 0.5
   dropAmount: 3
-  maxHealth: 300
-  health: 150
+  maxHealth: 100
+  health: 100
   hitAnimation: {fileID: 0}
   animator: {fileID: 0}
   health_text: {fileID: 0}
