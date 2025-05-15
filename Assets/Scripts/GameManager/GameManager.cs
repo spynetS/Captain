@@ -92,6 +92,8 @@ public class GameManager : MonoBehaviour
         Debug.Log("Day Started! Cycle: " + currentCycle);
         resourcePlacer.ClearFoliage();
         resourcePlacer.SpawnFoliage();
+
+        Enemyspawner.spawning = false;
     }
 
     void StartNight()
@@ -114,7 +116,7 @@ public class GameManager : MonoBehaviour
             screenTint.color = new Color(0.05f, 0.05f, 0.2f, 0.7f);
             dayCounterText.text = $"Night {nightNumber}";
         }
-
+        Enemyspawner.spawning = true;
         Debug.Log("Night Started! Cycle: " + currentCycle);
     }
 

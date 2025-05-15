@@ -7,7 +7,6 @@ public class Base : Resource {
 
 	public Item fenceItem;
 
-
 	public void Upgrade(){
 		if(fenceUpgrade == 0){
 			fenceLocation.PlaceWalls();
@@ -17,4 +16,14 @@ public class Base : Resource {
 		}
 		fenceUpgrade ++;
 	}
+
+    public override void TakeDamage(float dmg)
+    {
+        this.health -= dmg;
+        if (this.health <= 0)
+        {
+            GameManager.Instance.BaseDestroyed();
+            Destroy(gameObject);
+        }
+    }
 }

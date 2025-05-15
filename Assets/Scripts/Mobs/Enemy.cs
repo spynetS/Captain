@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Attack Rate Settings")]
+    [Tooltip("How many times per second this enemy can attack")]
+    public float usesPerSecond = 1f;
+    protected float lastUseTime = -Mathf.Infinity;
+
     public GameObject PlayerObject { get; set; }
     [SerializeField]
     private int damage = 5;
@@ -47,6 +52,12 @@ public class Enemy : MonoBehaviour
     //     speed = data.speed;
     // }
 
+    protected virtual bool CanAttack()
+    {
+        return Time.time >= lastUseTime + (1f / usesPerSecond);
+    }
+
+
     void DebugDrawCircle(Vector3 center, float radius, Color color, float duration = 0.5f, int segments = 16)
     {
         float angleStep = 360f / segments;
@@ -63,16 +74,20 @@ public class Enemy : MonoBehaviour
 
 
     public void Attack(){
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, hitRadius, defaultLayerMask);
-        DebugDrawCircle(transform.position, hitRadius, Color.red, 0.5f);
-        foreach (Collider2D hit in hits)
-        {
-            if (hit.transform == this.transform) continue;
-            ITakeDamage player = hit.GetComponent<ITakeDamage>();
-            if (player != null)
-                player.TakeDamage(damage);
+        if(CanAttack()){
+            lastUseTime = Time.time;
+            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, hitRadius, defaultLayerMask);
+            DebugDrawCircle(transform.position, hitRadius, Color.red, 0.5f);
+            foreach (Collider2D hit in hits)
+            {
+                if (hit.transform == this.transform) continue;
+                ITakeDamage player = hit.GetComponent<ITakeDamage>();
+                if (player != null)
+                    player.TakeDamage(damage);
+            }
+            swingAnimator.SetTrigger("attack");
         }
-        swingAnimator.SetTrigger("attack");
+
     }
 
     public void Swarm()
@@ -106,7 +121,7 @@ public class Enemy : MonoBehaviour
             {
                 transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
             }
-            else if (target == playerObject) // Attack only if the target is the player
+            else // Attack only if the target is the player
             {
                 Attack();
             }
