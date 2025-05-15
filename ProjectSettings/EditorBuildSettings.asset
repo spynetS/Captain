@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Alfred.unity
     guid: 794903c32aaa6fa50bf3793cc255fa99
   - enabled: 1
-    path: Assets/Scenes/Game.unity
-    guid: 01f1735d2692dcc0bab634cf545076b3
+    path: Assets/Scenes/Game Scenes/GameMenyScreen.unity
+    guid: 0b30111a1364f4e46939653a1aa3e6e1
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
