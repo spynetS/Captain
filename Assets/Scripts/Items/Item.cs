@@ -43,7 +43,7 @@ public class Item : YSort
             lastUseTime = Time.time;
             AudioSource.PlayClipAtPoint(clip, transform.position);
             this.Use(inventory);
-            audioSource.PlayOneShot(clip);
+            //audioSource.PlayOneShot(clip);
         }
     }
 

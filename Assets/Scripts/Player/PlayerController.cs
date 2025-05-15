@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
         if(inventory.GetSelectedItem() != null && inventory.GetSelectedItem().canHold && Input.GetKey(KeyCode.Mouse0)){
             inventory.UseSelectedItem();
         }
-        else if(Input.GetKeyDown(KeyCode.Mouse0)){
+        else if(inventory.GetSelectedItem() != null && Input.GetKeyDown(KeyCode.Mouse0)){
             inventory.UseSelectedItem();
         }
 

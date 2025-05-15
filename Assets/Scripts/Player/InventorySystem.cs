@@ -191,6 +191,7 @@ public class InventorySystem : MonoBehaviour
         if(stacks[selectedSlot].Count > 0){
             Item item = stacks[selectedSlot].Peek();
             if(item != null){
+                Debug.Log(item);
                 item.CallUse(this);
             }
         }
@@ -264,7 +265,7 @@ public class InventorySystem : MonoBehaviour
 
     public Item PopItem(string name){
         foreach(Stack<Item> stack in stacks){
-            if(stack.Peek() != null && stack.Peek().name == name){
+            if(stack.Count > 0 && stack.Peek().name == name){
                 return stack.Pop();
             }
         }
@@ -273,7 +274,7 @@ public class InventorySystem : MonoBehaviour
 
      public int CountItems(string name){
         foreach(Stack<Item> stack in stacks){
-            if(stack.Peek() != null && stack.Peek().name == name){
+            if(stack.Count > 0 && stack.Peek().name == name){
                 return stack.Count;
             }
         }
