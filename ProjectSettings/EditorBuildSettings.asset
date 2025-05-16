@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Alfred.unity
-    guid: 794903c32aaa6fa50bf3793cc255fa99
-  - enabled: 1
     path: Assets/Scenes/Game Scenes/GameMenyScreen.unity
     guid: 0b30111a1364f4e46939653a1aa3e6e1
   - enabled: 1
