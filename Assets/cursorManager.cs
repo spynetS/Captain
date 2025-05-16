@@ -33,15 +33,9 @@ public class cursorManager : MonoBehaviour
 
         if(currentName != lastCursorItemName)
         {
-            if(currentName == "Pistol" || currentName == "Shutgun")
+            if(currentName == "Pistol" || currentName == "Shutgun" || currentName == "Machinegun")
             {
                 SetCursorByType(CursorType.Gun);
-                Debug.Log("rarararara");
-            }
-            else if(currentName == "MachineGun")
-            {
-                SetCursorByType(CursorType.Gun);
-                Debug.Log("MachineGun");
             }
             else if(currentName == "Pickaxe" || currentName == "Hammer")
             {

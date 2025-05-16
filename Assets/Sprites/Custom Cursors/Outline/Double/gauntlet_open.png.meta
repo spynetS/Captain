@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      gauntlet_open_0: -3128347227993443423
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
