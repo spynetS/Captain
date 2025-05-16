@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
         Move(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"));
 
-        if(!upgradeMenu.show){
+        if(upgradeMenu != null && !upgradeMenu.show){
             if(inventory.GetSelectedItem() != null && inventory.GetSelectedItem().canHold && Input.GetKey(KeyCode.Mouse0)){
                 inventory.UseSelectedItem();
             }
