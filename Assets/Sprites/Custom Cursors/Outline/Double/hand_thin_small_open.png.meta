@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      hand_thin_small_open_0: 72432134279239116
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

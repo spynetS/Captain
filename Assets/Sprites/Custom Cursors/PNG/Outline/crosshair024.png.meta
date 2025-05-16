@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      crosshair024_0: 3475151021254457344
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
