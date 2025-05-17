@@ -47,13 +47,12 @@ public class InventorySystem : MonoBehaviour
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         if (scroll > 0f)
         {
-            selectedSlot = (selectedSlot - 1) % 10; // Scroll up
+            selectedSlot = (selectedSlot - 1 + 10) % 10; // Scroll up, wrap correctly
         }
         else if (scroll < 0f)
         {
-            selectedSlot = (selectedSlot + 1 + 10) % 10; // Scroll down (wraps around)
+            selectedSlot = (selectedSlot + 1) % 10; // Scroll down, wrap correctly
         }
-
         // Press number keys 1–0 to select slot 0–9
         for (int i = 0; i < 10; i++)
         {
@@ -61,6 +60,11 @@ public class InventorySystem : MonoBehaviour
             {
                 selectedSlot = i;
             }
+            if (Input.GetKeyDown(KeyCode.Alpha0))
+            {
+                selectedSlot = 9;
+            }
+
 
             for (int j = 0; j < stacks.Length; j++)
             {
