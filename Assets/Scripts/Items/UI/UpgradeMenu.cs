@@ -62,7 +62,7 @@ public class UpgradeMenu : MonoBehaviour
                 }
             }
         }
-        if(myBase.fenceItem.CheckCost(myBase.fenceItem.getCost(),inventory.GetAllItems())){
+        if(myBase.fenceItem != null && myBase.fenceItem.CheckCost(myBase.fenceItem.getCost(),inventory.GetAllItems())){
             itemsCanBeUpgraded.Add(myBase.fenceItem);
         }
 

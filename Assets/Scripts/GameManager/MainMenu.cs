@@ -20,19 +20,15 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Settings button clicked!");
     }
 
-    public class QuitHandler : MonoBehaviour
-{
-    public static bool quitCalled = false;
-
     public void QuitGame()
     {
+    Debug.Log("Game is exiting.");
+    Application.Quit();
+
     #if UNITY_EDITOR
-        quitCalled = true;
-        Debug.Log("Game is exiting.");
-    #else
-        Application.Quit();
+    UnityEditor.EditorApplication.isPlaying = false;
     #endif
     }
-    }
+
 
 }

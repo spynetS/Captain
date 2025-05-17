@@ -48,7 +48,7 @@ public class Enemyspawner : MonoBehaviour
                     enemyToSpawn = greenOrcPrefab; // Spawn a basic green orc
                 }
 
-                Instantiate(enemyToSpawn, new Vector3(Random.Range(-5f, 5f), Random.Range(-6f, 6f), 0), Quaternion.identity); // Spawn the selected enemy at a random position
+                Instantiate(enemyToSpawn, new Vector3(Random.Range(-5f, 5f), Random.Range(-6f, 6f), 0)+transform.position, Quaternion.identity); // Spawn the selected enemy at a random position
 
             }
         }
