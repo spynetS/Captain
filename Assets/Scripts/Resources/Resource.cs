@@ -49,12 +49,11 @@ public class Resource : YSort, ITakeDamage
     /**
      *  Method to give damage to the Resource untill it dies and drop the drop items
      * */
-    public void TakeDamage(float damage){
+    public virtual void TakeDamage(float damage){
         if(healthCanvas)
         {
             healthCanvas.SetActive(true);
         }
-        
         audioSource.PlayOneShot(clip);
         this.health -= damage;
         if(hitAnimation != null)

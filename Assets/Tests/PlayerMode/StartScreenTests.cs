@@ -21,6 +21,6 @@ public class StartScreenTests
         startButton.onClick.Invoke(); // Simulate click
         yield return new WaitForSeconds(1f); // Wait for scene to switch
 
-        Assert.AreEqual("Alfred", SceneManager.GetActiveScene().name);
+        Assert.AreEqual("Game", SceneManager.GetActiveScene().name);
     }
 }

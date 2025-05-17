@@ -519,11 +519,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2547599044371468751}
-  - {fileID: 5243462361114291576}
   - {fileID: 6271776149570690956}
   - {fileID: 628797746533488408}
   - {fileID: 8733689440874242900}
   - {fileID: 2663571372278245495}
+  - {fileID: 5243462361114291576}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1133719916462110569
@@ -584,6 +584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23efe972f2c21d804a42891d89da966c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  usesPerSecond: 1
   damage: 5
   speed: 1.5
   data: {fileID: 0}
@@ -650,15 +651,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropItems:
   - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
-  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
-  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
-  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
-  - {fileID: 2348523639259168720, guid: e209fdcc6870687428a47a0daaf2c496, type: 3}
   dropChanse:
-  - 0.5
-  - 0.5
-  - 0.5
-  - 0.5
   - 0.5
   dropAmount: 5
   maxHealth: 75
@@ -682,8 +675,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Wall
-  attackDelay: 0
-  dmgPerHit: 0
+  attackDelay: 1
+  dmgPerHit: 10
+  targetWall: {fileID: 0}
 --- !u!1 &4517311131939149409
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,9 +764,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4516600302120802184}
     m_Modifications:
+    - target: {fileID: 189377462462699207, guid: 9ca3600a6e0398743b326d37ac031be7, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2089210158006750583, guid: 9ca3600a6e0398743b326d37ac031be7, type: 3}
       propertyPath: m_Name
       value: MobsHealthCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089210158006750583, guid: 9ca3600a6e0398743b326d37ac031be7, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4590292741980507134, guid: 9ca3600a6e0398743b326d37ac031be7, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6933492479041263502, guid: 9ca3600a6e0398743b326d37ac031be7, type: 3}
       propertyPath: m_Pivot.x
@@ -853,6 +859,10 @@ PrefabInstance:
     - target: {fileID: 6933492479041263502, guid: 9ca3600a6e0398743b326d37ac031be7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8040829939626392636, guid: 9ca3600a6e0398743b326d37ac031be7, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

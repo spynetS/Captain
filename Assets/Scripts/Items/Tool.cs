@@ -68,7 +68,7 @@ public class Tool : Item, IGiveDamage
     {
         // find player and swingAnimator and run attack on it
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
-        Animator animator = playerObject.GetComponent<PlayerController>().swingEffect.GetComponent<Animator>();
+        Animator animator = playerObject.GetComponent<PlayerController>().hand.gameObject.GetComponent<Animator>();
         animator.SetTrigger("attack");
     }
 

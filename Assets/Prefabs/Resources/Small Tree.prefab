@@ -316,9 +316,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropItems:
   - {fileID: 3593116272157070361, guid: c870b35c20249a78f95866bae691d2ab, type: 3}
+  - {fileID: 2348523639259168720, guid: d96bde52cb2cc43cf812e3fa5f6acd1e, type: 3}
+  - {fileID: 2348523639259168720, guid: 8ab1e8689b8decc4f8afba82a2d0d0a6, type: 3}
+  - {fileID: 2348523639259168720, guid: 5e2e4228dd3e8494e808ef0f77c701f7, type: 3}
   dropChanse:
   - 0.25
-  dropAmount: 10
+  - 0.05
+  - 0.05
+  - 0.05
+  dropAmount: 5
   maxHealth: 50
   health: 50
   hitAnimation: {fileID: 3354101970107782267}
@@ -336,9 +342,9 @@ Animation:
   m_GameObject: {fileID: 6736103830353416631}
   m_Enabled: 1
   serializedVersion: 4
-  m_Animation: {fileID: 7400000, guid: 02681fc11cdd1c499859b9e86e8ac9dd, type: 2}
+  m_Animation: {fileID: 7400000, guid: 7d358d382aefedaab84a4ef9a83348df, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: 02681fc11cdd1c499859b9e86e8ac9dd, type: 2}
+  - {fileID: 7400000, guid: 7d358d382aefedaab84a4ef9a83348df, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0

@@ -83,30 +83,18 @@ public class FenceLocation : MonoBehaviour
         new Vector3(1.5f, 3, 0),
         new Vector3(2.5f, 3, 0),
     };
-    
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.O) && !wallsPlaced)
-        {
-            PlaceraPillars();
-            PlaceraVerticalVäggar();
-            PlaceraHorizontalVäggar();
-            wallsPlaced = true;
-        }
 
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            BytPillarPrefab(1); // Byt till prefab på index 1
-            BytWallVerticalPrefab(1); // Byt till prefab på index 1
-            BytWallHorizontalPrefab(1); // Byt till prefab på index 1
-        }
+    public void PlaceWalls(){
+        PlaceraPillars();
+        PlaceraVerticalVäggar();
+        PlaceraHorizontalVäggar();
+        wallsPlaced = true;
+    }
 
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            BytPillarPrefab(2); // Byt till prefab på index 2
-            BytWallVerticalPrefab(2); // Byt till prefab på index 2
-            BytWallHorizontalPrefab(2); // Byt till prefab på index 2
-        }
+    public void UpgradeWalls(int amount){
+        BytPillarPrefab(amount); // Byt till prefab på index amount
+        BytWallVerticalPrefab(amount); // Byt till prefab på index amount
+        BytWallHorizontalPrefab(amount); // Byt till prefab på index 1
     }
 
     void PlaceraPillars()

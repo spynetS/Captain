@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 
     private float footstepTimer = 0f;
 
+    public UpgradeMenu upgradeMenu;
 
     void Update()
     {
@@ -24,11 +25,13 @@ public class PlayerController : MonoBehaviour
 
         Move(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"));
 
-        if(inventory.GetSelectedItem() != null && inventory.GetSelectedItem().canHold && Input.GetKey(KeyCode.Mouse0)){
-            inventory.UseSelectedItem();
-        }
-        else if(Input.GetKeyDown(KeyCode.Mouse0)){
-            inventory.UseSelectedItem();
+        if(upgradeMenu != null && !upgradeMenu.show){
+            if(inventory.GetSelectedItem() != null && inventory.GetSelectedItem().canHold && Input.GetKey(KeyCode.Mouse0)){
+                inventory.UseSelectedItem();
+            }
+            else if(inventory.GetSelectedItem() != null && Input.GetKeyDown(KeyCode.Mouse0)){
+                inventory.UseSelectedItem();
+            }
         }
 
         if(Camera.main){
