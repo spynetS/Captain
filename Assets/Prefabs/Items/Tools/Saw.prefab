@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5419316849223459864}
   - component: {fileID: -4854566625441222091}
   - component: {fileID: 4665842078201097804}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Saw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,6 +51,9 @@ MonoBehaviour:
   cost: []
   name: Saw
   usesPerSecond: 5
+  canHold: 1
+  audioSource: {fileID: 0}
+  clip: {fileID: 8300000, guid: 28a70fc036dff593d9a1c90534daa524, type: 3}
   damage: 20
   hitRadius: 1
   hitMask:
@@ -139,7 +142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2805053104008364413}
   - component: {fileID: 8748043786083080756}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,6 +10,8 @@ public class PlayerHealth : MonoBehaviour, ITakeDamage
     private float damageCooldown = 1f;
     private float lastDamageTime = -999f;
 
+    public AudioClip hitClip;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -32,7 +34,8 @@ public class PlayerHealth : MonoBehaviour, ITakeDamage
         currentHealth -= (int) damage;
         UpdateBar();
 
-        ///if (currentHealth <= 0){if (CompareTag("Player")){GameObject.Find("GameManager").GetComponent<GameManager>().GameOver();}else if (CompareTag("Enemy")){GameObject.Find("GameManager").GetComponent<GameManager>().Victory();}Destroy(gameObject);}
+        AudioSource.PlayClipAtPoint(hitClip, transform.position);
+
     }
 
     public void UpdateBar()

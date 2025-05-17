@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4763627417884588983}
   - component: {fileID: 1128061032256321896}
   - component: {fileID: 2626073004353320833}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WoodFence
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -107,11 +107,13 @@ MonoBehaviour:
   dropChanse:
   - 0.5
   dropAmount: 3
-  maxHealth: 0
+  maxHealth: 75
   health: 75
   hitAnimation: {fileID: 0}
   animator: {fileID: 0}
   health_text: {fileID: 0}
+  audioSource: {fileID: 0}
+  clip: {fileID: 8300000, guid: e88c23e63fb39b8718bb76b0b4c5123d, type: 3}
 --- !u!61 &1128061032256321896
 BoxCollider2D:
   m_ObjectHideFlags: 0
