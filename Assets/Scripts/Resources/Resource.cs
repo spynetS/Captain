@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Resource : YSort, ITakeDamage
 {
@@ -15,14 +16,33 @@ public class Resource : YSort, ITakeDamage
 
     public Animator animator;
 
-    public TMP_Text health_text;
+    public Image healthBar;
+    public GameObject healthCanvas;
 
     public AudioSource audioSource;
     public AudioClip clip;
 
-    void Start(){
-        if(audioSource == null){
+    void Start()
+    {
+        if (audioSource == null)
+        {
             audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+
+        if (health <= 0)
+        {
+            health = maxHealth;
+        }
+        if (healthBar)
+        {
+            healthBar.fillAmount = health / maxHealth;
+
+            healthBar.gameObject.SetActive(true);
+        }
+        if(healthCanvas)
+        {
+            healthCanvas.SetActive(false);
         }
     }
 
@@ -30,6 +50,11 @@ public class Resource : YSort, ITakeDamage
      *  Method to give damage to the Resource untill it dies and drop the drop items
      * */
     public void TakeDamage(float damage){
+        if(healthCanvas)
+        {
+            healthCanvas.SetActive(true);
+        }
+        
         audioSource.PlayOneShot(clip);
         this.health -= damage;
         if(hitAnimation != null)
@@ -40,13 +65,11 @@ public class Resource : YSort, ITakeDamage
         audioSource.PlayOneShot(clip);
     }
     void Update(){
-        if(health_text){
-            if(health < maxHealth){
-                health_text.text = health.ToString();
-            }
-            else {
-                health_text.text = "";
-            }
+        if (healthBar)
+        {
+            float percent = health / maxHealth;
+            healthBar.fillAmount = percent;
+            healthBar.gameObject.SetActive(true);
         }
 
     }
