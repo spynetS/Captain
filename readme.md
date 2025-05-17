@@ -1,4 +1,4 @@
-[![CI](https://github.com/spynetS/Captain/actions/workflows/ci.yml/badge.svg)](https://github.com/spynetS/Captain/actions/workflows/ci.yml)
+[![Run Tests](https://github.com/spynetS/Captain/actions/workflows/testing.yml/badge.svg)](https://github.com/spynetS/Captain/actions/workflows/testing.yml)
 
 # Description
 
