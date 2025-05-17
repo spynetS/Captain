@@ -1,56 +1,51 @@
-// enemy spawner
-using System.Collections;
 using UnityEngine;
 
 public class Enemyspawner : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject greenOrcPrefab; // Prefab for the green orc enemy
-    [SerializeField]
-    private GameObject greenOrcWarriorPrefab; // Prefab for the green orc warrior enemy
-    [SerializeField]
-    private GameObject skeletonPrefab; // Prefab for the skeleton enemy
-    [SerializeField]
-    public float spawnInterval = 5f; // Time between spawns
-    [SerializeField]
-    public float warriorSpawnChance = 0.1f; // 50% chance to spawn a warrior
-    [SerializeField]
-    public float skeletonSpawnChance = 0.05f; // 25% chance to spawn a skeleton
-    // The remaining 25% will be for spawning a basic green orc
+    [SerializeField] private GameObject greenOrcPrefab;
+    [SerializeField] private GameObject greenOrcWarriorPrefab;
+    [SerializeField] private GameObject skeletonPrefab;
+
+    [SerializeField] public float spawnInterval = 1f; // Can be changed at runtime
+    [SerializeField] public float warriorSpawnChance = 0.1f;
+    [SerializeField] public float skeletonSpawnChance = 0.05f;
 
     public static bool spawning = false;
 
-    void Start()
+    private float spawnTimer = 0f;
+
+    void Update()
     {
-        StartCoroutine(SpawnEnemy(spawnInterval));
+        if (!spawning) return;
+
+        spawnTimer += Time.deltaTime;
+
+        if (spawnTimer >= spawnInterval)
+        {
+            SpawnEnemy();
+            spawnTimer = 0f; // reset the timer
+        }
     }
 
-    private IEnumerator SpawnEnemy(float interval)
+    private void SpawnEnemy()
     {
-        while (true)
+        float randomValue = Random.value;
+        GameObject enemyToSpawn;
+
+        if (randomValue < warriorSpawnChance)
         {
-            yield return new WaitForSeconds(interval);
-            if(spawning){
-
-                float randomValue = Random.value;
-                GameObject enemyToSpawn;
-
-                if (randomValue < warriorSpawnChance)
-                {
-                    enemyToSpawn = greenOrcWarriorPrefab; // Spawn a warrior
-                }
-                else if (randomValue < warriorSpawnChance + skeletonSpawnChance)
-                {
-                    enemyToSpawn = skeletonPrefab; // Spawn a skeleton
-                }
-                else
-                {
-                    enemyToSpawn = greenOrcPrefab; // Spawn a basic green orc
-                }
-
-                Instantiate(enemyToSpawn, new Vector3(Random.Range(-5f, 5f), Random.Range(-6f, 6f), 0)+transform.position, Quaternion.identity); // Spawn the selected enemy at a random position
-
-            }
+            enemyToSpawn = greenOrcWarriorPrefab;
         }
+        else if (randomValue < warriorSpawnChance + skeletonSpawnChance)
+        {
+            enemyToSpawn = skeletonPrefab;
+        }
+        else
+        {
+            enemyToSpawn = greenOrcPrefab;
+        }
+
+        Vector3 spawnPos = new Vector3(Random.Range(-5f, 5f), Random.Range(-6f, 6f), 0) + transform.position;
+        Instantiate(enemyToSpawn, spawnPos, Quaternion.identity);
     }
 }

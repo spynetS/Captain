@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2643231915964468228}
   - component: {fileID: 5781338786745866502}
   - component: {fileID: 4033120159468049981}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: BarbWireHorizontal
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -109,7 +109,8 @@ MonoBehaviour:
   health: 300
   hitAnimation: {fileID: 0}
   animator: {fileID: 0}
-  health_text: {fileID: 0}
+  healthBar: {fileID: 0}
+  healthCanvas: {fileID: 0}
   audioSource: {fileID: 0}
   clip: {fileID: 8300000, guid: e88c23e63fb39b8718bb76b0b4c5123d, type: 3}
 --- !u!61 &5781338786745866502

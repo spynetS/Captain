@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6506238802283025582}
   - component: {fileID: 4549738160811611934}
   - component: {fileID: 2694192605327633917}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: WoodFenceHorizontal
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -106,11 +106,12 @@ MonoBehaviour:
   dropItems: []
   dropChanse: []
   dropAmount: 3
-  maxHealth: 30
-  health: 30
+  maxHealth: 50
+  health: 50
   hitAnimation: {fileID: -7515911686629914003, guid: f58963fa10c24014787dd5904427b470, type: 3}
   animator: {fileID: 0}
-  health_text: {fileID: 0}
+  healthBar: {fileID: 0}
+  healthCanvas: {fileID: 0}
   audioSource: {fileID: 0}
   clip: {fileID: 0}
 --- !u!61 &6506238802283025582

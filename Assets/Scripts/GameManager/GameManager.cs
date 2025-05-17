@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
 
     public List<Enemyspawner> spawners = new List<Enemyspawner>();
 
-    public float dayInrecreaseSpawenerRate = 2f;
+    public float dayInrecreaseSpawenerRate = 0.3f;
 
     public string GetClockDisplay(float t, bool isDay)
     {
@@ -131,7 +131,7 @@ public class GameManager : MonoBehaviour
         int nightNumber = Mathf.CeilToInt(currentCycle / 2f);
 
         foreach(Enemyspawner enemyspawner in spawners){
-            enemyspawner.spawnInterval += dayInrecreaseSpawenerRate;
+            enemyspawner.spawnInterval *= dayInrecreaseSpawenerRate;
         }
 
         if (nightNumber == 10)

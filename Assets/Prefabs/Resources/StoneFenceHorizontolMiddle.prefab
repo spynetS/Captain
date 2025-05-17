@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4467300217048981040}
   - component: {fileID: 4749325989097670545}
   - component: {fileID: 1360975156099865996}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: StoneFenceHorizontolMiddle
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -106,11 +106,12 @@ MonoBehaviour:
   dropItems: []
   dropChanse: []
   dropAmount: 3
-  maxHealth: 100
-  health: 100
+  maxHealth: 130
+  health: 130
   hitAnimation: {fileID: -7515911686629914003, guid: f58963fa10c24014787dd5904427b470, type: 3}
   animator: {fileID: 0}
-  health_text: {fileID: 0}
+  healthBar: {fileID: 0}
+  healthCanvas: {fileID: 0}
   audioSource: {fileID: 0}
   clip: {fileID: 0}
 --- !u!61 &4467300217048981040

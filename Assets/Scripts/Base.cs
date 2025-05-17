@@ -19,6 +19,9 @@ public class Base : Resource {
 
     public override void TakeDamage(float dmg)
     {
+		if(healthCanvas){
+            healthCanvas.SetActive(true);
+        }
         this.health -= dmg;
         if (this.health <= 0)
         {
