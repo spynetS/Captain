@@ -1,4 +1,4 @@
-
+[![Run CI](https://github.com/spynetS/Captain/actions/workflows/ci.yaml/badge.svg)](https://github.com/spynetS/Captain/actions/workflows/ci.yaml)
 # Description
 
 Rouge-like tower-defense game.
