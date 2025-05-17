@@ -59,9 +59,11 @@ public class UpgradeListItem : MonoBehaviour
             Item old = this.item;
             GameObject newGO = this.item.Upgrade(inventory,inventory.GetAllItems());
             if(newGO != null){
+
                 // push the upgraded item to the inventory
                 Item newItem = newGO.GetComponent<Item>();
                 menu.myBase.fenceItem = newItem;
+                menu.myBase.fenceItem.gameObject.GetComponentInChildren<SpriteRenderer>().enabled = false;
             }
             menu.myBase.Upgrade();
 

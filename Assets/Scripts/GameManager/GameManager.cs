@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,8 +25,10 @@ public class GameManager : MonoBehaviour
     private bool isDay = true;
     private bool gameHasEnded = false;
 
+    public List<Enemyspawner> spawners = new List<Enemyspawner>();
 
-    
+    public float dayInrecreaseSpawenerRate = 2f;
+
     public string GetClockDisplay(float t, bool isDay)
     {
     int hour;
@@ -103,6 +106,7 @@ public class GameManager : MonoBehaviour
             else
                 StartNight();
         }
+
     }
 
     void StartDay()
@@ -123,6 +127,10 @@ public class GameManager : MonoBehaviour
     void StartNight()
     {
         int nightNumber = Mathf.CeilToInt(currentCycle / 2f);
+
+        foreach(Enemyspawner enemyspawner in spawners){
+            enemyspawner.spawnInterval += dayInrecreaseSpawenerRate;
+        }
 
         if (nightNumber == 10)
         {

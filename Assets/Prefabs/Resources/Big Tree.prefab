@@ -232,9 +232,9 @@ MonoBehaviour:
   - {fileID: 2348523639259168720, guid: d96bde52cb2cc43cf812e3fa5f6acd1e, type: 3}
   dropChanse:
   - 0.5
-  - 0.15
-  - 0.15
-  - 0.15
+  - 0.05
+  - 0.05
+  - 0.05
   dropAmount: 10
   maxHealth: 300
   health: 300
