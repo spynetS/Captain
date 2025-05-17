@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1699026029580401914
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7906434752868652530}
+  - component: {fileID: 3643956393279662668}
+  m_Layer: 0
+  m_Name: CursorManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7906434752868652530
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699026029580401914}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.0778275, y: -1.6364015, z: -0.035048377}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3643956393279662668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699026029580401914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b641bb79393a24f84c577730307cbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultCursor: {fileID: 2800000, guid: 509aafae19551c64f8a1ff8ed1796ab9, type: 3}
+  gunCursor: {fileID: 2800000, guid: c6c5238d31cf0db418d7db8633e5e350, type: 3}
+  swordCursor: {fileID: 2800000, guid: 4dd84814319b07946a5136f5e6a6d626, type: 3}
+  axeCursor: {fileID: 2800000, guid: f252e65160a2a844e8223e99d323072a, type: 3}
+  ConsumeablesCursor: {fileID: 2800000, guid: 5f4b03d5254e0564a93969a7f3a706e7, type: 3}
+  otherCursor: {fileID: 2800000, guid: 509aafae19551c64f8a1ff8ed1796ab9, type: 3}
+  inventorySystem: {fileID: 0}
