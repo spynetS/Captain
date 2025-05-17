@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 4970978034391504887}
   - component: {fileID: -3014208952023869873}
   - component: {fileID: -9042262960736203415}
+  - component: {fileID: 7470766560799441277}
   m_Layer: 0
   m_Name: Base
   m_TagString: Base
@@ -316,15 +317,32 @@ MonoBehaviour:
   dropAmount: 0
   maxHealth: 300
   health: 300
-  hitAnimation: {fileID: 0}
+  hitAnimation: {fileID: 7470766560799441277}
   animator: {fileID: 0}
   healthBar: {fileID: 0}
-  healthCanvas: {fileID: 0}
+  healthCanvas: {fileID: 8224320542389243652}
   audioSource: {fileID: 0}
   clip: {fileID: 0}
   fenceUpgrade: 0
   fenceLocation: {fileID: 0}
   fenceItem: {fileID: 4998535566727422195, guid: eea6c5c9ef12844ef92c13a566c7fad6, type: 3}
+--- !u!111 &7470766560799441277
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8453708597211011882}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 7400000, guid: 7d358d382aefedaab84a4ef9a83348df, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 7d358d382aefedaab84a4ef9a83348df, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0
 --- !u!1001 &7988535147814077043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -437,5 +455,10 @@ PrefabInstance:
 --- !u!224 &1073067037312849405 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6933492479041263502, guid: 9ca3600a6e0398743b326d37ac031be7, type: 3}
+  m_PrefabInstance: {fileID: 7988535147814077043}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8224320542389243652 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2089210158006750583, guid: 9ca3600a6e0398743b326d37ac031be7, type: 3}
   m_PrefabInstance: {fileID: 7988535147814077043}
   m_PrefabAsset: {fileID: 0}
