@@ -1,3 +1,4 @@
+[![Run Tests](https://github.com/spynetS/Captain/actions/workflows/testing.yml/badge.svg)](https://github.com/spynetS/Captain/actions/workflows/testing.yml)
 
 # Description
 
