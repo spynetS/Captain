@@ -15,11 +15,13 @@ public class PlayerBuffStatus : MonoBehaviour
 
     private PlayerHealth playerHealth;
     private PlayerController playerController;
+    private BuffIconManager buffIconManager;
 
     private void Awake()
     {
         playerHealth = GetComponent<PlayerHealth>();
         playerController = GetComponent<PlayerController>();
+        buffIconManager = FindObjectOfType<BuffIconManager>();
     }
 
     private void Update()
@@ -43,12 +45,11 @@ public class PlayerBuffStatus : MonoBehaviour
         }
     }
 
-    // Buff Activation Methods 
-
     public void ActivateStrength(float duration)
     {
         hasStrength = true;
         strengthTimer = duration;
+        buffIconManager?.ShowStrengthIcon();
         Debug.Log("Strength buff applied.");
     }
 
@@ -59,6 +60,7 @@ public class PlayerBuffStatus : MonoBehaviour
 
         hasSpeed = true;
         speedTimer = duration;
+        buffIconManager?.ShowSpeedIcon();
         Debug.Log("Speed buff applied.");
     }
 
@@ -68,11 +70,11 @@ public class PlayerBuffStatus : MonoBehaviour
         {
             hasRegen = true;
             regenTimer = duration;
-
             totalRegenAmount = playerHealth.maxHealth * percent;
-            regenPerTick = totalRegenAmount / duration; // per second
+            regenPerTick = totalRegenAmount / duration;
 
             InvokeRepeating(nameof(ApplyRegenTick), 1f, 1f);
+            buffIconManager?.ShowRegenIcon();
             Debug.Log($"Regen buff applied: {percent * 100}% over {duration} seconds.");
         }
     }
@@ -86,11 +88,10 @@ public class PlayerBuffStatus : MonoBehaviour
         playerHealth.UpdateBar();
     }
 
-    // End Buffs 
-
     private void EndStrength()
     {
         hasStrength = false;
+        buffIconManager?.HideStrengthIcon();
         Debug.Log("Strength buff ended.");
     }
 
@@ -100,6 +101,7 @@ public class PlayerBuffStatus : MonoBehaviour
         if (playerController != null)
             playerController.moveSpeed /= 1.5f;
 
+        buffIconManager?.HideSpeedIcon();
         Debug.Log("Speed buff ended.");
     }
 
@@ -107,6 +109,7 @@ public class PlayerBuffStatus : MonoBehaviour
     {
         hasRegen = false;
         CancelInvoke(nameof(ApplyRegenTick));
+        buffIconManager?.HideRegenIcon();
         Debug.Log("Regen buff ended.");
     }
 }
