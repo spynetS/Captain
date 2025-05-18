@@ -96,15 +96,36 @@ public class cursorManager : MonoBehaviour
                 break;
         }
     }
+    private Texture2D ResizeTexture(Texture2D source, int newWidth, int newHeight)
+    {
+        RenderTexture rt = RenderTexture.GetTemporary(newWidth, newHeight);
+        rt.filterMode = FilterMode.Bilinear;
+
+RenderTexture.active = rt;
+Graphics.Blit(source, rt);
+
+Texture2D newTexture = new Texture2D(newWidth, newHeight, source.format, false);
+newTexture.ReadPixels(new Rect(0, 0, newWidth, newHeight), 0, 0);
+newTexture.Apply();
+
+RenderTexture.active = null;
+RenderTexture.ReleaseTemporary(rt);
+
+return newTexture;
+    }
 
     private void SetCursor(Texture2D texture)
     {
-        if (texture == null)  
+        if (texture == null)
         {
             return;
         }
 
-        cursorHotspot = new Vector2(texture.width / 2, texture.height / 2);
-        Cursor.SetCursor(texture, cursorHotspot, CursorMode.Auto);
+        // Resize texture to half the size
+        Texture2D resizedTexture = ResizeTexture(texture, texture.width / 2, texture.height / 2);
+
+        cursorHotspot = new Vector2(resizedTexture.width / 2, resizedTexture.height / 2);
+        Cursor.SetCursor(resizedTexture, cursorHotspot, CursorMode.Auto);
     }
+
 }
