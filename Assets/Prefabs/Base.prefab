@@ -351,13 +351,35 @@ MonoBehaviour:
   health: 300
   hitAnimation: {fileID: 7470766560799441277}
   animator: {fileID: 0}
-  healthBar: {fileID: 0}
-  healthCanvas: {fileID: 8224320542389243652}
+  healthBar: {fileID: 6321392090677404481}
+  healthCanvas: {fileID: 5867913830203591053}
   audioSource: {fileID: 0}
   clip: {fileID: 0}
   fenceUpgrade: 0
   fenceLocation: {fileID: 0}
   fenceItem: {fileID: 4998535566727422195, guid: eea6c5c9ef12844ef92c13a566c7fad6, type: 3}
+  oldFenceItem: {fileID: 4998535566727422195, guid: eea6c5c9ef12844ef92c13a566c7fad6, type: 3}
+  repairCost:
+  - {fileID: 4998535566727422195, guid: c870b35c20249a78f95866bae691d2ab, type: 3}
+  - {fileID: 4998535566727422195, guid: c870b35c20249a78f95866bae691d2ab, type: 3}
+  - {fileID: 4998535566727422195, guid: c870b35c20249a78f95866bae691d2ab, type: 3}
+  - {fileID: 4998535566727422195, guid: c870b35c20249a78f95866bae691d2ab, type: 3}
+  - {fileID: 4998535566727422195, guid: c870b35c20249a78f95866bae691d2ab, type: 3}
+  - {fileID: 4998535566727422195, guid: c870b35c20249a78f95866bae691d2ab, type: 3}
+  - {fileID: 4998535566727422195, guid: c870b35c20249a78f95866bae691d2ab, type: 3}
+  - {fileID: 4998535566727422195, guid: c870b35c20249a78f95866bae691d2ab, type: 3}
+  - {fileID: 4998535566727422195, guid: c870b35c20249a78f95866bae691d2ab, type: 3}
+  - {fileID: 4998535566727422195, guid: c870b35c20249a78f95866bae691d2ab, type: 3}
+  - {fileID: 3277352953123495333, guid: 6ec1969b4adadbfac94d5420ec3a4443, type: 3}
+  - {fileID: 3277352953123495333, guid: 6ec1969b4adadbfac94d5420ec3a4443, type: 3}
+  - {fileID: 3277352953123495333, guid: 6ec1969b4adadbfac94d5420ec3a4443, type: 3}
+  - {fileID: 3277352953123495333, guid: 6ec1969b4adadbfac94d5420ec3a4443, type: 3}
+  - {fileID: 3277352953123495333, guid: 6ec1969b4adadbfac94d5420ec3a4443, type: 3}
+  - {fileID: 3277352953123495333, guid: 6ec1969b4adadbfac94d5420ec3a4443, type: 3}
+  - {fileID: 3277352953123495333, guid: 6ec1969b4adadbfac94d5420ec3a4443, type: 3}
+  - {fileID: 3277352953123495333, guid: 6ec1969b4adadbfac94d5420ec3a4443, type: 3}
+  - {fileID: 3277352953123495333, guid: 6ec1969b4adadbfac94d5420ec3a4443, type: 3}
+  - {fileID: 3277352953123495333, guid: 6ec1969b4adadbfac94d5420ec3a4443, type: 3}
 --- !u!111 &7470766560799441277
 Animation:
   m_ObjectHideFlags: 0
@@ -493,8 +515,19 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6933492479041263502, guid: 9ca3600a6e0398743b326d37ac031be7, type: 3}
   m_PrefabInstance: {fileID: 7988535147814077043}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8224320542389243652 stripped
+--- !u!1 &5867913830203591053 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 2089210158006750583, guid: 9ca3600a6e0398743b326d37ac031be7, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4590292741980507134, guid: 9ca3600a6e0398743b326d37ac031be7, type: 3}
   m_PrefabInstance: {fileID: 7988535147814077043}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6321392090677404481 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4136242867194831154, guid: 9ca3600a6e0398743b326d37ac031be7, type: 3}
+  m_PrefabInstance: {fileID: 7988535147814077043}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

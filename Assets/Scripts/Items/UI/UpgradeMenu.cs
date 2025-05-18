@@ -1,29 +1,15 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class UpgradeMenu : MonoBehaviour
+public class UpgradeMenu : Toggle
 {
 
-    public InventorySystem inventory;
     public List<Item> itemsCanBeUpgraded = new List<Item>(); // the items that can be upgraded
 
     public Transform upgradeHolder;
     public GameObject upgradePrefab;
-    private CanvasGroup canvasGroup;
 
-    public bool show = true;
     public Base myBase;
-
-    void Start()
-    {
-        canvasGroup = GetComponent<CanvasGroup>();
-        if (canvasGroup == null)
-        {
-            canvasGroup = gameObject.AddComponent<CanvasGroup>();
-        }
-        inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<InventorySystem>();
-
-    }
 
     void Update(){
         if(Input.GetKeyDown(KeyCode.G)){
@@ -31,22 +17,8 @@ public class UpgradeMenu : MonoBehaviour
         }
     }
 
-    public void ToggleMenu(bool show){
-        if(this.show != show){
-            transform.localScale = show ? Vector3.one : Vector3.zero;
-            canvasGroup.interactable = show;
-            canvasGroup.blocksRaycasts = show;
-            canvasGroup.alpha = show ? 1f : 0f;
-            if (show){
-                UpdateMenu();
-            }
-            this.show = show;
-        }
 
-    }
-
-    
-    public void UpdateMenu(){
+    public override void UpdateMenu(){
         this.CheckUpgradable();
         this.UpdateUi();
     }

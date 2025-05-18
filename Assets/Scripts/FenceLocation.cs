@@ -6,14 +6,29 @@ public class FenceLocation : MonoBehaviour
     public GameObject[] pillarPrefabs;
     public GameObject[] wallVerticalPrefabs;
     public GameObject[] wallHorizontalPrefabs;
-    private List<GameObject> placedPillars = new List<GameObject>();
-    private List<GameObject> placedVerticalWalls = new List<GameObject>();
-    private List<GameObject> placedWallsHorizontal = new List<GameObject>();
+    public List<GameObject> placedPillars = new List<GameObject>();
+    public List<GameObject> placedVerticalWalls = new List<GameObject>();
+    public List<GameObject> placedWallsHorizontal = new List<GameObject>();
 
     private bool wallsPlaced = false;
     private int currentPillarPrefabIndex = 0;
     private int currentWallVerticalPrefabIndex = 0;
     private int currentWallHorizontalPrefabIndex = 0;
+
+    public int AmountToRepair(){
+        int amount = 0;
+        foreach(GameObject ob in placedPillars){
+            if(ob == null) amount++;
+        }
+        foreach(GameObject ob in placedWallsHorizontal){
+            if(ob == null) amount++;
+        }
+        foreach(GameObject ob in placedWallsHorizontal){
+            if(ob == null) amount++;
+        }
+
+        return amount;
+    }
 
     private Vector3[] wallVerticalPositions = new Vector3[]
     {

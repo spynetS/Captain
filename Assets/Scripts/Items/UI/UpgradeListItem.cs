@@ -57,6 +57,7 @@ public class UpgradeListItem : MonoBehaviour
         }
         else{
             Item old = this.item;
+            menu.myBase.oldFenceItem = menu.myBase.fenceItem;
             GameObject newGO = this.item.Upgrade(inventory,inventory.GetAllItems());
             if(newGO != null){
 

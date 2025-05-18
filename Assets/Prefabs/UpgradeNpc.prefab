@@ -187,7 +187,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6632821539004140278}
-  - component: {fileID: 918788595465976648}
+  - component: {fileID: 91921055448223336}
   m_Layer: 0
   m_Name: UpgradeMenuTrigger
   m_TagString: Untagged
@@ -210,7 +210,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4011087132800499019}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &918788595465976648
+--- !u!114 &91921055448223336
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -219,10 +219,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7850813691126662810}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5db431596eb0578fe97ede0c7f5266e4, type: 3}
+  m_Script: {fileID: 11500000, guid: e950588fed50d7cc1a6bd0a6ec120ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeMenu: {fileID: 0}
 --- !u!1 &8655816288158610725
 GameObject:
   m_ObjectHideFlags: 0

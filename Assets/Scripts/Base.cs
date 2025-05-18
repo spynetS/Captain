@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Base : Resource {
 
@@ -6,6 +7,10 @@ public class Base : Resource {
 	public FenceLocation fenceLocation;
 
 	public Item fenceItem;
+    public Item oldFenceItem;
+
+    public List<Item> repairCost = new List<Item>();
+
 
 	public void Upgrade(){
 		if(fenceUpgrade == 0){
