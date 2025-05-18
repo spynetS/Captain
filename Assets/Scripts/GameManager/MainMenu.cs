@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject instructionsPanel; // Assign in Inspector
+
     public void StartGame()
     {
         SceneManager.LoadScene("Alfred"); // Replace with your actual scene name
@@ -10,25 +12,26 @@ public class MainMenu : MonoBehaviour
 
     public void ShowInstructions()
     {
-        // Display a panel or load instructions scene
-        Debug.Log("Instructions button clicked!");
+        instructionsPanel.SetActive(true);
+    }
+
+    public void CloseInstructions()
+    {
+        instructionsPanel.SetActive(false);
     }
 
     public void OpenSettings()
     {
-        // Display a settings panel
         Debug.Log("Settings button clicked!");
     }
 
     public void QuitGame()
     {
-    Debug.Log("Game is exiting.");
-    Application.Quit();
+        Debug.Log("Game is exiting.");
+        Application.Quit();
 
-    #if UNITY_EDITOR
-    UnityEditor.EditorApplication.isPlaying = false;
-    #endif
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
     }
-
-
 }
