@@ -51,7 +51,6 @@ MonoBehaviour:
   nextUpgrade: {fileID: 648524801874651794, guid: 187a0c39e6519570aa224aff3ffde2bb, type: 3}
   cost:
   - {fileID: 3277352953123495333, guid: 6ec1969b4adadbfac94d5420ec3a4443, type: 3}
-  - {fileID: 3277352953123495333, guid: 6ec1969b4adadbfac94d5420ec3a4443, type: 3}
   name: GunPowder
   usesPerSecond: 1
   canHold: 0

@@ -13,7 +13,7 @@ public class PlayerHealth : MonoBehaviour, ITakeDamage
     public AudioClip hitClip;
 
     // Respawn coordinates
-    private Vector2 respawnPosition = new Vector2(-1f, -12f);
+    private Vector2 respawnPosition = new Vector2(10f, -11f);
 
     void Start()
     {

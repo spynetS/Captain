@@ -324,7 +324,7 @@ MonoBehaviour:
   - 0.05
   - 0.05
   - 0.05
-  dropAmount: 5
+  dropAmount: 2
   maxHealth: 50
   health: 50
   hitAnimation: {fileID: 3354101970107782267}

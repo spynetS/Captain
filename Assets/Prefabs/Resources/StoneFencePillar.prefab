@@ -107,7 +107,7 @@ MonoBehaviour:
   - {fileID: 3593116272157070361, guid: c870b35c20249a78f95866bae691d2ab, type: 3}
   dropChanse:
   - 0.5
-  dropAmount: 3
+  dropAmount: 5
   maxHealth: 130
   health: 130
   hitAnimation: {fileID: -7515911686629914003, guid: f58963fa10c24014787dd5904427b470, type: 3}

@@ -103,9 +103,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3f23616b3fb9a569a9a0ae30dca392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropItems: []
+  dropItems:
+  - {fileID: 0}
   dropChanse: []
-  dropAmount: 3
+  dropAmount: 5
   maxHealth: 130
   health: 130
   hitAnimation: {fileID: -7515911686629914003, guid: f58963fa10c24014787dd5904427b470, type: 3}
