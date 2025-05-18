@@ -6,14 +6,29 @@ public class FenceLocation : MonoBehaviour
     public GameObject[] pillarPrefabs;
     public GameObject[] wallVerticalPrefabs;
     public GameObject[] wallHorizontalPrefabs;
-    private List<GameObject> placedPillars = new List<GameObject>();
-    private List<GameObject> placedVerticalWalls = new List<GameObject>();
-    private List<GameObject> placedWallsHorizontal = new List<GameObject>();
+    public List<GameObject> placedPillars = new List<GameObject>();
+    public List<GameObject> placedVerticalWalls = new List<GameObject>();
+    public List<GameObject> placedWallsHorizontal = new List<GameObject>();
 
     private bool wallsPlaced = false;
     private int currentPillarPrefabIndex = 0;
     private int currentWallVerticalPrefabIndex = 0;
     private int currentWallHorizontalPrefabIndex = 0;
+
+    public int AmountToRepair(){
+        int amount = 0;
+        foreach(GameObject ob in placedPillars){
+            if(ob == null) amount++;
+        }
+        foreach(GameObject ob in placedWallsHorizontal){
+            if(ob == null) amount++;
+        }
+        foreach(GameObject ob in placedWallsHorizontal){
+            if(ob == null) amount++;
+        }
+
+        return amount;
+    }
 
     private Vector3[] wallVerticalPositions = new Vector3[]
     {
@@ -83,30 +98,18 @@ public class FenceLocation : MonoBehaviour
         new Vector3(1.5f, 3, 0),
         new Vector3(2.5f, 3, 0),
     };
-    
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.O) && !wallsPlaced)
-        {
-            PlaceraPillars();
-            PlaceraVerticalVäggar();
-            PlaceraHorizontalVäggar();
-            wallsPlaced = true;
-        }
 
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            BytPillarPrefab(1); // Byt till prefab på index 1
-            BytWallVerticalPrefab(1); // Byt till prefab på index 1
-            BytWallHorizontalPrefab(1); // Byt till prefab på index 1
-        }
+    public void PlaceWalls(){
+        PlaceraPillars();
+        PlaceraVerticalVäggar();
+        PlaceraHorizontalVäggar();
+        wallsPlaced = true;
+    }
 
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            BytPillarPrefab(2); // Byt till prefab på index 2
-            BytWallVerticalPrefab(2); // Byt till prefab på index 2
-            BytWallHorizontalPrefab(2); // Byt till prefab på index 2
-        }
+    public void UpgradeWalls(int amount){
+        BytPillarPrefab(amount); // Byt till prefab på index amount
+        BytWallVerticalPrefab(amount); // Byt till prefab på index amount
+        BytWallHorizontalPrefab(amount); // Byt till prefab på index 1
     }
 
     void PlaceraPillars()

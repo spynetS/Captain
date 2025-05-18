@@ -519,7 +519,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5609875714344750146}
-  - {fileID: 5828495209673223830}
   - {fileID: 1979938805045088064}
   - {fileID: 2770796685076869817}
   - {fileID: 5309731974586245085}
@@ -556,7 +555,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -665,6 +664,7 @@ MonoBehaviour:
   health: 75
   hitAnimation: {fileID: 1711902868387885905}
   animator: {fileID: 8880046669673069096}
+  health_text: {fileID: 506715071119134478}
   healthBar: {fileID: 931867551009458913}
   healthCanvas: {fileID: 6808601864462840310}
   audioSource: {fileID: 0}

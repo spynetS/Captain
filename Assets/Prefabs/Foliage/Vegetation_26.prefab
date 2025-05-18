@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2685885932231402129}
   - component: {fileID: 3290074280888783988}
-  - component: {fileID: 817713162392257311}
   m_Layer: 0
   m_Name: Vegetation_26
   m_TagString: Untagged
@@ -89,18 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &817713162392257311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1917077885966477055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b185e1840f639e419356b1278885d76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4168388612636772722
 GameObject:
   m_ObjectHideFlags: 0

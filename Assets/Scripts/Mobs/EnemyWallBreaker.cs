@@ -20,7 +20,7 @@ public class EnemyWallBreaker : MonoBehaviour
     public string targetTag = "Wall";
     public float attackDelay; // Delay between attacks
     public float dmgPerHit; // Damage dealt per hit
-    private Resource targetWall;
+    public Resource targetWall;
     private bool isAttacking = false;
     private Coroutine attackCoroutine;
     private EnemyAI enemyAI; // Reference to the EnemyAI script, ADDED FOR TESTING
@@ -88,7 +88,7 @@ public class EnemyWallBreaker : MonoBehaviour
         {
             if (me != null)
             {
-                me.Attack();
+                //me.Attack();
             }
             // Call TakeDamage on the wall
             targetWall.TakeDamage(dmgPerHit);

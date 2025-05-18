@@ -32,7 +32,7 @@ public class EnemyMovement
 
         GameObject baseObj = new GameObject("Base");
         baseObj.tag = "Base";
-        baseObj.transform.position = new Vector3(0, 0, 0);
+        baseObj.transform.position = new Vector3(-10, 0, 0);
 
         enemyScript.PlayerObject = playerObj;
 

@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 4826874849112062363}
   - component: {fileID: 6506238802283025582}
   - component: {fileID: 4549738160811611934}
-  m_Layer: 3
+  - component: {fileID: 2694192605327633917}
+  m_Layer: 0
   m_Name: WoodFenceHorizontal
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -105,13 +106,14 @@ MonoBehaviour:
   dropItems: []
   dropChanse: []
   dropAmount: 3
-  maxHealth: 0
-  health: 75
-  hitAnimation: {fileID: 0}
+  maxHealth: 50
+  health: 50
+  hitAnimation: {fileID: -7515911686629914003, guid: f58963fa10c24014787dd5904427b470, type: 3}
   animator: {fileID: 0}
-  health_text: {fileID: 0}
+  healthBar: {fileID: 0}
+  healthCanvas: {fileID: 0}
   audioSource: {fileID: 0}
-  clip: {fileID: 8300000, guid: e88c23e63fb39b8718bb76b0b4c5123d, type: 3}
+  clip: {fileID: 0}
 --- !u!61 &6506238802283025582
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -204,3 +206,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.75, y: 0.75}
   m_EdgeRadius: 0
+--- !u!111 &2694192605327633917
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520839594964496618}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 7400000, guid: 7d358d382aefedaab84a4ef9a83348df, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 7d358d382aefedaab84a4ef9a83348df, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0

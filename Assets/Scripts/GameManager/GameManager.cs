@@ -2,6 +2,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering.Universal;
+
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,7 +17,7 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI clockText;
     public TextMeshProUGUI dayCounterText;
-    public Image screenTint;
+    public Light2D screenTint;
 
     public GameObject gameOverScreen;
     public GameObject victoryScreen;
@@ -24,8 +27,10 @@ public class GameManager : MonoBehaviour
     private bool isDay = true;
     private bool gameHasEnded = false;
 
+    public List<Enemyspawner> spawners = new List<Enemyspawner>();
 
-    
+    public float dayInrecreaseSpawenerRate = 0.3f;
+
     public string GetClockDisplay(float t, bool isDay)
     {
     int hour;
@@ -103,44 +108,50 @@ public class GameManager : MonoBehaviour
             else
                 StartNight();
         }
+
     }
 
     void StartDay()
     {
-        screenTint.color = new Color(0, 0, 0, 0);
+        screenTint.color = new Color32(255, 255, 255,255);
         int dayNumber = Mathf.CeilToInt(currentCycle / 2f);
         dayCounterText.text = $"Day {dayNumber}";
 
         Debug.Log("Day Started! Cycle: " + currentCycle);
+        Enemyspawner.spawning = false;
 
         if(resourcePlacer != null){
             resourcePlacer.ClearFoliage();
             resourcePlacer.SpawnFoliage();
         }
-
     }
 
     void StartNight()
     {
         int nightNumber = Mathf.CeilToInt(currentCycle / 2f);
 
+        foreach(Enemyspawner enemyspawner in spawners){
+            enemyspawner.spawnInterval *= dayInrecreaseSpawenerRate;
+        }
+
         if (nightNumber == 10)
         {
-            screenTint.color = new Color(0.7f, 0f, 0f, 0.75f);
+            screenTint.color = new Color32(50, 60, 255, 255); // Blue tint
             dayCounterText.text = "Last Night";
             Invoke(nameof(WinGame), nightDuration);
         }
         else if (nightNumber == 5)
         {
-            screenTint.color = new Color(0.6f, 0f, 0f, 0.7f);
+            screenTint.color = new Color32(255, 80, 90, 255); // Reddish tint
             dayCounterText.text = "Crimson Night";
         }
         else
         {
-            screenTint.color = new Color(0.05f, 0.05f, 0.2f, 0.7f);
+            screenTint.color = new Color32(50, 60, 255, 255); // Blue tint
             dayCounterText.text = $"Night {nightNumber}";
         }
 
+        Enemyspawner.spawning = true;
         Debug.Log("Night Started! Cycle: " + currentCycle);
     }
 

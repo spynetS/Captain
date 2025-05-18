@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 8699521701598108786}
   - component: {fileID: 4467300217048981040}
   - component: {fileID: 4749325989097670545}
-  m_Layer: 3
+  - component: {fileID: 1360975156099865996}
+  m_Layer: 0
   m_Name: StoneFenceHorizontolMiddle
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -102,16 +103,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3f23616b3fb9a569a9a0ae30dca392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropItems: []
+  dropItems:
+  - {fileID: 0}
   dropChanse: []
-  dropAmount: 3
-  maxHealth: 0
-  health: 150
-  hitAnimation: {fileID: 0}
+  dropAmount: 5
+  maxHealth: 130
+  health: 130
+  hitAnimation: {fileID: -7515911686629914003, guid: f58963fa10c24014787dd5904427b470, type: 3}
   animator: {fileID: 0}
-  health_text: {fileID: 0}
+  healthBar: {fileID: 0}
+  healthCanvas: {fileID: 0}
   audioSource: {fileID: 0}
-  clip: {fileID: 8300000, guid: e88c23e63fb39b8718bb76b0b4c5123d, type: 3}
+  clip: {fileID: 0}
 --- !u!61 &4467300217048981040
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -204,3 +207,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.75, y: 0.75}
   m_EdgeRadius: 0
+--- !u!111 &1360975156099865996
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6926789623467555306}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 7400000, guid: 7d358d382aefedaab84a4ef9a83348df, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 7d358d382aefedaab84a4ef9a83348df, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0

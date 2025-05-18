@@ -47,13 +47,12 @@ public class InventorySystem : MonoBehaviour
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         if (scroll > 0f)
         {
-            selectedSlot = (selectedSlot - 1) % 10; // Scroll up
+            selectedSlot = (selectedSlot - 1 + 10) % 10; // Scroll up, wrap correctly
         }
         else if (scroll < 0f)
         {
-            selectedSlot = (selectedSlot + 1 + 10) % 10; // Scroll down (wraps around)
+            selectedSlot = (selectedSlot + 1) % 10; // Scroll down, wrap correctly
         }
-
         // Press number keys 1–0 to select slot 0–9
         for (int i = 0; i < 10; i++)
         {
@@ -61,6 +60,11 @@ public class InventorySystem : MonoBehaviour
             {
                 selectedSlot = i;
             }
+            if (Input.GetKeyDown(KeyCode.Alpha0))
+            {
+                selectedSlot = 9;
+            }
+
 
             for (int j = 0; j < stacks.Length; j++)
             {
@@ -191,6 +195,7 @@ public class InventorySystem : MonoBehaviour
         if(stacks[selectedSlot].Count > 0){
             Item item = stacks[selectedSlot].Peek();
             if(item != null){
+                Debug.Log(item);
                 item.CallUse(this);
             }
         }
@@ -264,7 +269,7 @@ public class InventorySystem : MonoBehaviour
 
     public Item PopItem(string name){
         foreach(Stack<Item> stack in stacks){
-            if(stack.Peek() != null && stack.Peek().name == name){
+            if(stack.Count > 0 && stack.Peek().name == name){
                 return stack.Pop();
             }
         }
@@ -273,7 +278,7 @@ public class InventorySystem : MonoBehaviour
 
      public int CountItems(string name){
         foreach(Stack<Item> stack in stacks){
-            if(stack.Peek() != null && stack.Peek().name == name){
+            if(stack.Count > 0 && stack.Peek().name == name){
                 return stack.Count;
             }
         }

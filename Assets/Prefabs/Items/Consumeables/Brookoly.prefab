@@ -118,12 +118,12 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   clip: {fileID: 8300000, guid: 800ad1edce4008b65aa34f8f6f325be2, type: 3}
   healthGain: 10
-  grantsStrength: 0
-  strengthDuration: 5
+  grantsStrength: 1
+  strengthDuration: 15
   grantsSpeed: 0
-  speedDuration: 5
-  grantsRegen: 0
-  regenDuration: 5
+  speedDuration: 15
+  grantsRegen: 1
+  regenDuration: 15
   regenPercent: 0.1
 --- !u!1 &5271173688723728894
 GameObject:

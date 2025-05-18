@@ -15,6 +15,8 @@ public class UpgradeListItem : MonoBehaviour
     public InventorySystem inventory;
     private UpgradeMenu menu;
 
+    public bool isFence = false;
+
     void Start(){
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<InventorySystem>();
     }
@@ -50,9 +52,24 @@ public class UpgradeListItem : MonoBehaviour
     }
     // this will upgrade the class item
     public void UpgradeItem(){
-        inventory.UpgradeItemAt(inventory.GetStackIndexByItemName(this.item.name),inventory.GetAllItems());
+        if(!isFence){
+            inventory.UpgradeItemAt(inventory.GetStackIndexByItemName(this.item.name),inventory.GetAllItems());
+        }
+        else{
+            Item old = this.item;
+            menu.myBase.oldFenceItem = menu.myBase.fenceItem;
+            GameObject newGO = this.item.Upgrade(inventory,inventory.GetAllItems());
+            if(newGO != null){
+
+                // push the upgraded item to the inventory
+                Item newItem = newGO.GetComponent<Item>();
+                menu.myBase.fenceItem = newItem;
+                menu.myBase.fenceItem.gameObject.GetComponentInChildren<SpriteRenderer>().enabled = false;
+            }
+            menu.myBase.Upgrade();
+
+        }
         menu.UpdateMenu();
     }
-
 
 }
