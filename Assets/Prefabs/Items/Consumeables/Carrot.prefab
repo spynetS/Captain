@@ -121,9 +121,9 @@ MonoBehaviour:
   healthGain: 10
   grantsStrength: 0
   strengthDuration: 5
-  grantsSpeed: 0
+  grantsSpeed: 1
   speedDuration: 5
-  grantsRegen: 0
+  grantsRegen: 1
   regenDuration: 5
   regenPercent: 0.1
 --- !u!1 &5271173688723728894

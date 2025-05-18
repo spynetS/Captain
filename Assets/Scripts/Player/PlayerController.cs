@@ -19,8 +19,27 @@ public class PlayerController : MonoBehaviour
 
     public UpgradeMenu upgradeMenu;
 
+    public void ScreenMouseRay()
+	{
+		Vector3 mousePosition = Input.mousePosition;
+		mousePosition.z = Mathf.Infinity;
+
+		//RaycastHit2D hit = Physics2D.Raycast(Input.mousePosition ,Vector2.zero,Mathf.Infinity); //Hit object that contains gameobject Information
+		RaycastHit2D hit = Physics2D.Raycast(mousePosition, mousePosition - Camera.main.ScreenToWorldPoint(mousePosition),Mathf.Infinity);
+
+		Debug.DrawRay(mousePosition, mousePosition - Camera.main.ScreenToWorldPoint(mousePosition),Color.blue);
+		if(hit)
+		{
+			//Debug.Log("Ray has been Cast and hit an Object");
+			Vector3 targetPos = hit.collider.gameObject.transform.position; //Save the position of the object mouse was over
+			Debug.Log ("Target Position: " + targetPos);
+
+        }
+    }
+
     void Update()
     {
+        ScreenMouseRay();
         if (Time.timeScale == 0f) return;
 
         Move(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"));
