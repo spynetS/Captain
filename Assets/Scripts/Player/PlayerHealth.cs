@@ -12,6 +12,9 @@ public class PlayerHealth : MonoBehaviour, ITakeDamage
 
     public AudioClip hitClip;
 
+    // Respawn coordinates
+    private Vector2 respawnPosition = new Vector2(-1f, -12f);
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -31,11 +34,16 @@ public class PlayerHealth : MonoBehaviour, ITakeDamage
 
         lastDamageTime = Time.time;
 
-        currentHealth -= (int) damage;
+        currentHealth -= (int)damage;
         UpdateBar();
 
         AudioSource.PlayClipAtPoint(hitClip, transform.position);
 
+        // Check for death
+        if (currentHealth <= 0)
+        {
+            RespawnPlayer();
+        }
     }
 
     public void UpdateBar()
@@ -45,23 +53,27 @@ public class PlayerHealth : MonoBehaviour, ITakeDamage
             float fill = (float)currentHealth / maxHealth;
             healthBarFill.fillAmount = fill;
 
-            // Blend from green to yellow to red
             Color healthyColor = Color.green;
             Color mediumColor = Color.yellow;
             Color lowColor = Color.red;
 
             if (fill > 0.5f)
             {
-                // From Green to Yellow
-                float t = (fill - 0.5f) / 0.5f; // 1 at full, 0 at 50%
+                float t = (fill - 0.5f) / 0.5f;
                 healthBarFill.color = Color.Lerp(mediumColor, healthyColor, t);
             }
             else
             {
-                // From Yellow to Red
-                float t = fill / 0.5f; // 1 at 50%, 0 at 0%
+                float t = fill / 0.5f;
                 healthBarFill.color = Color.Lerp(lowColor, mediumColor, t);
             }
         }
+    }
+
+    private void RespawnPlayer()
+    {
+        transform.position = respawnPosition; // Move player to respawn point
+        currentHealth = maxHealth;            // Reset health
+        UpdateBar();                          // Update UI
     }
 }
