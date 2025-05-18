@@ -98,9 +98,10 @@ public class Enemy : MonoBehaviour
         if (playerObject)
         {
             float playerDistance = Vector2.Distance(transform.position, playerObject.transform.position);
+            float baseDistance = Vector2.Distance(transform.position, baseObject.transform.position);
 
             // If the player is within detection range, switch target to the player
-            if (playerDistance <= detectionRange)
+            if (playerDistance <= detectionRange && playerDistance <= baseDistance)
             {
                 target = playerObject;
             }
